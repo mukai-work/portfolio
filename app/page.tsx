@@ -44,8 +44,8 @@ function Nav() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="text-xl font-bold tracking-tight">
-          <span style={{ background: "linear-gradient(135deg,#667eea,#764ba2)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>K.M.</span>
-          <span className="text-gray-800 ml-1">Portfolio</span>
+          <span style={{ background: "linear-gradient(135deg,#667eea,#764ba2)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>ムカイ</span>
+          <span className="text-gray-800 ml-1">'s Portfolio</span>
         </a>
         <ul className="hidden md:flex gap-8">
           {links.map((l) => (
@@ -172,12 +172,10 @@ function About() {
         <div>
           <p className="text-purple-600 text-sm font-semibold tracking-widest uppercase mb-3">About Me</p>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-            成果につながる
-            <br />
-            Webを届けます
+            ムカイ
           </h2>
           <p className="text-gray-600 leading-relaxed mb-6">
-            フリーランスのWebクリエイターとして、LP・コーポレートサイト・予約システムなど幅広い制作実績があります。デザインの美しさだけでなく、
+            フリーランスのWebクリエイター、ムカイです。LP・コーポレートサイト・予約システムなど幅広い制作実績があります。デザインの美しさだけでなく、
             <strong className="text-gray-800">コンバージョン率の改善</strong>を意識したサイト設計が強みです。
           </p>
           <p className="text-gray-600 leading-relaxed mb-8">
@@ -480,7 +478,7 @@ function Contact() {
 function Footer() {
   return (
     <footer className="py-8 px-6 bg-slate-950 text-center text-gray-500 text-sm">
-      <p>© 2024 K.M. Portfolio. All rights reserved.</p>
+      <p>© 2024 ムカイ's Portfolio. All rights reserved.</p>
     </footer>
   );
 }

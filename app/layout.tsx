@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Web Creator Portfolio | LP・サイト制作",
+  title: "ムカイ's Portfolio | LP・サイト制作",
   description: "LP制作・Webサイト制作のポートフォリオ。問い合わせフォーム、予約フォーム、アニメーション等、様々なパターンのLPを制作できます。",
 };
 
