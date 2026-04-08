@@ -363,6 +363,7 @@ function Contact() {
   const { ref, inView } = useInView();
   const [form, setForm] = useState({ name: "", email: "", type: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const validate = () => {
@@ -374,12 +375,23 @@ function Contact() {
     return e;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errs = validate();
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setErrors({});
-    setSent(true);
+    setSending(true);
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(form),
+    });
+    setSending(false);
+    if (res.ok) {
+      setSent(true);
+    } else {
+      setErrors({ message: "送信に失敗しました。時間をおいて再度お試しください。" });
+    }
   };
 
   return (
@@ -465,8 +477,9 @@ function Contact() {
               type="submit"
               className="w-full py-4 text-white font-bold rounded-xl transition-all duration-200 hover:opacity-90 hover:-translate-y-0.5"
               style={{ background: "linear-gradient(135deg,#7c3aed,#6d28d9)", boxShadow: "0 8px 30px rgba(124,58,237,0.4)" }}
+              disabled={sending}
             >
-              送信する
+              {sending ? "送信中..." : "送信する"}
             </button>
           </form>
         )}
