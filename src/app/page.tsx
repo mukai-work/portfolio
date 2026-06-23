@@ -32,12 +32,12 @@ export default function Home() {
           </a>
         </div>
         <a
-          href="https://note.com/m333_studio"
+          href="https://x.com/m333studio"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block text-xs text-blue-400 hover:text-blue-300 transition-colors mb-4"
         >
-          稼働相談・スカウトは note へ →
+          稼働相談・スカウトは X(DM)へ →
         </a>
         <p className="text-xs">
           © {new Date().getFullYear()} Portfolio. All rights reserved.

@@ -13,7 +13,7 @@ export function ContactSection() {
         <p className="text-gray-300 mb-8">
           スタートアップのCTO・PM・エージェント担当者からのご相談を歓迎しています。
           <br />
-          noteのメッセージ・プロフィール経由でお気軽にご連絡ください。
+          X（Twitter）のDMからお気軽にご連絡ください。
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-10 text-xs text-gray-400">
@@ -23,27 +23,27 @@ export function ContactSection() {
         </div>
 
         <a
-          href="https://note.com/m333_studio"
+          href="https://x.com/m333studio"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-medium rounded-xl transition-colors shadow-lg shadow-emerald-500/30 text-base"
+          className="inline-flex items-center gap-3 px-8 py-4 bg-black hover:bg-gray-800 text-white font-medium rounded-xl transition-colors border border-white/10 shadow-lg text-base"
         >
-          <PenLine size={20} />
-          note から連絡する
+          <Twitter size={20} />
+          @m333studio にDMする
         </a>
 
         <p className="mt-6 text-sm text-gray-400">
-          または X{" "}
+          または note{" "}
           <a
-            href="https://x.com/m333studio"
+            href="https://note.com/m333_studio"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors"
+            className="inline-flex items-center gap-1 text-emerald-400 hover:text-emerald-300 transition-colors"
           >
-            <Twitter size={14} />
-            @m333studio
+            <PenLine size={14} />
+            @m333_studio
           </a>{" "}
-          のDMでも
+          からでも
         </p>
 
         <p className="mt-4 text-xs text-gray-500">
