@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+
+# local dev artifacts
+.claude/
+PROJECT.md
+_site_snapshot*.html
