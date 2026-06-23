@@ -20,11 +20,27 @@ type SaasProduct = {
 
 const saasProducts: SaasProduct[] = [
   {
+    badge: "SaaS / Productivity",
+    title: "Stride",
+    subtitle: "AI副業コーチング×生産性ツール",
+    description:
+      "月額¥1,480のサブスクリプション型SaaS。8ステップオンボーディングで収集したプロフィールを元に、Claude Haiku APIがWeek 1〜12の副業ロードマップを個別生成。ポモドーロタイマー・週次メール自動送信（Vercel Cron + Resend）を内蔵。Stripe Webhook + Supabase RLSによる本格的な決済・認証フローを独力で実装。",
+    launchInfo: "設計〜インフラ構築: 約6週間 · Stripe承認済み・Vercelデプロイ済み・E2Eテスト待ち",
+    tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "Claude API", "Resend"],
+    gradient: "linear-gradient(135deg, #1e3a5f 0%, #2563eb 100%)",
+    status: {
+      label: "本番デプロイ済み",
+      bg: "bg-green-400/20",
+      text: "text-green-200",
+    },
+    url: "https://stride-three-swart.vercel.app",
+  },
+  {
     badge: "SaaS / BYOK",
     title: "AI-SE-Hub",
     subtitle: "SE向けマルチAI統合ダッシュボード",
     description:
-      "Claude・GPT-4o・Geminiをひとつの画面で切り替え操作できるBYOK（Bring Your Own Key）型SaaS。Supabase Auth + RLS によるマルチユーザー対応、APIキーの暗号化管理、ストリーミングレスポンス表示を実装。エンジニアが日常業務でAIを使い倒せる開発者向けツール。",
+      "Claude・GPT-4o・Geminiをひとつの画面で切り替え操作できるBYOK（Bring Your Own Key）型SaaS。Supabase Auth + RLS によるマルチユーザー対応、APIキーのAES-256暗号化管理、ストリーミングレスポンス表示を実装。エンジニアが日常業務でAIを使い倒せる開発者向けツール。",
     launchInfo: "設計〜MVP実装: 約6週間 · 3社AIをストリーミング統合で一元操作する設計を独力で構築",
     tags: ["Next.js", "TypeScript", "Supabase", "Claude API", "GPT-4o"],
     gradient: "linear-gradient(135deg, #4c1d95 0%, #7c3aed 100%)",
@@ -33,7 +49,7 @@ const saasProducts: SaasProduct[] = [
       bg: "bg-yellow-400/20",
       text: "text-yellow-200",
     },
-    url: "#",
+    url: "https://github.com/mukai-work/ai-se-hub",
   },
   {
     badge: "Web App / AI",
@@ -49,7 +65,7 @@ const saasProducts: SaasProduct[] = [
       bg: "bg-blue-400/20",
       text: "text-blue-200",
     },
-    url: "#",
+    url: "https://github.com/mukai-work/reformat",
   },
 ];
 
@@ -136,7 +152,7 @@ export function WorksSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
           {saasProducts.map((product) => (
             <ProductCard key={product.title} product={product} />
           ))}
