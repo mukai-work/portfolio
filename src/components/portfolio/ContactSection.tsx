@@ -1,4 +1,4 @@
-import { Twitter } from "lucide-react";
+import { PenLine, Twitter } from "lucide-react";
 
 export function ContactSection() {
   return (
@@ -13,7 +13,7 @@ export function ContactSection() {
         <p className="text-gray-300 mb-8">
           スタートアップのCTO・PM・エージェント担当者からのご相談を歓迎しています。
           <br />
-          X（Twitter）のDMからお気軽にご連絡ください。
+          noteのメッセージ・プロフィール経由でお気軽にご連絡ください。
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 mb-10 text-xs text-gray-400">
@@ -23,16 +23,30 @@ export function ContactSection() {
         </div>
 
         <a
-          href="https://x.com/m333studio"
+          href="https://note.com/m333_studio"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 px-8 py-4 bg-black hover:bg-gray-800 text-white font-medium rounded-xl transition-colors border border-white/10 shadow-lg text-base"
+          className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-500 hover:bg-emerald-400 text-white font-medium rounded-xl transition-colors shadow-lg shadow-emerald-500/30 text-base"
         >
-          <Twitter size={20} />
-          @m333studio にDMする
+          <PenLine size={20} />
+          note から連絡する
         </a>
 
-        <p className="mt-6 text-xs text-gray-500">
+        <p className="mt-6 text-sm text-gray-400">
+          または X{" "}
+          <a
+            href="https://x.com/m333studio"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            <Twitter size={14} />
+            @m333studio
+          </a>{" "}
+          のDMでも
+        </p>
+
+        <p className="mt-4 text-xs text-gray-500">
           副業・スポット相談は今すぐ可 · フルタイム参画は2026年10月〜
         </p>
       </div>
