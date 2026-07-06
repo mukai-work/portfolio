@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Playfair_Display } from "next/font/google";
+import { Noto_Sans_JP, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const notoSansJP = Noto_Sans_JP({
@@ -9,10 +9,17 @@ const notoSansJP = Noto_Sans_JP({
   display: "swap",
 });
 
-const playfair = Playfair_Display({
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
-  variable: "--font-playfair",
+  weight: ["400", "500", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-jetbrains-mono",
   display: "swap",
 });
 
@@ -57,9 +64,9 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${notoSansJP.variable} ${playfair.variable} h-full antialiased`}
+      className={`${notoSansJP.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-gray-900" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col bg-white text-ink" suppressHydrationWarning>
         {children}
       </body>
     </html>

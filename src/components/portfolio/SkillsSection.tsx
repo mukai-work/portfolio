@@ -5,6 +5,8 @@ import {
   Sparkles,
   type LucideIcon,
 } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 type Skill = {
   category: string;
@@ -61,55 +63,56 @@ const skills: Skill[] = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 md:py-28 px-6 bg-gray-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="font-display tracking-[0.3em] text-xs text-blue-500 uppercase mb-4">
-            Skills
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-            スキル・対応範囲
-          </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            設計から本番稼働まで全工程対応。AI活用で通常の3〜5倍の開発速度を実現します。
-          </p>
-        </div>
+    <section
+      id="skills"
+      className="relative py-20 md:py-28 px-6 bg-navy-deep overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-blueprint" aria-hidden />
+      <div className="relative max-w-6xl mx-auto">
+        <SectionHeading
+          index="03"
+          label="Skills"
+          title="スキル・対応範囲"
+          description="設計から本番稼働まで全工程対応。AI活用で通常の3〜5倍の開発速度を実現します。"
+          dark
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {skills.map((s) => (
-            <div
-              key={s.category}
-              className="p-7 bg-white rounded-xl border border-gray-100 hover:shadow-lg transition-shadow"
-            >
-              <div className="w-12 h-12 rounded-lg bg-blue-50 flex items-center justify-center text-blue-500 mb-5">
-                <s.icon size={22} strokeWidth={1.5} />
+          {skills.map((s, i) => (
+            <Reveal key={s.category} delay={i * 80} className="h-full">
+              <div className="h-full p-7 bg-white/[0.04] rounded-lg border border-white/10 hover:border-accent-soft/40 hover:bg-white/[0.06] transition-all duration-300">
+                <div className="w-12 h-12 rounded bg-accent/15 flex items-center justify-center text-accent-soft mb-5">
+                  <s.icon size={22} strokeWidth={1.5} />
+                </div>
+                <h3 className="text-lg font-bold mb-4 text-white">
+                  {s.category}
+                </h3>
+                <ul className="space-y-2.5">
+                  {s.items.map((item) => (
+                    <li
+                      key={item}
+                      className="text-sm text-white/65 flex items-start gap-2"
+                    >
+                      <span className="font-mono text-accent-soft mt-0.5 shrink-0">
+                        ▹
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-lg font-bold mb-4 text-gray-900">
-                {s.category}
-              </h3>
-              <ul className="space-y-2">
-                {s.items.map((item) => (
-                  <li
-                    key={item}
-                    className="text-sm text-gray-600 flex items-start gap-2"
-                  >
-                    <span className="text-blue-400 mt-1 shrink-0">●</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="text-center">
+        <Reveal className="text-center">
           <a
             href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-blue-300 hover:border-blue-500 text-blue-600 hover:text-blue-700 font-medium rounded-md transition-colors text-sm"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 hover:border-accent-soft/60 text-white font-medium rounded transition-colors text-sm"
           >
             技術スタックの詳細は面談でご確認ください →
           </a>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

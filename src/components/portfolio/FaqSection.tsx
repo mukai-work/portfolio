@@ -1,3 +1,7 @@
+import { Plus } from "lucide-react";
+import { Reveal } from "@/components/ui/Reveal";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+
 const faqs = [
   {
     q: "現在の稼働状況は？",
@@ -27,24 +31,36 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section className="py-20 md:py-24 px-6 bg-white">
+    <section id="faq" className="py-20 md:py-24 px-6 bg-white">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="font-display tracking-[0.3em] text-xs text-blue-500 uppercase mb-4">
-            FAQ
-          </p>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            よくある質問
-          </h2>
-        </div>
-        <div className="divide-y divide-gray-100">
-          {faqs.map(({ q, a }) => (
-            <div key={q} className="py-6">
-              <p className="text-base font-semibold text-gray-900 mb-2">Q. {q}</p>
-              <p className="text-sm text-gray-600 leading-relaxed">A. {a}</p>
-            </div>
-          ))}
-        </div>
+        <SectionHeading index="04" label="FAQ" title="よくある質問" />
+        <Reveal>
+          <div className="divide-y divide-line border-y border-line">
+            {faqs.map(({ q, a }, i) => (
+              <details key={q} className="group">
+                <summary className="flex items-center gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden select-none">
+                  <span className="font-mono text-xs text-accent shrink-0">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span className="flex-1 text-base font-semibold text-ink group-hover:text-accent transition-colors">
+                    {q}
+                  </span>
+                  <Plus
+                    size={18}
+                    className="shrink-0 text-ink-faint transition-transform duration-300 group-open:rotate-45 group-open:text-accent"
+                  />
+                </summary>
+                <div className="faq-answer">
+                  <div>
+                    <p className="pb-6 pl-9 text-sm text-ink-soft leading-relaxed">
+                      {a}
+                    </p>
+                  </div>
+                </div>
+              </details>
+            ))}
+          </div>
+        </Reveal>
       </div>
     </section>
   );
