@@ -31,7 +31,7 @@ const saasProducts: SaasProduct[] = [
     subtitle: "AI副業コーチング×生産性ツール",
     description:
       "月額¥1,480のサブスクリプション型SaaS。8ステップオンボーディングで収集したプロフィールを元に、Claude Haiku APIがWeek 1〜12の副業ロードマップを個別生成。ポモドーロタイマー・週次メール自動送信（Vercel Cron + Resend）を内蔵。Stripe Webhook + Supabase RLSによる本格的な決済・認証フローを独力で実装。",
-    launchInfo: "設計〜インフラ構築: 約6週間 · Stripe承認済み・Vercelデプロイ済み・E2Eテスト待ち",
+    launchInfo: "設計〜インフラ構築: 約6週間 · Stripe承認済み・Vercel本番デプロイ済み",
     tags: ["Next.js", "TypeScript", "Supabase", "Stripe", "Claude API", "Resend"],
     status: { label: "本番デプロイ済み", tone: "live" },
     url: "https://stride-three-swart.vercel.app",
@@ -134,14 +134,14 @@ export function WorksSection() {
     <section id="works" className="py-20 md:py-28 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
-          index="02"
+          index="03"
           label="Works"
-          title="プロダクト開発実績"
+          title="個人開発プロダクト"
           description={
             <>
-              自社SaaS開発を含む、設計・認証・決済・インフラまで
+              AI駆動開発（Claude Code）の実証として、設計・認証・決済・インフラまで
               <br className="hidden md:inline" />
-              一気通貫で独力開発した実績をご覧ください。
+              一気通貫で独力開発したプロダクト群です。コードはGitHubで公開しています。
             </>
           }
         />
@@ -180,7 +180,7 @@ export function WorksSection() {
               フロントエンド実装サンプル
             </h3>
             <p className="text-sm text-ink-faint">
-              8業種のデザインを動的ルーティング1セットで実装。CSS Variables によるテーマ切替・Unsplash画像・レスポンシブ対応。
+              20業種のデザインを動的ルーティング1セットで実装。CSS Variables によるテーマ切替・Unsplash画像・レスポンシブ対応。
             </p>
           </div>
         </Reveal>

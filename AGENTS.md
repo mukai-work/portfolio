@@ -1,3 +1,7 @@
+# 共通ルール
+
+作業開始前に `D:\claude-code\AGENTS.md` と、依頼領域に対応する `D:\claude-code\docs\` 配下の文書を読む。
+
 <!-- BEGIN:nextjs-agent-rules -->
 # This is NOT the Next.js you know
 

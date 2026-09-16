@@ -3,11 +3,17 @@ import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
 const stack = [
+  "C#",
+  "ASP.NET",
+  "Vue.js",
+  "Oracle",
+  "SQL Server",
+  "Azure",
+  "IIS",
   "Next.js",
   "TypeScript",
   "React",
   "Python",
-  "FastAPI",
   "Supabase",
   "PostgreSQL",
   "Stripe",
@@ -17,29 +23,28 @@ const stack = [
   "GitHub Actions",
   "Claude Code",
   "Cursor",
-  "OpenAI API",
 ];
 
 const stats = [
   {
     index: "01",
-    title: "自社SaaS開発",
-    sub: "設計〜本番ローンチまで独力で完走",
+    title: "実務 約5年",
+    sub: "C#/.NET中心の業務系Webシステム開発",
   },
   {
     index: "02",
-    title: "フルスタック",
-    sub: "フロント〜バックエンド〜インフラ",
+    title: "SQL改善 3分→20秒",
+    sub: "Oracle環境でのチューニング実績",
   },
   {
     index: "03",
-    title: "AI駆動開発",
-    sub: "Claude Code / Cursor で通常比3〜5倍速",
+    title: "100GB超のAzure移行",
+    sub: "Blob Storage移行を要件定義から完遂",
   },
   {
     index: "04",
-    title: "副業 · 今すぐ可",
-    sub: "フルタイムは10月〜 · フルリモート対応",
+    title: "AI駆動開発 3〜5倍速",
+    sub: "Claude Code / Cursor を開発フローに組込",
   },
 ];
 
@@ -78,11 +83,11 @@ export function HeroSection() {
 
         <Reveal delay={200}>
           <p className="text-base md:text-lg text-white/70 max-w-2xl leading-relaxed mb-10">
-            自らSaaSを0→1で作り運営した事業家エンジニア。
+            C#／ASP.NETの業務系Webシステム開発に約5年従事し、自らSaaSも0→1で開発・運営。
             <br className="hidden md:inline" />
-            Next.js / TypeScript / Python / Supabase を軸に、シード〜シリーズAスタートアップの
+            実務（C# / .NET・Vue.js・Oracle・Azure）× 個人開発（Next.js / TypeScript × AI駆動）の両輪で、
             <br className="hidden md:inline" />
-            開発を要件定義から本番リリースまで一気通貫でリードします。
+            調査・設計から実装・テスト・リリースまで一気通貫で対応します。
           </p>
         </Reveal>
 
@@ -106,8 +111,8 @@ export function HeroSection() {
             </Link>
           </div>
           <p className="mt-5 text-sm text-white/55">
-            シード〜シリーズAスタートアップのCTO・PM・エージェント担当者からのご相談を歓迎。
-            副業・スポット相談は今すぐ可 · フルタイム参画は2026年10月〜 · 月額60〜100万円
+            エンド企業・開発会社・エージェント担当者からのご相談を歓迎（エンド直・元請け直を優先）。
+            副業・スポット相談は今すぐ可 · 本格参画は2026年12月〜相談可 · 月額70万円〜（応相談）
           </p>
         </Reveal>
 

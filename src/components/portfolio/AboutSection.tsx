@@ -12,13 +12,13 @@ const socialLinks = [
 const strengths = [
   {
     icon: Layers,
-    title: "アーキテクチャ設計力",
-    description: "フロントからDB・インフラまで一人で設計できる。初期設計のミスを防ぐ上流工程対応が得意。",
+    title: "既存システムを壊さず改善",
+    description: "長期運用された業務システムのコード解析・影響範囲調査を徹底した上で安全に機能追加・修正。本番障害の緊急対応〜リリース後監視まで経験。",
   },
   {
     icon: FileText,
-    title: "要件定義力",
-    description: "曖昧な要件を仕様書・画面設計に落とし込む。ヒアリングから設計まで一気通貫で対応。",
+    title: "機能単位の要件定義力",
+    description: "曖昧な要件を仕様書・画面設計に落とし込む。ストレージ移行や決済連携では要件定義から試験まで一貫して担当。",
   },
   {
     icon: Sparkles,
@@ -54,7 +54,7 @@ export function AboutSection() {
               <div className="text-center md:text-left">
                 <p className="text-xl font-bold text-ink">ムカイ</p>
                 <p className="font-mono text-xs text-accent font-medium mt-1">
-                  Fullstack Engineer / 5年目
+                  Fullstack Engineer / 実務約5年
                 </p>
                 <div className="flex items-center justify-center md:justify-start gap-3 mt-3">
                   {socialLinks.map(({ href, icon: Icon, label }) => (
@@ -76,16 +76,16 @@ export function AboutSection() {
             {/* 自己紹介文 */}
             <div className="flex-1 space-y-5 text-ink-soft leading-relaxed">
               <p className="font-mono text-xs text-accent tracking-wide">
-                2021年10月 エンジニアキャリア開始 → 受託開発 → 独立・フリーランス → SaaS自社開発（現在）
+                2021年10月 キャリア開始 → EC・官公庁・医療系の業務システム開発 → 2024年4月 独立 → 建設業向けシステムに参画中（エンド企業直）
               </p>
               <p>
-                フルスタックエンジニアのムカイです。コードを書くだけでなく、<strong className="text-ink">自らSaaSプロダクトを0→1で設計・開発・運営した事業家エンジニア</strong>です。シード〜シリーズAのスタートアップで「CTOひとりでは開発が回らない」「MVPを速く本番に届けたい」という状況に即戦力で入ります。
+                フルスタックエンジニアのムカイです。<strong className="text-ink">C#／ASP.NETを中心とした業務系Webシステム開発に約5年従事</strong>し、現在は建設業向け業務システムにエンド企業直・フルリモートで参画しています。あわせて<strong className="text-ink">自らSaaSプロダクトを0→1で設計・開発・運営した事業家エンジニア</strong>でもあります。
               </p>
               <p>
                 要件定義・設計・フロントエンド・バックエンド・インフラ構築・本番リリースまで、一人称で一気通貫に対応できることが強みです。AI活用（Claude Code・Cursor）を駆使した爆速開発も得意としており、通常の3〜5倍のスピードで機能をデリバリーできます。
               </p>
               <p>
-                事業オーナーとして認証・決済・インフラまでひとりで構築した経験があるため、<strong className="text-ink">技術的判断と事業的判断の両方の視点</strong>でプロダクト開発に貢献できます。スタートアップのCTO・PM・エージェント担当者からのご相談を歓迎しています。
+                事業オーナーとして認証・決済・インフラまでひとりで構築した経験があるため、<strong className="text-ink">技術的判断と事業的判断の両方の視点</strong>でプロダクト開発に貢献できます。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎しています。
               </p>
 
               {/* 採用コスト比較 */}
@@ -106,7 +106,7 @@ export function AboutSection() {
                     <span className="absolute top-0 left-0 h-full w-0.5 bg-accent" aria-hidden />
                     <p className="font-medium text-accent-soft mb-2">ムカイ（フリーランス）の場合</p>
                     <p>
-                      月60〜80万円 × 3ヶ月 = <span className="font-bold">〜240万円</span>でMVPリリース
+                      月70〜80万円 × 3ヶ月 = <span className="font-bold">〜240万円</span>でMVPリリース
                     </p>
                     <p className="text-white/60 mt-2">※ 翌週から稼働・採用管理コストゼロ</p>
                   </div>
@@ -126,7 +126,7 @@ export function AboutSection() {
               {[
                 { label: "エンジニア採用まで間に合わない", sub: "即戦力を今すぐチームに加えたい" },
                 { label: "MVPを速く・確実に完成させたい", sub: "設計ミスなくゼロから本番まで届けたい" },
-                { label: "技術顧問＋実装の両方が欲しい", sub: "要件定義から一緒に考えてほしい" },
+                { label: "既存システムの改修を任せたい", sub: "調査→影響範囲の見極め→安全なリリースまで" },
               ].map(({ label, sub }) => (
                 <div key={label} className="flex items-start gap-3">
                   <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full bg-accent/10 text-accent text-xs font-bold flex items-center justify-center">

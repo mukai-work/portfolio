@@ -26,24 +26,26 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "ムカイ | フルスタックエンジニア × AI開発 — 要件定義から本番リリースまで",
   description:
-    "フルスタックエンジニア・ムカイのポートフォリオ。Next.js / TypeScript / Python / Supabase を軸に、SaaS・Webアプリの設計から開発・インフラ構築・納品まで一気通貫で対応。AI活用（Claude Code・Cursor）により通常の3〜5倍のスピードで開発を実現。スタートアップのCTO・PM・エージェント担当者からのご相談を歓迎。",
+    "フルスタックエンジニア・ムカイのポートフォリオ。C#／ASP.NETの業務系Webシステム開発に約5年従事（Vue.js・Oracle・Azure）。個人開発ではNext.js / TypeScript × AI活用（Claude Code）で自社SaaSを設計から本番リリースまで独力構築。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎。",
   keywords: [
     "フルスタックエンジニア",
     "フリーランスエンジニア",
+    "C#",
+    "ASP.NET",
+    "Vue.js",
+    "Oracle",
+    "Azure",
     "Next.js",
     "TypeScript",
-    "Python",
-    "Supabase",
     "SaaS開発",
     "AI開発",
     "Claude Code",
-    "スタートアップ",
     "ポートフォリオ",
   ],
   openGraph: {
     title: "ムカイ | フルスタックエンジニア × AI開発",
     description:
-      "要件定義から本番リリースまで一人称で完走。Next.js / TypeScript / Supabase × AI活用でスタートアップの開発を加速します。副業は今すぐ対応可。",
+      "C#/.NET業務システム実務 約5年 × Next.js個人開発 × AI活用。調査・設計から実装・リリースまで一気通貫。副業は今すぐ、本格参画は2026年12月〜相談可。",
     type: "website",
     locale: "ja_JP",
     url: "https://portfolio-three-blond-25spxsuyxc.vercel.app",
@@ -52,7 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ムカイ | フルスタックエンジニア × AI開発",
     description:
-      "要件定義から本番リリースまで一人称で完走。チーム半年分の開発を1〜3ヶ月に短縮した実績。スタートアップのCTO・PM・エージェント担当者からのご相談を歓迎。",
+      "C#/.NET業務システム実務 約5年 × Next.js個人開発 × AI活用。Oracleチューニング約3分→約20秒、100GB超のAzure Blob移行を要件定義から完遂。エンド企業・開発会社・エージェント担当者からのご相談を歓迎。",
   },
 };
 

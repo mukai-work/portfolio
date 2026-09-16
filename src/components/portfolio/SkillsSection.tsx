@@ -19,10 +19,10 @@ const skills: Skill[] = [
     category: "フロントエンド",
     icon: Code2,
     items: [
+      "Vue.js(2系・3系) / jQuery",
       "Next.js / React (App Router)",
-      "TypeScript",
+      "TypeScript(実務約2年)",
       "Tailwind CSS / shadcn/ui",
-      "Figma → コンポーネント実装",
       "レスポンシブ・アクセシビリティ対応",
     ],
   },
@@ -30,9 +30,9 @@ const skills: Skill[] = [
     category: "バックエンド",
     icon: Server,
     items: [
-      "Python / FastAPI",
-      "Node.js / Express",
-      "Supabase / PostgreSQL",
+      "C# / ASP.NET MVC・Web API(実務約5年)",
+      "Python / FastAPI · Node.js",
+      "Oracle / SQL Server / PostgreSQL",
       "REST API 設計・実装",
       "認証(JWT / NextAuth / Supabase Auth)",
     ],
@@ -41,10 +41,10 @@ const skills: Skill[] = [
     category: "インフラ・クラウド",
     icon: Cloud,
     items: [
-      "Vercel / AWS(EC2・S3)",
+      "Azure Blob Storage(移行を要件定義から)",
+      "IIS(配置・リリース〜ログ調査)",
+      "Vercel / AWS(ECS Fargate・Terraform)",
       "Docker / GitHub Actions(CI/CD)",
-      "Supabase(DB・Auth・Storage)",
-      "ドメイン・SSL 設定",
       "監視・ログ設計",
     ],
   },
@@ -70,7 +70,7 @@ export function SkillsSection() {
       <div className="absolute inset-0 bg-blueprint" aria-hidden />
       <div className="relative max-w-6xl mx-auto">
         <SectionHeading
-          index="03"
+          index="04"
           label="Skills"
           title="スキル・対応範囲"
           description="設計から本番稼働まで全工程対応。AI活用で通常の3〜5倍の開発速度を実現します。"

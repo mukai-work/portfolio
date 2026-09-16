@@ -1,6 +1,7 @@
 import { SiteHeader } from "@/components/portfolio/SiteHeader";
 import { HeroSection } from "@/components/portfolio/HeroSection";
 import { AboutSection } from "@/components/portfolio/AboutSection";
+import { ExperienceSection } from "@/components/portfolio/ExperienceSection";
 import { WorksSection } from "@/components/portfolio/WorksSection";
 import { SkillsSection } from "@/components/portfolio/SkillsSection";
 import { FaqSection } from "@/components/portfolio/FaqSection";
@@ -13,6 +14,7 @@ export default function Home() {
       <SiteHeader />
       <HeroSection />
       <AboutSection />
+      <ExperienceSection />
       <WorksSection />
       <SkillsSection />
       <FaqSection />

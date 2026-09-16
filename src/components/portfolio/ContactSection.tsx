@@ -14,11 +14,11 @@ export function ContactSection() {
         aria-hidden
       />
       <div className="relative max-w-2xl mx-auto text-center">
-        <SectionHeading index="05" label="Contact" title="稼働相談・スカウト" dark />
+        <SectionHeading index="06" label="Contact" title="稼働相談・スカウト" dark />
 
         <Reveal>
           <p className="text-white/70 mb-8 -mt-8">
-            スタートアップのCTO・PM・エージェント担当者からのご相談を歓迎しています。
+            エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎しています。
             <br />
             X（Twitter）のDMからお気軽にご連絡ください。
           </p>
@@ -54,7 +54,7 @@ export function ContactSection() {
           </p>
 
           <p className="mt-4 font-mono text-xs text-white/40">
-            副業・スポット相談は今すぐ可 · フルタイム参画は2026年10月〜
+            副業・スポット相談は今すぐ可 · 本格参画は2026年12月〜相談可 · 月額70万円〜（応相談）
           </p>
         </Reveal>
       </div>
