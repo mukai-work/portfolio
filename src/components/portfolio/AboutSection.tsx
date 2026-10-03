@@ -104,7 +104,24 @@ export function AboutSection() {
           {/* 採用コスト比較：罫線テーブル */}
           <Reveal className="mt-14">
             <p className="label-mono text-ink-3 mb-4">Cost Comparison — 採用コストとの比較</p>
-            <div className="overflow-x-auto">
+            <div className="sm:hidden space-y-3">
+              <div className="rounded-[4px] border border-line p-4">
+                <p className="text-[0.8125rem] font-medium text-ink-2 mb-2">正社員エンジニア2名採用の場合</p>
+                <p className="text-[0.875rem] text-ink">
+                  採用コスト <span className="font-bold">〜300万円</span> + 人件費{" "}
+                  <span className="font-bold">1,200万円/年</span>
+                </p>
+                <p className="mt-2 text-xs text-ink-3">※ 即戦力まで最低3〜6ヶ月のオンボーディング</p>
+              </div>
+              <div className="rounded-[4px] border border-accent/40 border-l-2 border-l-accent bg-accent/[0.04] p-4">
+                <p className="text-[0.8125rem] font-bold text-ink mb-2">ムカイ（フリーランス）の場合</p>
+                <p className="text-[0.875rem] text-ink">
+                  月70〜80万円 × 3ヶ月 = <span className="font-bold text-accent-ink">〜240万円</span>でMVPリリース
+                </p>
+                <p className="mt-2 text-xs text-ink-2">※ 翌週から稼働・採用管理コストゼロ</p>
+              </div>
+            </div>
+            <div className="hidden sm:block overflow-x-auto">
               <table className="w-full min-w-[520px] text-left text-[0.875rem] border-t border-ink">
                 <thead>
                   <tr className="border-b border-line">

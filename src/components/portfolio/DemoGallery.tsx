@@ -8,6 +8,8 @@ import { ArrowUpRight } from "lucide-react";
 import type { DemoConfig } from "@/data/demos";
 import { SpotlightGroup } from "@/components/ui/Spotlight";
 
+const MOBILE_INITIAL = 6;
+
 type Category = "all" | "food" | "beauty" | "care" | "life";
 
 const categories: { key: Category; label: string }[] = [
@@ -47,6 +49,7 @@ type Props = {
 
 export function DemoGallery({ demos }: Props) {
   const [filter, setFilter] = useState<Category>("all");
+  const [expanded, setExpanded] = useState(false);
 
   const select = (next: Category) => {
     if (next === filter) return;
@@ -87,14 +90,15 @@ export function DemoGallery({ demos }: Props) {
       </div>
 
       <SpotlightGroup className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((demo) => {
+        {visible.map((demo, i) => {
           const number = demos.indexOf(demo) + 1;
           const featured = filter === "all" && number === 1;
+          const collapsed = !expanded && i >= MOBILE_INITIAL;
           return (
             <Link
               key={demo.slug}
               href={`/demos/${demo.slug}`}
-              className={`spot group flex flex-col rounded-[4px] border border-line bg-paper transition-colors duration-300 hover:border-line-strong [content-visibility:auto] [contain-intrinsic-block-size:auto_420px] min-w-0 ${
+              className={`spot group ${collapsed ? "hidden sm:flex" : "flex"} flex-col rounded-[4px] border border-line bg-paper transition-colors duration-300 hover:border-line-strong [content-visibility:auto] [contain-intrinsic-block-size:auto_420px] min-w-0 ${
                 featured ? "sm:col-span-2 lg:row-span-2" : ""
               }`}
               style={{ viewTransitionName: `demo-${demo.slug}` }}
@@ -152,6 +156,16 @@ export function DemoGallery({ demos }: Props) {
           );
         })}
       </SpotlightGroup>
+
+      {!expanded && visible.length > MOBILE_INITIAL && (
+        <button
+          type="button"
+          onClick={() => setExpanded(true)}
+          className="sm:hidden mt-5 w-full h-12 rounded-[4px] border border-line-strong text-[0.875rem] text-ink-2 hover:border-ink hover:text-ink transition-colors"
+        >
+          残り{visible.length - MOBILE_INITIAL}件を表示
+        </button>
+      )}
     </div>
   );
 }
