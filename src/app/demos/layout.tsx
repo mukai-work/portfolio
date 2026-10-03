@@ -8,5 +8,5 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export default function DemosLayout({ children }: { children: React.ReactNode }) {
-  return <div className={spaceGrotesk.variable}>{children}</div>;
+  return <div data-demo className={spaceGrotesk.variable}>{children}</div>;
 }

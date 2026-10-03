@@ -76,12 +76,12 @@ export function DemoGallery({ demos }: Props) {
               aria-pressed={active}
               className={`h-9 px-4 rounded-[4px] border text-[0.8125rem] transition-colors ${
                 active
-                  ? "bg-ink border-ink text-white"
+                  ? "bg-ink border-ink text-paper"
                   : "border-line-strong text-ink-2 hover:border-ink hover:text-ink"
               }`}
             >
               {label}
-              <span className={`ml-2 font-mono text-[0.7rem] ${active ? "text-white/60" : "text-ink-3"}`}>
+              <span className={`ml-2 font-mono text-[0.7rem] ${active ? "text-paper/60" : "text-ink-3"}`}>
                 {count}
               </span>
             </button>

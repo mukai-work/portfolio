@@ -164,7 +164,7 @@ export function WorksSection() {
           </p>
           <a
             href="#contact"
-            className="group shrink-0 inline-flex items-center gap-2 h-10 px-5 bg-ink hover:bg-navy text-white text-[0.8125rem] font-medium rounded-[4px] transition-colors"
+            className="group shrink-0 inline-flex items-center gap-2 h-10 px-5 bg-ink hover:opacity-85 text-paper text-[0.8125rem] font-medium rounded-[4px] transition-colors"
           >
             稼働相談する
             <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />

@@ -147,7 +147,7 @@ function Gantt() {
               主参画
             </li>
             <li className="flex items-center gap-2">
-              <span className="w-4 h-2 rounded-[1px] border border-ink [background:repeating-linear-gradient(-45deg,transparent_0_2px,oklch(24%_0.025_255/0.35)_2px_3px)]" aria-hidden />
+              <span className="w-4 h-2 rounded-[1px] border border-ink gantt-stripe" aria-hidden />
               個人受託（並行）
             </li>
             <li className="flex items-center gap-2">
@@ -194,7 +194,7 @@ function Gantt() {
                           ? "bg-accent"
                           : exp.kind === "main"
                             ? "bg-ink"
-                            : "border border-ink [background:repeating-linear-gradient(-45deg,oklch(99.2%_0.002_250)_0_3px,oklch(24%_0.025_255/0.35)_3px_4px)]"
+                            : "border border-ink gantt-stripe"
                       }`}
                       style={{
                         left: `${left}%`,

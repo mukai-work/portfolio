@@ -33,6 +33,37 @@ html {
   scroll-behavior: smooth;
 }
 
+:root {
+  color-scheme: light;
+}
+
+/* ダークモード：OSの外観設定に追従。業種デモ（独自配色の見本サイト）は対象外 */
+@media (prefers-color-scheme: dark) {
+  :root:not(:has([data-demo])) {
+    color-scheme: dark;
+    --color-paper: oklch(17% 0.02 255);
+    --color-surface: oklch(20% 0.022 255);
+    --color-ink: oklch(94% 0.006 250);
+    --color-ink-2: oklch(79% 0.012 250);
+    --color-ink-3: oklch(65% 0.014 250);
+    --color-line: oklch(29% 0.022 255);
+    --color-line-strong: oklch(40% 0.024 255);
+    --color-hair: oklch(85% 0.02 255 / 0.11);
+    --color-navy: oklch(22% 0.045 255);
+    --color-navy-deep: oklch(13.5% 0.03 255);
+    --color-accent-ink: oklch(76% 0.12 262);
+  }
+}
+
+/* 個人受託を表す斜線（地色と文字色のトークンから生成するのでダークでも反転する） */
+.gantt-stripe {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-paper) 0 3px,
+    color-mix(in oklch, var(--color-ink) 40%, transparent) 3px 4px
+  );
+}
+
 section[id] {
   scroll-margin-top: 4rem;
 }
