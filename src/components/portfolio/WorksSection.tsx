@@ -1,8 +1,10 @@
-import Link from "next/link";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { demos } from "@/data/demos";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SpotlightGroup } from "@/components/ui/Spotlight";
+import { DemoGallery } from "./DemoGallery";
 
 type SaasProduct = {
   badge: string;
@@ -18,10 +20,10 @@ type SaasProduct = {
   url: string;
 };
 
-const statusTone: Record<SaasProduct["status"]["tone"], string> = {
-  live: "bg-emerald-400/10 text-emerald-300 border-emerald-400/25",
-  wip: "bg-amber-400/10 text-amber-300 border-amber-400/25",
-  mvp: "bg-sky-400/10 text-sky-300 border-sky-400/25",
+const statusDot: Record<SaasProduct["status"]["tone"], string> = {
+  live: "bg-signal",
+  wip: "bg-[oklch(75%_0.15_75)]",
+  mvp: "bg-accent",
 };
 
 const saasProducts: SaasProduct[] = [
@@ -60,180 +62,169 @@ const saasProducts: SaasProduct[] = [
   },
 ];
 
-function ProductCard({ product }: { product: SaasProduct }) {
-  const isLinked = product.url !== "#";
-  const cardClass =
-    "group relative h-full overflow-hidden rounded-lg border border-white/10 bg-navy p-6 flex flex-col min-h-[280px] transition-all duration-300 hover:-translate-y-1.5 hover:border-accent-soft/40 hover:shadow-[0_24px_48px_-20px_rgba(30,94,255,0.4)]";
+const demoStats = [
+  { value: String(demos.length), label: "業種" },
+  { value: "3", label: "レイアウト" },
+  { value: "1", label: "動的ルート" },
+];
 
-  const inner = (
-    <>
-      <span
-        className="absolute top-0 left-0 h-0.5 w-full bg-gradient-to-r from-accent to-transparent"
-        aria-hidden
-      />
-      <div className="absolute inset-0 bg-blueprint opacity-60" aria-hidden />
-      <div className="relative flex flex-col flex-1">
-        <div className="flex items-center justify-between mb-3">
-          <p className="font-mono tracking-[0.15em] text-[10px] uppercase text-accent-soft">
-            {product.badge}
-          </p>
-          <span
-            className={`text-[11px] font-medium px-2.5 py-0.5 rounded-full border ${statusTone[product.status.tone]}`}
-          >
-            {product.status.label}
-          </span>
-        </div>
-        <h4 className="text-2xl font-bold text-white mb-1 font-display">
-          {product.title}
-        </h4>
-        <p className="text-sm text-white/70 mb-3">{product.subtitle}</p>
-        <p className="text-sm text-white/80 leading-relaxed mb-3 flex-1">
-          {product.description}
+const snippet = `// src/app/demos/[slug]/page.tsx
+export async function generateStaticParams() {
+  // ramen は専用ページで独自実装のため除外
+  return demos
+    .filter((d) => d.slug !== "ramen")
+    .map((d) => ({ slug: d.slug }));
+}
+
+// 業種ごとの差分はデータだけ。配色は CSS Variables で注入
+const themeStyle = {
+  "--color-primary": demo.colors.primary,
+  "--color-accent": demo.colors.accent,
+  "--color-bg": demo.colors.background,
+  // ...
+};`;
+
+function ProductCard({ product, index }: { product: SaasProduct; index: number }) {
+  return (
+    <a
+      href={product.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="spot group flex h-full flex-col rounded-[4px] border border-line bg-paper p-6 md:p-7 transition-colors duration-300 hover:border-line-strong"
+    >
+      <div className="flex items-center justify-between gap-3 pb-5 border-b border-line">
+        <p className="font-mono text-[0.7rem] tracking-[0.12em] uppercase text-ink-3">
+          <span className="text-accent-ink">{String(index + 1).padStart(2, "0")}</span>
+          <span className="mx-2 opacity-50">/</span>
+          {product.badge}
         </p>
-        <p className="font-mono text-[11px] text-white/45 mb-3 leading-relaxed border-t border-white/10 pt-3">
-          {product.launchInfo}
-        </p>
-        <div className="flex flex-wrap gap-1.5 mb-1">
-          {product.tags.map((tag) => (
-            <span
-              key={tag}
-              className="font-mono text-[10px] px-2 py-0.5 rounded border border-white/15 text-white/70"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-        {isLinked && (
-          <span className="mt-4 flex items-center gap-1 text-xs font-medium text-accent-soft group-hover:gap-2 transition-all self-end">
-            見る
-            <ExternalLink size={13} />
-          </span>
-        )}
+        <span className="inline-flex items-center gap-1.5 text-[0.7rem] text-ink-2 whitespace-nowrap">
+          <span className={`w-1.5 h-1.5 rounded-full ${statusDot[product.status.tone]}`} />
+          {product.status.label}
+        </span>
       </div>
-    </>
+      <h4 className="mt-6 text-[1.75rem] font-medium tracking-tight text-ink flex items-center gap-2">
+        {product.title}
+        <ArrowUpRight
+          size={20}
+          className="text-ink-3 transition-all duration-300 group-hover:text-accent-ink group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+        />
+      </h4>
+      <p className="mt-1 text-[0.875rem] font-medium text-ink-2">{product.subtitle}</p>
+      <p className="mt-5 flex-1 text-[0.8125rem] leading-[1.85] text-ink-2">{product.description}</p>
+      <p className="mt-5 pt-4 border-t border-line font-mono text-[0.7rem] leading-relaxed text-ink-3">
+        {product.launchInfo}
+      </p>
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        {product.tags.map((tag) => (
+          <span
+            key={tag}
+            className="font-mono text-[0.6875rem] px-2 py-0.5 rounded-[2px] border border-line-strong text-ink-2"
+          >
+            {tag}
+          </span>
+        ))}
+      </div>
+    </a>
   );
-
-  if (isLinked) {
-    return (
-      <a
-        href={product.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={cardClass}
-      >
-        {inner}
-      </a>
-    );
-  }
-
-  return <div className={cardClass}>{inner}</div>;
 }
 
 export function WorksSection() {
   return (
-    <section id="works" className="py-20 md:py-28 px-6 bg-white">
-      <div className="max-w-6xl mx-auto">
+    <Section id="works">
+      <div className="grid gap-8 md:grid-cols-12 md:gap-10 items-end">
         <SectionHeading
           index="03"
           label="Works"
           title="個人開発プロダクト"
-          description={
-            <>
-              AI駆動開発（Claude Code）の実証として、設計・認証・決済・インフラまで
-              <br className="hidden md:inline" />
-              一気通貫で独力開発したプロダクト群です。コードはGitHubで公開しています。
-            </>
-          }
+          className="md:col-span-5"
         />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {saasProducts.map((product, i) => (
-            <Reveal key={product.title} delay={i * 100} className="h-full">
-              <ProductCard product={product} />
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Works内CTA */}
-        <Reveal>
-          <div className="flex flex-wrap items-center justify-between gap-4 py-6 px-6 bg-surface rounded-lg border border-line mb-12">
-            <p className="text-sm text-ink-soft">
-              <span className="font-semibold text-ink">設計〜本番稼働まで一人称で対応します。</span>
-              <span className="ml-2 text-ink-faint">まずはお気軽にご相談ください。</span>
-            </p>
-            <a
-              href="#contact"
-              className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 bg-accent hover:bg-[#3d74ff] text-white text-sm font-medium rounded transition-colors"
-            >
-              稼働相談する
-              <ArrowRight size={14} />
-            </a>
-          </div>
+        <Reveal className="min-w-0 md:col-span-7">
+          <p className="lead-ja text-[0.95rem] text-ink-2">
+            AI駆動開発（Claude Code）の実証として、設計・認証・決済・インフラまで
+            一気通貫で独力開発したプロダクト群です。コードはGitHubで公開しています。
+          </p>
         </Reveal>
-
-        <hr className="border-line mb-12" />
-
-        {/* Webサイト制作デモ */}
-        <Reveal>
-          <div className="mb-6">
-            <h3 className="text-lg md:text-xl font-bold text-ink mb-1">
-              フロントエンド実装サンプル
-            </h3>
-            <p className="text-sm text-ink-faint">
-              20業種のデザインを動的ルーティング1セットで実装。CSS Variables によるテーマ切替・Unsplash画像・レスポンシブ対応。
-            </p>
-          </div>
-        </Reveal>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {demos.map((demo, i) => (
-            <Reveal key={demo.slug} delay={(i % 4) * 80} className="h-full">
-              <Link
-                href={`/demos/${demo.slug}`}
-                className="group relative h-full overflow-hidden rounded-lg p-6 md:p-7 flex flex-col min-h-[280px] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
-                style={{
-                  background: `linear-gradient(135deg, ${demo.colors.primary} 0%, ${demo.colors.primary}dd 60%, ${demo.colors.accent} 200%)`,
-                }}
-              >
-                <div
-                  className="absolute top-0 left-0 right-0 h-1"
-                  style={{ backgroundColor: demo.colors.accent }}
-                />
-                <div className="flex-1">
-                  <p
-                    className="font-mono tracking-[0.2em] text-[10px] uppercase mb-3 opacity-80"
-                    style={{ color: demo.colors.accent }}
-                  >
-                    Case {String(demos.indexOf(demo) + 1).padStart(2, "0")}
-                  </p>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    {demo.name}
-                  </h3>
-                  <p className="text-sm text-white/80 leading-relaxed mb-4 line-clamp-3">
-                    {demo.designConcept}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-1.5 mb-4">
-                  {demo.highlights.map((h) => (
-                    <span
-                      key={h}
-                      className="text-[10px] px-2 py-0.5 rounded border border-white/20 text-white/90"
-                    >
-                      {h}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex items-center gap-1 text-sm font-medium text-white group-hover:gap-2 transition-all">
-                  デモを見る
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-1"
-                  />
-                </div>
-              </Link>
-            </Reveal>
-          ))}
-        </div>
       </div>
-    </section>
+
+      <SpotlightGroup className="mt-14 grid gap-5 md:grid-cols-3">
+        {saasProducts.map((product, i) => (
+          <Reveal key={product.title} delay={i * 90} className="h-full">
+            <ProductCard product={product} index={i} />
+          </Reveal>
+        ))}
+      </SpotlightGroup>
+
+      {/* Works内CTA */}
+      <Reveal className="mt-8">
+        <div className="flex flex-wrap items-center justify-between gap-4 py-5 border-y border-line">
+          <p className="text-[0.875rem] text-ink-2">
+            <span className="font-bold text-ink">設計〜本番稼働まで一人称で対応します。</span>
+            <span className="ml-2 text-ink-3">まずはお気軽にご相談ください。</span>
+          </p>
+          <a
+            href="#contact"
+            className="group shrink-0 inline-flex items-center gap-2 h-10 px-5 bg-ink hover:bg-navy text-white text-[0.8125rem] font-medium rounded-[4px] transition-colors"
+          >
+            稼働相談する
+            <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
+          </a>
+        </div>
+      </Reveal>
+
+      {/* Webサイト制作デモ */}
+      <div className="mt-28 grid gap-10 md:grid-cols-12">
+        <Reveal className="min-w-0 md:col-span-5">
+          <p className="label-mono text-ink-3">Frontend Samples</p>
+          <h3 className="heading-ja mt-4 text-[1.6rem] text-ink">フロントエンド実装サンプル</h3>
+          <p className="mt-4 lead-ja text-[0.875rem] text-ink-2">
+            20業種のデザインを、動的ルーティング1セット（ラーメン店のみ専用ページ）で実装。CSS Variables によるテーマ切替・Unsplash画像・レスポンシブ対応。
+          </p>
+          <dl className="mt-8 grid grid-cols-3 border-y border-line">
+            {demoStats.map(({ value, label }, i) => (
+              <div key={label} className={`py-4 ${i > 0 ? "pl-4 border-l border-line" : ""}`}>
+                <dt className="sr-only">{label}</dt>
+                <dd>
+                  <span className="block text-[2rem] font-medium tracking-tight text-ink leading-none">
+                    {value}
+                  </span>
+                  <span className="mt-2 block text-xs text-ink-3">{label}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </Reveal>
+
+        <Reveal className="min-w-0 md:col-span-7" delay={100}>
+          <details className="group rounded-[4px] border border-line bg-navy-deep text-white/85 open:shadow-none">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-3.5 [&::-webkit-details-marker]:hidden">
+              <span className="font-mono text-xs text-white/70">設計を見る — demos/[slug]/page.tsx</span>
+              <span className="font-mono text-xs text-accent-soft transition-transform duration-300 group-open:rotate-45">
+                +
+              </span>
+            </summary>
+            <div className="faq-answer">
+              <div>
+                <pre className="overflow-x-auto border-t border-white/10 px-5 py-5 font-mono text-[0.75rem] leading-[1.7] text-white/80">
+                  <code>{snippet}</code>
+                </pre>
+              </div>
+            </div>
+          </details>
+        </Reveal>
+      </div>
+
+      <div className="mt-12">
+        <DemoGallery
+          demos={demos.map(({ slug, name, designConcept, highlights, layout }) => ({
+            slug,
+            name,
+            designConcept,
+            highlights,
+            layout,
+          }))}
+        />
+      </div>
+    </Section>
   );
 }

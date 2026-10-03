@@ -1,5 +1,6 @@
 import { Plus } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const faqs = [
@@ -31,28 +32,33 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section id="faq" className="py-20 md:py-24 px-6 bg-white">
-      <div className="max-w-3xl mx-auto">
-        <SectionHeading index="05" label="FAQ" title="よくある質問" />
-        <Reveal>
-          <div className="divide-y divide-line border-y border-line">
+    <Section id="faq">
+      <div className="grid gap-12 md:grid-cols-12 md:gap-10">
+        <div className="min-w-0 md:col-span-4">
+          <div className="md:sticky md:top-28">
+            <SectionHeading index="05" label="FAQ" title="よくある質問" />
+          </div>
+        </div>
+        <Reveal className="min-w-0 md:col-span-8">
+          <div className="border-t border-ink">
             {faqs.map(({ q, a }, i) => (
-              <details key={q} className="group">
-                <summary className="flex items-center gap-4 py-5 cursor-pointer list-none [&::-webkit-details-marker]:hidden select-none">
-                  <span className="font-mono text-xs text-accent shrink-0">
+              <details key={q} className="group border-b border-line">
+                <summary className="grid grid-cols-[2.5rem_1fr_auto] items-center gap-2 py-6 cursor-pointer list-none [&::-webkit-details-marker]:hidden select-none">
+                  <span className="font-mono text-xs text-ink-3 group-open:text-accent-ink transition-colors">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <span className="flex-1 text-base font-semibold text-ink group-hover:text-accent transition-colors">
+                  <span className="text-[1rem] font-bold text-ink group-hover:text-accent-ink transition-colors">
                     {q}
                   </span>
                   <Plus
                     size={18}
-                    className="shrink-0 text-ink-faint transition-transform duration-300 group-open:rotate-45 group-open:text-accent"
+                    strokeWidth={1.5}
+                    className="shrink-0 text-ink-3 transition-transform duration-300 group-open:rotate-45 group-open:text-accent-ink"
                   />
                 </summary>
                 <div className="faq-answer">
                   <div>
-                    <p className="pb-6 pl-9 text-sm text-ink-soft leading-relaxed">
+                    <p className="pb-7 pl-12 pr-8 text-[0.9rem] text-ink-2 leading-[1.9]">
                       {a}
                     </p>
                   </div>
@@ -62,6 +68,6 @@ export function FaqSection() {
           </div>
         </Reveal>
       </div>
-    </section>
+    </Section>
   );
 }

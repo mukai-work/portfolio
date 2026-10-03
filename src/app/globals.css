@@ -1,29 +1,32 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #1a2330;
-}
-
 @theme {
-  --color-navy: #0f2a43;
-  --color-navy-mid: #14365a;
-  --color-navy-deep: #0a1f33;
-  --color-ink: #1a2330;
-  --color-ink-soft: #5b6573;
-  --color-ink-faint: #8a93a0;
-  --color-line: #e3e7ed;
-  --color-accent: #1e5eff;
-  --color-accent-soft: #7aa2ff;
-  --color-surface: #f7f8fa;
+  --color-paper: oklch(99.2% 0.002 250);
+  --color-surface: oklch(97.3% 0.004 250);
+  --color-ink: oklch(24% 0.025 255);
+  --color-ink-2: oklch(46% 0.02 255);
+  --color-ink-3: oklch(58% 0.015 255);
+  --color-line: oklch(90% 0.008 250);
+  --color-line-strong: oklch(80% 0.012 250);
+  --color-hair: oklch(55% 0.02 255 / 0.18);
+  --color-navy: oklch(26% 0.055 250);
+  --color-navy-deep: oklch(21% 0.05 250);
+  --color-accent: oklch(55% 0.24 262);
+  --color-accent-ink: oklch(45% 0.22 262);
+  --color-accent-soft: oklch(76% 0.12 262);
+  --color-signal: oklch(72% 0.17 155);
+
+  --text-display: clamp(2.25rem, 1.5rem + 3.2vw, 4rem);
+  --text-display--line-height: 1.3;
+  --text-h2: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);
+  --text-h2--line-height: 1.3;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-noto-sans-jp);
-  --font-display: var(--font-space-grotesk);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-sans: var(--font-geist), var(--font-noto-sans-jp), "Hiragino Sans", "Yu Gothic", sans-serif;
+  --font-mono: var(--font-geist-mono), var(--font-noto-sans-jp), ui-monospace, monospace;
 }
 
 html {
@@ -31,78 +34,211 @@ html {
 }
 
 section[id] {
-  scroll-margin-top: 5rem;
+  scroll-margin-top: 4rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-noto-sans-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN",
-    "Yu Gothic", "Meiryo", sans-serif;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.8;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.font-display {
-  font-family: var(--font-space-grotesk), "Noto Sans JP", sans-serif;
+::selection {
+  background: oklch(55% 0.24 262 / 0.18);
 }
 
-/* ---- スクロールリビール ---- */
-.reveal {
+/* ---- 日本語組版 ---- */
+.heading-ja {
+  font-feature-settings: "palt" 1;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+  text-wrap: balance;
+  word-break: auto-phrase;
+  line-break: strict;
+  font-weight: 700;
+}
+
+.lead-ja {
+  text-wrap: pretty;
+  line-height: 1.9;
+  max-width: 38em;
+}
+
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ---- ヘアライン構造：セクション境界の交点マーク ---- */
+.cross {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  color: var(--color-line-strong);
+  background:
+    linear-gradient(currentColor, currentColor) center / 1px 100% no-repeat,
+    linear-gradient(currentColor, currentColor) center / 100% 1px no-repeat;
+  pointer-events: none;
+}
+
+.tone-dark .cross {
+  color: oklch(100% 0 0 / 0.35);
+}
+
+/* ---- スクロールリビール（JS有効時のみ初期非表示＝No-JSでも全文読める） ---- */
+.js .reveal {
   opacity: 0;
-  transform: translateY(22px);
+  transform: translateY(16px);
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.7s var(--ease-out-quint),
+    transform 0.7s var(--ease-out-quint);
 }
 
-.reveal.is-visible {
+.js .reveal.is-visible {
   opacity: 1;
   transform: none;
 }
 
-/* 見出し下のルール線：リビールに合わせて左右に伸びる */
-.reveal .grow-line {
-  transform: scaleX(0);
-  transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
-}
-
-.reveal.is-visible .grow-line {
-  transform: scaleX(1);
-}
-
-/* ---- ヒーロー背景：ブループリント調グリッド ---- */
-.bg-blueprint {
-  background-image:
-    linear-gradient(rgba(122, 162, 255, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(122, 162, 255, 0.055) 1px, transparent 1px);
-  background-size: 48px 48px;
-}
-
-/* ---- マーキー（技術スタック） ---- */
-@keyframes marquee {
-  to {
-    transform: translateX(-50%);
+/* ---- ヒーローの初回表示（JS不要のCSSアニメーション） ---- */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
   }
 }
 
-.animate-marquee {
-  animation: marquee 36s linear infinite;
+.rise {
+  animation: rise 0.9s var(--ease-out-quint) both;
 }
 
-.marquee-mask {
-  mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, black 12%, black 88%, transparent);
+/* ---- ヒーローのアーキテクチャ図 ---- */
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+.arch-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 0.9s var(--ease-out-quint) forwards;
+}
+
+.arch-node {
+  transform-box: fill-box;
+  animation: node-in 0.6s var(--ease-out-quint) both;
+}
+
+/* ---- 経歴タイムライン：スクロール量に合わせて線が伸びる（対応ブラウザのみ） ---- */
+.tl-line {
+  transform-origin: top;
+}
+
+@keyframes tl-grow {
+  from {
+    transform: scaleY(0);
+  }
+}
+
+@keyframes tl-dot {
+  from {
+    background-color: var(--color-paper);
+    border-color: var(--color-line-strong);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  .tl-line {
+    animation: tl-grow linear both;
+    animation-timeline: view();
+    animation-range: cover 5% cover 70%;
+  }
+
+  .tl-dot {
+    animation: tl-dot linear both;
+    animation-timeline: view();
+    animation-range: cover 30% cover 42%;
+  }
+}
+
+/* ---- ガントチャートのバー ---- */
+.gantt-bar {
+  transform-origin: left;
+  transition: transform 1s var(--ease-out-quint);
+}
+
+.js .reveal:not(.is-visible) .gantt-bar {
+  transform: scaleX(0);
+}
+
+@keyframes pulse-ring {
+  from {
+    box-shadow: 0 0 0 0 oklch(72% 0.17 155 / 0.55);
+  }
+  to {
+    box-shadow: 0 0 0 7px oklch(72% 0.17 155 / 0);
+  }
+}
+
+.signal-dot {
+  background: var(--color-signal);
+  animation: pulse-ring 1.8s ease-out infinite;
+}
+
+/* ---- カーソル追従の罫線ハイライト（グローではなく枠線だけ光らせる） ---- */
+.spot {
+  position: relative;
+}
+
+.spot::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    260px circle at var(--mx, -999px) var(--my, -999px),
+    oklch(55% 0.24 262 / 0.75),
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-spotlight]:hover .spot::before {
+  opacity: 1;
+}
+
+/* ---- View Transitions（デモの絞り込み時の並び替え） ---- */
+::view-transition-group(*) {
+  animation-duration: 0.45s;
+  animation-timing-function: var(--ease-out-quint);
 }
 
 /* ---- ターミナル風カーソル ---- */
 @keyframes blink {
-  0%,
-  49% {
-    opacity: 1;
-  }
-  50%,
-  100% {
+  50% {
     opacity: 0;
   }
 }
@@ -115,7 +251,7 @@ body {
 .faq-answer {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-rows 0.35s var(--ease-out-quint);
 }
 
 details[open] .faq-answer {
@@ -126,25 +262,42 @@ details[open] .faq-answer {
   overflow: hidden;
 }
 
-/* ---- モーション削減設定の尊重 ---- */
+/* ---- モーション削減設定の尊重：すべて最終状態で静止表示 ---- */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  .reveal {
+  .js .reveal,
+  .rise,
+  .arch-node,
+  .tl-line,
+  .tl-dot {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
+    animation: none !important;
   }
 
-  .reveal .grow-line {
-    transform: none !important;
-    transition: none !important;
+  .arch-draw {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
   }
 
-  .animate-marquee,
+  .arch-packet {
+    display: none;
+  }
+
+  .js .reveal:not(.is-visible) .gantt-bar {
+    transform: none;
+  }
+
+  .signal-dot,
   .cursor-blink {
+    animation: none !important;
+  }
+
+  ::view-transition-group(*) {
     animation: none !important;
   }
 }
@@ -181,4 +334,9 @@ details[open] .faq-answer {
 
 .demo-accent-border {
   border-color: var(--color-accent);
+}
+
+/* 業種デモ専用の英字見出し書体（demos/layout.tsx でのみ読み込む） */
+.font-display {
+  font-family: var(--font-space-grotesk), var(--font-noto-sans-jp), sans-serif;
 }

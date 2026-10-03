@@ -1,15 +1,11 @@
-import {
-  Code2,
-  Server,
-  Cloud,
-  Sparkles,
-  type LucideIcon,
-} from "lucide-react";
+import { Code2, Server, Cloud, Sparkles, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
+import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 type Skill = {
   category: string;
+  en: string;
   icon: LucideIcon;
   items: string[];
 };
@@ -17,6 +13,7 @@ type Skill = {
 const skills: Skill[] = [
   {
     category: "フロントエンド",
+    en: "Frontend",
     icon: Code2,
     items: [
       "Vue.js(2系・3系) / jQuery",
@@ -28,6 +25,7 @@ const skills: Skill[] = [
   },
   {
     category: "バックエンド",
+    en: "Backend",
     icon: Server,
     items: [
       "C# / ASP.NET MVC・Web API(実務約5年)",
@@ -39,6 +37,7 @@ const skills: Skill[] = [
   },
   {
     category: "インフラ・クラウド",
+    en: "Infrastructure",
     icon: Cloud,
     items: [
       "Azure Blob Storage(移行を要件定義から)",
@@ -50,6 +49,7 @@ const skills: Skill[] = [
   },
   {
     category: "AI活用・開発スタイル",
+    en: "AI-Driven",
     icon: Sparkles,
     items: [
       "Claude Code / Cursor / GitHub Copilot",
@@ -63,57 +63,62 @@ const skills: Skill[] = [
 
 export function SkillsSection() {
   return (
-    <section
-      id="skills"
-      className="relative py-20 md:py-28 px-6 bg-navy-deep overflow-hidden"
-    >
-      <div className="absolute inset-0 bg-blueprint" aria-hidden />
-      <div className="relative max-w-6xl mx-auto">
-        <SectionHeading
-          index="04"
-          label="Skills"
-          title="スキル・対応範囲"
-          description="設計から本番稼働まで全工程対応。AI活用で通常の3〜5倍の開発速度を実現します。"
-          dark
-        />
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {skills.map((s, i) => (
-            <Reveal key={s.category} delay={i * 80} className="h-full">
-              <div className="h-full p-7 bg-white/[0.04] rounded-lg border border-white/10 hover:border-accent-soft/40 hover:bg-white/[0.06] transition-all duration-300">
-                <div className="w-12 h-12 rounded bg-accent/15 flex items-center justify-center text-accent-soft mb-5">
-                  <s.icon size={22} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-lg font-bold mb-4 text-white">
-                  {s.category}
-                </h3>
-                <ul className="space-y-2.5">
-                  {s.items.map((item) => (
-                    <li
-                      key={item}
-                      className="text-sm text-white/65 flex items-start gap-2"
-                    >
-                      <span className="font-mono text-accent-soft mt-0.5 shrink-0">
-                        ▹
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
+    <Section id="skills" tone="surface">
+      <div className="grid gap-14 md:grid-cols-12 md:gap-10">
+        <div className="min-w-0 md:col-span-4">
+          <div className="md:sticky md:top-28">
+            <SectionHeading
+              index="04"
+              label="Skills"
+              title="スキル・対応範囲"
+              description="設計から本番稼働まで全工程対応。AI活用で通常の3〜5倍の開発速度を実現します。"
+            />
+          </div>
         </div>
 
-        <Reveal className="text-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 hover:border-accent-soft/60 text-white font-medium rounded transition-colors text-sm"
-          >
-            技術スタックの詳細は面談でご確認ください →
-          </a>
-        </Reveal>
+        <div className="min-w-0 md:col-span-8">
+          <div className="border-t border-ink">
+            {skills.map((s, i) => (
+              <Reveal key={s.category} delay={i * 60}>
+                <div className="grid gap-5 sm:grid-cols-[200px_1fr] py-7 border-b border-line">
+                  <div className="flex items-start gap-3">
+                    <s.icon size={20} strokeWidth={1.25} className="text-accent-ink mt-0.5 shrink-0" />
+                    <div>
+                      <h3 className="text-[0.975rem] font-bold text-ink">{s.category}</h3>
+                      <p className="font-mono text-[0.65rem] tracking-[0.12em] uppercase text-ink-3 mt-1">
+                        {s.en}
+                      </p>
+                    </div>
+                  </div>
+                  <ul className="grid gap-y-2.5">
+                    {s.items.map((item) => (
+                      <li
+                        key={item}
+                        className="grid grid-cols-[0.875rem_1fr] text-[0.875rem] leading-relaxed text-ink-2"
+                      >
+                        <span className="font-mono text-ink-3" aria-hidden>
+                          –
+                        </span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <Reveal className="mt-10">
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2 text-[0.9rem] font-medium text-accent-ink border-b border-accent-ink/40 hover:border-accent-ink pb-1 transition-colors"
+            >
+              技術スタックの詳細は面談でご確認ください
+              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+            </a>
+          </Reveal>
+        </div>
       </div>
-    </section>
+    </Section>
   );
 }

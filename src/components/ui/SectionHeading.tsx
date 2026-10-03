@@ -7,6 +7,7 @@ type SectionHeadingProps = {
   title: string;
   description?: ReactNode;
   dark?: boolean;
+  className?: string;
 };
 
 export function SectionHeading({
@@ -15,33 +16,24 @@ export function SectionHeading({
   title,
   description,
   dark = false,
+  className = "",
 }: SectionHeadingProps) {
   return (
-    <Reveal className="text-center mb-16">
-      <p
-        className={`font-mono text-xs tracking-[0.25em] uppercase mb-4 ${
-          dark ? "text-accent-soft" : "text-accent"
-        }`}
-      >
-        {index} <span className="opacity-40">/</span> {label}
+    <Reveal className={className}>
+      <p className={`label-mono ${dark ? "text-white/55" : "text-ink-3"}`}>
+        <span className={dark ? "text-accent-soft" : "text-accent-ink"}>{index}</span>
+        <span className="mx-2 opacity-50">/</span>
+        {label}
       </p>
       <h2
-        className={`text-3xl md:text-4xl font-bold ${
-          dark ? "text-white" : "text-ink"
-        }`}
+        className={`heading-ja mt-4 text-h2 ${dark ? "text-white" : "text-ink"}`}
       >
         {title}
       </h2>
-      <span
-        className={`grow-line block mx-auto mt-5 h-px w-16 ${
-          dark ? "bg-accent-soft" : "bg-accent"
-        }`}
-        aria-hidden
-      />
       {description && (
         <p
-          className={`mt-5 max-w-2xl mx-auto leading-relaxed ${
-            dark ? "text-white/60" : "text-ink-soft"
+          className={`lead-ja mt-5 text-[0.95rem] ${
+            dark ? "text-white/65" : "text-ink-2"
           }`}
         >
           {description}

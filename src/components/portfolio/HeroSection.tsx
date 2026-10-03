@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Reveal } from "@/components/ui/Reveal";
+import { ArchDiagram } from "./ArchDiagram";
 
 const stack = [
   "C#",
@@ -50,106 +50,107 @@ const stats = [
 
 export function HeroSection() {
   return (
-    <section className="relative bg-navy-deep text-white overflow-hidden">
-      <div className="absolute inset-0 bg-blueprint" aria-hidden />
-      {/* アクセント1色のみの控えめなグロー */}
+    <section className="tone-dark relative bg-navy-deep text-white overflow-hidden">
+      {/* 中央だけ浮かぶドットグリッド */}
       <div
-        className="absolute -top-48 left-1/2 -translate-x-1/2 w-[720px] h-[480px] rounded-full bg-accent/15 blur-[140px]"
+        className="absolute inset-0 opacity-60 [background-image:radial-gradient(oklch(100%_0_0/0.14)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_70%_60%_at_60%_40%,black,transparent)]"
         aria-hidden
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 pt-36 pb-16 md:pt-44 md:pb-20">
-        <Reveal>
-          <div className="flex flex-wrap items-center gap-3 mb-8">
-            <p className="font-mono text-xs md:text-sm text-accent-soft tracking-wider">
-              {"// FULLSTACK ENGINEER × AI-DRIVEN DEVELOPMENT"}
+      <div className="relative mx-auto max-w-[1200px] px-6 md:px-12 pt-32 md:pt-40">
+        <div className="grid gap-14 lg:grid-cols-12 lg:gap-10 items-center">
+          <div className="min-w-0 lg:col-span-7">
+            <div className="rise flex flex-wrap items-center gap-x-5 gap-y-3 mb-8">
+              <p className="label-mono text-accent-soft">
+                {"// FULLSTACK ENGINEER × AI-DRIVEN DEVELOPMENT"}
+              </p>
+              <span className="inline-flex items-center gap-2 text-xs text-white/80">
+                <span className="signal-dot w-1.5 h-1.5 rounded-full" />
+                副業枠：今すぐ受付中
+              </span>
+            </div>
+
+            <h1
+              className="rise heading-ja text-[clamp(2rem,1.3rem+2.6vw,3.25rem)] text-white mb-8"
+              style={{ animationDelay: "0.08s" }}
+            >
+              要件定義から本番リリースまで、ひとりで完走します。
+              <br />
+              <span className="text-accent-soft">
+                フルスタック × AI活用で、速く・確実に。
+              </span>
+            </h1>
+
+            <p
+              className="rise lead-ja text-base md:text-[1.05rem] text-white/70 mb-10"
+              style={{ animationDelay: "0.16s" }}
+            >
+              C#／ASP.NETの業務系Webシステム開発に約5年従事し、自らSaaSも0→1で開発・運営。
+              実務（C# / .NET・Vue.js・Oracle・Azure）× 個人開発（Next.js / TypeScript × AI駆動）の両輪で、
+              調査・設計から実装・テスト・リリースまで一気通貫で対応します。
             </p>
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-400/10 border border-emerald-400/25 text-emerald-300 text-xs font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              副業枠：今すぐ受付中
-            </span>
-          </div>
-        </Reveal>
 
-        <Reveal delay={100}>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8 max-w-4xl">
-            要件定義から本番リリースまで、ひとりで完走します。
-            <br />
-            <span className="text-accent-soft">
-              フルスタック × AI活用で、速く・確実に。
-            </span>
-          </h1>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <p className="text-base md:text-lg text-white/70 max-w-2xl leading-relaxed mb-10">
-            C#／ASP.NETの業務系Webシステム開発に約5年従事し、自らSaaSも0→1で開発・運営。
-            <br className="hidden md:inline" />
-            実務（C# / .NET・Vue.js・Oracle・Azure）× 個人開発（Next.js / TypeScript × AI駆動）の両輪で、
-            <br className="hidden md:inline" />
-            調査・設計から実装・テスト・リリースまで一気通貫で対応します。
-          </p>
-        </Reveal>
-
-        <Reveal delay={300}>
-          <div className="flex flex-wrap gap-4">
-            <Link
-              href="#contact"
-              className="group inline-flex items-center gap-2 px-7 py-3.5 bg-accent hover:bg-[#3d74ff] text-white font-medium rounded transition-all shadow-lg shadow-accent/25 hover:shadow-accent/40"
-            >
-              稼働相談・スカウト
-              <ArrowRight
-                size={18}
-                className="transition-transform group-hover:translate-x-1"
-              />
-            </Link>
-            <Link
-              href="#works"
-              className="inline-flex items-center gap-2 px-7 py-3.5 border border-white/20 hover:border-accent-soft/60 text-white font-medium rounded transition-colors"
-            >
-              プロダクト実績を見る
-            </Link>
-          </div>
-          <p className="mt-5 text-sm text-white/55">
-            エンド企業・開発会社・エージェント担当者からのご相談を歓迎（エンド直・元請け直を優先）。
-            副業・スポット相談は今すぐ可 · 本格参画は2026年12月〜相談可 · 月額70万円〜（応相談）
-          </p>
-        </Reveal>
-
-        {/* 実績バッジ */}
-        <Reveal delay={450}>
-          <div className="mt-14 pt-12 border-t border-white/10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-sm">
-            {stats.map(({ index, title, sub }) => (
-              <div key={index}>
-                <p className="font-mono text-[11px] text-accent-soft/70 mb-2">
-                  {index}
-                </p>
-                <p className="text-2xl font-bold text-white">{title}</p>
-                <p className="text-white/50 mt-1">{sub}</p>
+            <div className="rise" style={{ animationDelay: "0.24s" }}>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href="#contact"
+                  className="group inline-flex items-center gap-2 h-12 px-6 bg-accent hover:bg-[oklch(60%_0.24_262)] text-white text-[0.95rem] font-medium rounded-[4px] transition-colors"
+                >
+                  稼働相談・スカウト
+                  <ArrowRight
+                    size={17}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
+                <Link
+                  href="#works"
+                  className="inline-flex items-center h-12 px-6 border border-white/20 hover:border-white/50 text-white text-[0.95rem] font-medium rounded-[4px] transition-colors"
+                >
+                  プロダクト実績を見る
+                </Link>
               </div>
-            ))}
+              <p className="mt-6 text-[0.8125rem] leading-relaxed text-white/55 max-w-[46em]">
+                エンド企業・開発会社・エージェント担当者からのご相談を歓迎（エンド直・元請け直を優先）。
+                副業・スポット相談は今すぐ可 · 本格参画は2026年12月〜相談可 · 月額70万円〜（応相談）
+              </p>
+            </div>
           </div>
-        </Reveal>
+
+          <div
+            className="rise lg:col-span-5 flex justify-center lg:justify-end"
+            style={{ animationDelay: "0.1s" }}
+          >
+            <ArchDiagram />
+          </div>
+        </div>
       </div>
 
-      {/* 技術スタックのマーキー */}
-      <div className="relative border-t border-white/10 py-4 overflow-hidden marquee-mask">
-        <div className="flex w-max animate-marquee" aria-hidden>
-          {[0, 1].map((half) => (
-            <div key={half} className="flex items-center shrink-0">
-              {stack.map((tech) => (
-                <span
-                  key={`${half}-${tech}`}
-                  className="font-mono text-xs text-white/40 px-5 whitespace-nowrap"
-                >
-                  {tech}
-                  <span className="text-accent-soft/40 pl-10">/</span>
-                </span>
-              ))}
+      {/* 実績 KPI 列：全幅の罫線上に4分割 */}
+      <div className="relative mt-20 md:mt-24 border-t border-hair">
+        <div className="mx-auto max-w-[1200px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          {stats.map(({ index, title, sub }, i) => (
+            <div
+              key={index}
+              className={`rise px-6 md:px-12 lg:px-8 py-8 border-hair ${
+                i > 0 ? "border-t sm:border-t-0" : ""
+              } ${i % 2 === 1 ? "sm:border-l" : ""} ${i >= 2 ? "sm:border-t lg:border-t-0" : ""} ${
+                i > 0 ? "lg:border-l" : ""
+              }`}
+              style={{ animationDelay: `${0.35 + i * 0.07}s` }}
+            >
+              <p className="label-mono text-[0.65rem] text-white/40 mb-3">{index}</p>
+              <p className="heading-ja text-[1.45rem] text-white">{title}</p>
+              <p className="mt-2 text-[0.8125rem] leading-relaxed text-white/55">{sub}</p>
             </div>
           ))}
         </div>
-        <span className="sr-only">{stack.join(" / ")}</span>
+      </div>
+
+      {/* 技術スタック（静的な1行） */}
+      <div className="relative border-t border-hair">
+        <p className="mx-auto max-w-[1200px] px-6 md:px-12 py-5 font-mono text-[0.75rem] leading-loose text-white/45">
+          {stack.join("  ·  ")}
+        </p>
       </div>
     </section>
   );
