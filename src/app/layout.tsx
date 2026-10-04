@@ -71,7 +71,8 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: "document.documentElement.classList.add('js')",
+            __html:
+              "var d=document.documentElement;d.classList.add('js');try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.dataset.theme=t}catch(e){}",
           }}
         />
       </head>

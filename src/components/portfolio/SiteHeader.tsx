@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -68,12 +69,15 @@ export function SiteHeader() {
             </Link>
           ))}
         </nav>
-        <Link
-          href="#contact"
-          className="inline-flex items-center h-9 px-4 bg-accent hover:bg-[oklch(60%_0.24_262)] text-white text-xs font-medium rounded-[4px] transition-colors"
-        >
-          稼働相談する
-        </Link>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Link
+            href="#contact"
+            className="inline-flex items-center h-9 px-4 bg-accent hover:bg-[oklch(60%_0.24_262)] text-white text-xs font-medium rounded-[4px] transition-colors"
+          >
+            稼働相談する
+          </Link>
+        </div>
       </div>
     </header>
   );

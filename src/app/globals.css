@@ -37,9 +37,13 @@ html {
   color-scheme: light;
 }
 
-/* ダークモード：OSの外観設定に追従。業種デモ（独自配色の見本サイト）は対象外 */
+/*
+ * ダークモード
+ * - 既定は OS の外観設定に追従。html[data-theme] があれば手動指定を優先
+ * - 業種デモ（独自配色の見本サイト）は常にライト
+ */
 @media (prefers-color-scheme: dark) {
-  :root:not(:has([data-demo])) {
+  :root:not([data-theme="light"]):not(:has([data-demo])) {
     color-scheme: dark;
     --color-paper: oklch(17% 0.02 255);
     --color-surface: oklch(20% 0.022 255);
@@ -53,6 +57,52 @@ html {
     --color-navy-deep: oklch(13.5% 0.03 255);
     --color-accent-ink: oklch(76% 0.12 262);
   }
+
+  :root:not([data-theme="light"]) .light-only {
+    display: none;
+  }
+
+  :root:not([data-theme="light"]) .dark-only {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"]:not(:has([data-demo])) {
+  color-scheme: dark;
+  --color-paper: oklch(17% 0.02 255);
+  --color-surface: oklch(20% 0.022 255);
+  --color-ink: oklch(94% 0.006 250);
+  --color-ink-2: oklch(79% 0.012 250);
+  --color-ink-3: oklch(65% 0.014 250);
+  --color-line: oklch(29% 0.022 255);
+  --color-line-strong: oklch(40% 0.024 255);
+  --color-hair: oklch(85% 0.02 255 / 0.11);
+  --color-navy: oklch(22% 0.045 255);
+  --color-navy-deep: oklch(13.5% 0.03 255);
+  --color-accent-ink: oklch(76% 0.12 262);
+}
+
+:root[data-theme="dark"] .light-only {
+  display: none;
+}
+
+:root[data-theme="dark"] .dark-only {
+  display: block;
+}
+
+.dark-only {
+  display: none;
+}
+
+/* 表示切替：ボタン位置から円形に新しい配色を広げる（JS 側で clip-path をアニメーション） */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.theme-switching * {
+  view-transition-name: none !important;
 }
 
 /* 個人受託を表す斜線（地色と文字色のトークンから生成するのでダークでも反転する） */
