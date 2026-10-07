@@ -25,7 +25,7 @@ const spotServices: Service[] = [
     icon: Code2,
     title: "Webアプリ・SaaS開発",
     description: "MVPの設計から認証・決済・本番公開まで。Next.js／Supabase／Stripeでの一人称開発。",
-    evidence: "Stride・AI-SE-Hub・ReFormat",
+    evidence: "ReFormat・ZoomReel（販売中）",
   },
   {
     icon: Globe,
@@ -49,7 +49,7 @@ const spotServices: Service[] = [
     icon: Workflow,
     title: "AI活用・業務の自動化",
     description: "生成AIの機能組み込み、定型作業の自動化、ローカルLLMの活用。手作業の工程を仕組みに置き換える。",
-    evidence: "自動編集パイプライン・ReFormat",
+    evidence: "ショート動画の自動編集・ReFormat",
   },
   {
     icon: Puzzle,

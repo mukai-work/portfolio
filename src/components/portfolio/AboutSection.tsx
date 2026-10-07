@@ -29,8 +29,8 @@ const strengths = [
   },
   {
     icon: Rocket,
-    title: "SaaS自社開発実績",
-    description: "AI-SE-Hub・ReFormatを含む複数のSaaSプロダクトを設計から本番リリースまで独力で開発。認証・決済・インフラまで一人称対応。",
+    title: "自社プロダクトの開発・販売",
+    description: "Chrome拡張 ZoomReel を開発し、Chrome ウェブストアで公開・販売中。ReFormat などのWebアプリも設計から実装まで独力で開発。",
   },
 ];
 
@@ -90,13 +90,13 @@ export function AboutSection() {
             </p>
             <div className="mt-8 space-y-6 text-[0.975rem] text-ink-2 lead-ja max-w-none">
               <p>
-                フルスタックエンジニアのムカイです。<strong className="font-bold text-ink">C#／ASP.NETを中心とした業務系Webシステム開発に約5年従事</strong>し、現在は建設業向け業務システムにエンド企業直・フルリモートで参画しています。あわせて<strong className="font-bold text-ink">自らSaaSプロダクトを0→1で設計・開発・運営した事業家エンジニア</strong>でもあります。
+                フルスタックエンジニアのムカイです。<strong className="font-bold text-ink">C#／ASP.NETを中心とした業務系Webシステム開発に約5年従事</strong>し、現在は建設業向け業務システムにエンド企業直・フルリモートで参画しています。あわせて<strong className="font-bold text-ink">自らプロダクトを0→1で設計・開発し、販売・運用まで手がける事業家エンジニア</strong>でもあります。
               </p>
               <p>
                 要件定義・設計・フロントエンド・バックエンド・インフラ構築・本番リリースまで、一人称で一気通貫に対応できることが強みです。AI活用（Claude Code・Cursor）を駆使した爆速開発も得意としており、通常の3〜5倍のスピードで機能をデリバリーできます。
               </p>
               <p>
-                事業オーナーとして認証・決済・インフラまでひとりで構築した経験があるため、<strong className="font-bold text-ink">技術的判断と事業的判断の両方の視点</strong>でプロダクト開発に貢献できます。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎しています。
+                事業オーナーとして決済・配信・運用までひとりで構築した経験があるため、<strong className="font-bold text-ink">技術的判断と事業的判断の両方の視点</strong>でプロダクト開発に貢献できます。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎しています。
               </p>
             </div>
           </Reveal>

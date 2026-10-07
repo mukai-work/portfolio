@@ -41,6 +41,17 @@ export const projects: Project[] = [
     image: "/works/zoomreel.webp",
   },
   {
+    slug: "reformat",
+    title: "ReFormat",
+    kind: "Webアプリ・生成AI",
+    categories: ["ai", "web"],
+    summary:
+      "Markdown・JSON・CSV・自然文など、さまざまな形式の間の変換をAIで自動化するWebアプリ。変換ルールをプロンプトで自由に指定でき、議事録の整形や仕様書の変換といった繰り返し作業を減らす。サーバー側のストリーミング処理を独力で設計・実装した（PoC〜MVPまで約4週間）。",
+    tech: ["Next.js", "TypeScript", "OpenAI API", "Vercel", "Streaming"],
+    status: "MVP完成",
+    links: [{ label: "GitHub", href: "https://github.com/mukai-work/reformat" }],
+  },
+  {
     slug: "short-auto-edit",
     title: "ショート動画の自動編集パイプライン",
     kind: "動画編集・自動化",

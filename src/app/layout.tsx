@@ -25,7 +25,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ムカイ | フルスタックエンジニア × AI開発 — 要件定義から本番リリースまで",
   description:
-    "フルスタックエンジニア・ムカイのポートフォリオ。C#／ASP.NETの業務系Webシステム開発に約5年従事（Vue.js・Oracle・Azure）。個人開発ではNext.js / TypeScript × AI活用（Claude Code）で自社SaaSを設計から本番リリースまで独力構築。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎。",
+    "フルスタックエンジニア・ムカイのポートフォリオ。C#／ASP.NETの業務系Webシステム開発に約5年従事（Vue.js・Oracle・Azure）。個人開発ではAI活用（Claude Code）でChrome拡張の開発・販売、動画編集の自動化、Webサイト制作まで独力で手がける。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎。",
   keywords: [
     "フルスタックエンジニア",
     "フリーランスエンジニア",

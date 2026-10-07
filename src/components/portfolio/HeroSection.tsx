@@ -85,7 +85,7 @@ export function HeroSection() {
               className="rise lead-ja text-base md:text-[1.05rem] text-white/70 mb-10"
               style={{ animationDelay: "0.16s" }}
             >
-              C#／ASP.NETの業務系Webシステム開発に約5年従事し、自らSaaSも0→1で開発・運営。
+              C#／ASP.NETの業務系Webシステム開発に約5年従事し、自らプロダクトも0→1で開発・販売。
               実務（C# / .NET・Vue.js・Oracle・Azure）× 個人開発（Next.js / TypeScript × AI駆動）の両輪で、
               調査・設計から実装・テスト・リリースまで一気通貫で対応します。
             </p>
