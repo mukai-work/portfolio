@@ -19,6 +19,8 @@ export function Reveal({ children, delay = 0, className = "" }: RevealProps) {
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    // head のスクリプトが 4 秒後にこれを確認し、未設定なら初期非表示ごと解除する
+    document.documentElement.dataset.revealReady = "1";
     if (!("IntersectionObserver" in window)) {
       el.classList.add("is-visible");
       return;

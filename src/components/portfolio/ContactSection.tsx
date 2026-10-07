@@ -18,13 +18,14 @@ export function ContactSection() {
       <div className="relative grid gap-14 md:grid-cols-12 md:gap-10 items-end">
         <Reveal className="min-w-0 md:col-span-7">
           <p className="label-mono text-white/55">
-            <span className="text-accent-soft">06</span>
+            <span className="text-accent-soft">07</span>
             <span className="mx-2 opacity-50">/</span>
             Contact
           </p>
           <h2 className="heading-ja mt-6 text-display text-white">稼働相談・スカウト</h2>
           <p className="lead-ja mt-8 text-[1rem] text-white/70">
             エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎しています。
+            動画編集・台本・Web制作・ツール開発などのスポットのご依頼もお気軽にどうぞ。
             <br />
             X（Twitter）のDMからお気軽にご連絡ください。
           </p>

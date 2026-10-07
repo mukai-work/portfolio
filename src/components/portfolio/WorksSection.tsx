@@ -5,6 +5,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SpotlightGroup } from "@/components/ui/Spotlight";
 import { DemoGallery } from "./DemoGallery";
+import { ProjectIndex } from "./ProjectIndex";
 
 type SaasProduct = {
   badge: string;
@@ -131,23 +132,33 @@ function ProductCard({ product, index }: { product: SaasProduct; index: number }
 
 export function WorksSection() {
   return (
-    <Section id="works">
+    <Section id="works" tone="surface">
       <div className="grid gap-8 md:grid-cols-12 md:gap-10 items-end">
         <SectionHeading
-          index="03"
+          index="04"
           label="Works"
-          title="個人開発プロダクト"
-          className="md:col-span-5"
+          title="制作実績"
+          className="min-w-0 md:col-span-5"
         />
         <Reveal className="min-w-0 md:col-span-7">
           <p className="lead-ja text-[0.95rem] text-ink-2">
-            AI駆動開発（Claude Code）の実証として、設計・認証・決済・インフラまで
-            一気通貫で独力開発したプロダクト群です。コードはGitHubで公開しています。
+            個人開発のSaaS、販売中・運用中の制作物、受託案件、業種別のWebデモをまとめています。
+            開発だけでなく、動画・Web制作・自動化まで実物でご確認いただけます。
           </p>
         </Reveal>
       </div>
 
-      <SpotlightGroup className="mt-14 grid gap-5 md:grid-cols-3">
+      {/* SaaS・Webアプリ */}
+      <Reveal className="mt-16">
+        <p className="label-mono text-ink-3">SaaS / Web Apps</p>
+        <h3 className="heading-ja mt-4 text-[1.6rem] text-ink">個人開発プロダクト</h3>
+        <p className="mt-3 lead-ja text-[0.875rem] text-ink-2">
+          AI駆動開発（Claude Code）の実証として、設計・認証・決済・インフラまで
+          一気通貫で独力開発したプロダクト群です。コードはGitHubで公開しています。
+        </p>
+      </Reveal>
+
+      <SpotlightGroup className="mt-10 grid gap-5 md:grid-cols-3">
         {saasProducts.map((product, i) => (
           <Reveal key={product.title} delay={i * 90} className="h-full">
             <ProductCard product={product} index={i} />
@@ -171,6 +182,21 @@ export function WorksSection() {
           </a>
         </div>
       </Reveal>
+
+      {/* その他の制作物 */}
+      <div id="more-works" className="mt-28 scroll-mt-24">
+        <Reveal>
+          <p className="label-mono text-ink-3">Beyond Development</p>
+          <h3 className="heading-ja mt-4 text-[1.6rem] text-ink">その他の制作物</h3>
+          <p className="mt-3 lead-ja text-[0.875rem] text-ink-2">
+            動画編集の自動化、YouTube台本の受託、Webサイト制作、拡張機能やアプリまで。
+            受託案件は守秘のため、クライアント名を伏せて概要のみ掲載しています。
+          </p>
+        </Reveal>
+        <div className="mt-10">
+          <ProjectIndex />
+        </div>
+      </div>
 
       {/* Webサイト制作デモ */}
       <div className="mt-28 grid gap-10 md:grid-cols-12">

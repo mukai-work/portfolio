@@ -113,6 +113,13 @@ export function HeroSection() {
                 エンド企業・開発会社・エージェント担当者からのご相談を歓迎（エンド直・元請け直を優先）。
                 副業・スポット相談は今すぐ可 · 本格参画は2026年12月〜相談可 · 月額70万円〜（応相談）
               </p>
+              <Link
+                href="#services"
+                className="group mt-4 inline-flex items-center gap-2 text-[0.8125rem] text-accent-soft hover:text-white transition-colors"
+              >
+                開発以外の対応範囲（動画編集・Web制作・自動化）を見る
+                <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              </Link>
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-import { Code2, Server, Cloud, Sparkles, type LucideIcon } from "lucide-react";
+import { Code2, Server, Cloud, Sparkles, Clapperboard, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -59,16 +59,28 @@ const skills: Skill[] = [
       "プロンプトエンジニアリング",
     ],
   },
+  {
+    category: "動画・クリエイティブ",
+    en: "Video & Creative",
+    icon: Clapperboard,
+    items: [
+      "FFmpeg（カット・字幕焼き込み・音量調整）",
+      "文字起こし（Whisper系）と字幕制作",
+      "ComfyUI／画像・動画生成AI",
+      "YouTube台本・構成（継続受託）",
+      "Three.js／GLSL（3D・シェーダー）",
+    ],
+  },
 ];
 
 export function SkillsSection() {
   return (
-    <Section id="skills" tone="surface">
+    <Section id="skills">
       <div className="grid gap-14 md:grid-cols-12 md:gap-10">
         <div className="min-w-0 md:col-span-4">
           <div className="md:sticky md:top-28">
             <SectionHeading
-              index="04"
+              index="05"
               label="Skills"
               title="スキル・対応範囲"
               description="設計から本番稼働まで全工程対応。AI活用で通常の3〜5倍の開発速度を実現します。"

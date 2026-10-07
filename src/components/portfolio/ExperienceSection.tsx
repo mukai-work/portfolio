@@ -239,10 +239,10 @@ function Gantt() {
 
 export function ExperienceSection() {
   return (
-    <Section id="experience" tone="surface">
+    <Section id="experience">
       <div className="grid gap-8 md:grid-cols-12 md:gap-10 items-end">
         <SectionHeading
-          index="02"
+          index="03"
           label="Experience"
           title="実務経歴"
           className="md:col-span-5"

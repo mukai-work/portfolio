@@ -17,6 +17,10 @@ const faqs = [
     a: "C#／ASP.NETなど業務系Webシステムの機能開発・改修と、ゼロイチのSaaS・Webアプリ開発がともに得意です。既存コードの解析・影響範囲調査から入る改修案件、要件定義〜本番リリースまで一人称で完走するプロジェクト、AI機能の組み込みやMVP開発で特に力を発揮します。",
   },
   {
+    q: "開発以外の仕事（動画編集・台本・Web制作など）も頼めますか？",
+    a: "はい。動画編集・ショート動画制作、YouTube台本・構成、Webサイト制作、業務を自動化するツールの開発なども副業・スポットでお受けしています。内容と分量を伺ったうえでお見積りします。",
+  },
+  {
     q: "単価・料金の目安を教えてください",
     a: "本格参画（準委任・月140〜160時間）は月額70万円〜を目安にご相談しています。副業・スポット稼働は稼働日数に応じて個別にお見積りします。案件規模・技術要件によって変動しますので、まずはお気軽にご相談ください。",
   },
@@ -32,11 +36,11 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <Section id="faq">
+    <Section id="faq" tone="surface">
       <div className="grid gap-12 md:grid-cols-12 md:gap-10">
         <div className="min-w-0 md:col-span-4">
           <div className="md:sticky md:top-28">
-            <SectionHeading index="05" label="FAQ" title="よくある質問" />
+            <SectionHeading index="06" label="FAQ" title="よくある質問" />
           </div>
         </div>
         <Reveal className="min-w-0 md:col-span-8">
