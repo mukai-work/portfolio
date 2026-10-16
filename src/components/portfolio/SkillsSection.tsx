@@ -28,7 +28,7 @@ const skills: Skill[] = [
     en: "Backend",
     icon: Server,
     items: [
-      "C# / ASP.NET MVC・Web API(実務約5年)",
+      "C# / ASP.NET MVC・Web API(実務5年以上)",
       "Python / FastAPI · Node.js",
       "Oracle / SQL Server / PostgreSQL",
       "REST API 設計・実装",
@@ -67,7 +67,7 @@ const skills: Skill[] = [
       "FFmpeg（カット・字幕焼き込み・音量調整）",
       "文字起こし（Whisper系）と字幕制作",
       "ComfyUI／画像・動画生成AI",
-      "YouTube台本・構成（継続受託）",
+      "YouTube台本・構成（受託実績30本以上）",
       "Three.js／GLSL（3D・シェーダー）",
     ],
   },

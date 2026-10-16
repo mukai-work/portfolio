@@ -249,7 +249,7 @@ export function ExperienceSection() {
         />
         <Reveal className="min-w-0 md:col-span-7">
           <p className="lead-ja text-[0.95rem] text-ink-2">
-            C#／ASP.NETを中心とした業務系Webシステム開発に約5年従事。
+            C#／ASP.NETを中心とした業務系Webシステム開発に5年以上従事。
             基本設計から実装・テスト・リリース・保守調査まで一貫対応してきた実務の記録です。
           </p>
         </Reveal>

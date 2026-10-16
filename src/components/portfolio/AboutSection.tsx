@@ -11,6 +11,13 @@ const socialLinks = [
   { href: "https://note.com/m333_studio", icon: PenLine, label: "Note" },
 ];
 
+const certifications = [
+  "基本情報技術者試験",
+  "ITパスポート",
+  "J検（情報検定）プログラマ認定",
+  "J検（情報検定）システムエンジニア認定",
+];
+
 const strengths = [
   {
     icon: Layers,
@@ -61,7 +68,7 @@ export function AboutSection() {
               <div>
                 <p className="text-lg font-bold text-ink">ムカイ</p>
                 <p className="font-mono text-xs text-accent-ink mt-1">
-                  Fullstack Engineer / 実務約5年
+                  Fullstack Engineer / 実務6年目
                 </p>
                 <div className="flex items-center gap-4 mt-4">
                   {socialLinks.map(({ href, icon: Icon, label }) => (
@@ -77,6 +84,19 @@ export function AboutSection() {
                     </a>
                   ))}
                 </div>
+                <div className="mt-6 pt-5 border-t border-line">
+                  <p className="label-mono text-[0.65rem] text-ink-3">Certifications</p>
+                  <ul className="mt-3 space-y-1.5">
+                    {certifications.map((c) => (
+                      <li key={c} className="grid grid-cols-[0.875rem_1fr] text-[0.8125rem] leading-relaxed text-ink-2">
+                        <span className="font-mono text-accent-ink" aria-hidden>
+                          –
+                        </span>
+                        <span>{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </Reveal>
           </div>
@@ -90,7 +110,7 @@ export function AboutSection() {
             </p>
             <div className="mt-8 space-y-6 text-[0.975rem] text-ink-2 lead-ja max-w-none">
               <p>
-                フルスタックエンジニアのムカイです。<strong className="font-bold text-ink">C#／ASP.NETを中心とした業務系Webシステム開発に約5年従事</strong>し、現在は建設業向け業務システムにエンド企業直・フルリモートで参画しています。あわせて<strong className="font-bold text-ink">自らプロダクトを0→1で設計・開発し、販売・運用まで手がける事業家エンジニア</strong>でもあります。
+                フルスタックエンジニアのムカイです。<strong className="font-bold text-ink">C#／ASP.NETを中心とした業務系Webシステム開発に5年以上従事</strong>し、現在は建設業向け業務システムにエンド企業直・フルリモートで参画しています。あわせて<strong className="font-bold text-ink">自らプロダクトを0→1で設計・開発し、販売・運用まで手がける事業家エンジニア</strong>でもあります。
               </p>
               <p>
                 要件定義・設計・フロントエンド・バックエンド・インフラ構築・本番リリースまで、一人称で一気通貫に対応できることが強みです。AI活用（Claude Code・Cursor）を駆使した爆速開発も得意としており、通常の3〜5倍のスピードで機能をデリバリーできます。

@@ -25,7 +25,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "ムカイ | フルスタックエンジニア × AI開発 — 要件定義から本番リリースまで",
   description:
-    "フルスタックエンジニア・ムカイのポートフォリオ。C#／ASP.NETの業務系Webシステム開発に約5年従事（Vue.js・Oracle・Azure）。個人開発ではAI活用（Claude Code）でChrome拡張の開発・販売、動画編集の自動化、Webサイト制作まで独力で手がける。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎。",
+    "フルスタックエンジニア・ムカイのポートフォリオ。C#／ASP.NETの業務系Webシステム開発に5年以上従事（Vue.js・Oracle・Azure）。個人開発ではAI活用（Claude Code）でChrome拡張の開発・販売、動画編集の自動化、Webサイト制作まで独力で手がける。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎。",
   keywords: [
     "フルスタックエンジニア",
     "フリーランスエンジニア",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "ムカイ | フルスタックエンジニア × AI開発",
     description:
-      "C#/.NET業務システム実務 約5年 × Next.js個人開発 × AI活用。調査・設計から実装・リリースまで一気通貫。副業は今すぐ、本格参画は2026年12月〜相談可。",
+      "C#/.NET業務システム実務 5年以上 × Next.js個人開発 × AI活用。調査・設計から実装・リリースまで一気通貫。副業は今すぐ、本格参画は2026年12月〜相談可。",
     type: "website",
     locale: "ja_JP",
     url: "https://portfolio-three-blond-25spxsuyxc.vercel.app",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "ムカイ | フルスタックエンジニア × AI開発",
     description:
-      "C#/.NET業務システム実務 約5年 × Next.js個人開発 × AI活用。Oracleチューニング約3分→約20秒、100GB超のAzure Blob移行を要件定義から完遂。エンド企業・開発会社・エージェント担当者からのご相談を歓迎。",
+      "C#/.NET業務システム実務 5年以上 × Next.js個人開発 × AI活用。Oracleチューニング約3分→約20秒、100GB超のAzure Blob移行を要件定義から完遂。エンド企業・開発会社・エージェント担当者からのご相談を歓迎。",
   },
 };
 

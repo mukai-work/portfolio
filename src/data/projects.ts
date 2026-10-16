@@ -64,12 +64,12 @@ export const projects: Project[] = [
   {
     slug: "yt-script",
     title: "YouTube動画の台本制作",
-    kind: "受託・継続案件",
+    kind: "受託案件",
     categories: ["video"],
     summary:
-      "海外の事件映像（警察のボディカメラ等）を扱うYouTubeチャンネルで、切り抜き動画の台本を継続受託。字幕入り動画から構成とナレーション台本を作り、スプレッドシートで納品している。クライアントの指摘を120項目超のチェックリストに整理し、検算は機械化して品質を安定させた。",
+      "海外の事件映像（警察のボディカメラ等）を扱うYouTubeチャンネルで、切り抜き動画の台本制作を受託。字幕入り動画から構成とナレーション台本を作り、スプレッドシートで納品している。クライアントの指摘を120項目超のチェックリストに整理し、検算は機械化して品質を安定させた。",
     tech: ["台本・構成", "字幕の書き起こし", "Python（検算）", "Google スプレッドシート"],
-    status: "継続受託（2026.8〜・30本以上）",
+    status: "受託実績（2026.8〜・30本以上）",
   },
   {
     slug: "ai-reels",
@@ -112,6 +112,16 @@ export const projects: Project[] = [
     status: "Asset Store 審査中",
   },
   {
+    slug: "meeting-recorder",
+    title: "会議の録音・議事録ツール",
+    kind: "Chrome拡張＋ローカルAI",
+    categories: ["ai", "app"],
+    summary:
+      "ブラウザで行うオンライン会議の音声とマイクを録音し、外部に送らずPC内だけで文字起こしから議事録の下書きまで作るツール。自分と相手の声を左右のチャンネルで分けて話者を区別し、聞き取りの時刻ずれは自前の無音検出で抑えた。",
+    tech: ["Chrome Extension MV3", "Python", "Whisper系 文字起こし", "ローカルLLM"],
+    status: "MVP完成（自分用・2026.10）",
+  },
+  {
     slug: "android-apps",
     title: "Androidアプリ（個人開発）",
     kind: "モバイルアプリ",
@@ -137,9 +147,9 @@ export const projects: Project[] = [
     kind: "ゲーム開発",
     categories: ["creative"],
     summary:
-      "Three.jsで3Dのインクリメンタルゲームを試作。到達時間などのバランスはボットで回帰検証し、英語化してゲーム配信サイト（CrazyGames）に提出した。",
+      "Three.jsで3Dのインクリメンタルゲームを試作。到達時間などのバランスはボットで回帰検証し、英語化とセーブ機能まで実装した。",
     tech: ["Three.js", "TypeScript", "GLSL"],
-    status: "配信サイト審査中",
+    status: "試作",
   },
   {
     slug: "line-kisekae",

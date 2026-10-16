@@ -43,7 +43,7 @@ const spotServices: Service[] = [
     icon: FileText,
     title: "YouTube台本・構成",
     description: "字幕入り素材から構成とナレーション台本を作成。フィードバックをルール化して品質を揃える。",
-    evidence: "継続受託中・30本以上",
+    evidence: "受託実績30本以上",
   },
   {
     icon: Workflow,
