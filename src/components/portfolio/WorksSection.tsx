@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { demos } from "@/data/demos";
 import { Reveal } from "@/components/ui/Reveal";
@@ -33,7 +34,7 @@ export function WorksSection() {
     <Section id="works" tone="surface">
       <div className="grid gap-8 md:grid-cols-12 md:gap-10 items-end">
         <SectionHeading
-          index="04"
+          index="01"
           label="Works"
           title="制作実績"
           className="min-w-0 md:col-span-5"
@@ -56,16 +57,16 @@ export function WorksSection() {
       <Reveal className="mt-12">
         <div className="flex flex-wrap items-center justify-between gap-4 py-5 border-y border-line">
           <p className="text-[0.875rem] text-ink-2">
-            <span className="font-bold text-ink">設計〜本番稼働まで一人称で対応します。</span>
+            <span className="font-bold text-ink">設計から公開まで、自分で手を動かして作っています。</span>
             <span className="ml-2 text-ink-3">まずはお気軽にご相談ください。</span>
           </p>
-          <a
-            href="#contact"
+          <Link
+            href="/#contact"
             className="group shrink-0 inline-flex items-center gap-2 h-10 px-5 bg-ink hover:opacity-85 text-paper text-[0.8125rem] font-medium rounded-[4px] transition-colors"
           >
-            稼働相談する
+            相談する
             <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />
-          </a>
+          </Link>
         </div>
       </Reveal>
 

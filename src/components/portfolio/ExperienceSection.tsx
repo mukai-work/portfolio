@@ -143,7 +143,7 @@ function Gantt() {
           <p className="label-mono text-ink-3">Timeline 2022 — {NOW.replace("-", ".")}</p>
           <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-ink-2">
             <li className="flex items-center gap-2">
-              <span className="w-4 h-2 rounded-[1px] bg-ink" aria-hidden />
+              <span className="w-4 h-2 rounded-[1px] bg-green" aria-hidden />
               主参画
             </li>
             <li className="flex items-center gap-2">
@@ -193,7 +193,7 @@ function Gantt() {
                         current
                           ? "bg-accent"
                           : exp.kind === "main"
-                            ? "bg-ink"
+                            ? "bg-green"
                             : "border border-ink gantt-stripe"
                       }`}
                       style={{
@@ -242,7 +242,7 @@ export function ExperienceSection() {
     <Section id="experience">
       <div className="grid gap-8 md:grid-cols-12 md:gap-10 items-end">
         <SectionHeading
-          index="03"
+          index="01"
           label="Experience"
           title="実務経歴"
           className="md:col-span-5"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Geist, Geist_Mono } from "next/font/google";
+import { Noto_Sans_JP, Noto_Serif_JP, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const notoSansJP = Noto_Sans_JP({
@@ -10,10 +10,13 @@ const notoSansJP = Noto_Sans_JP({
   preload: false,
 });
 
-const geist = Geist({
+// 見出しと名前だけに使う。資料PDFの明朝見出しと揃えるため
+const notoSerifJP = Noto_Serif_JP({
   subsets: ["latin"],
-  variable: "--font-geist",
+  weight: ["500", "600", "700"],
+  variable: "--font-noto-serif-jp",
   display: "swap",
+  preload: false,
 });
 
 const geistMono = Geist_Mono({
@@ -22,38 +25,40 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+const siteUrl = "https://mukai.works";
+const description =
+  "大阪のシステムエンジニア・ムカイ。業務の手作業を減らす仕組みづくり、新規事業のシステム設計、AI活用の相談に、設計から実装・引き継ぎまで伴走します。作らずに済むものは作らない提案をします。開発6年目・応用情報技術者。";
+
 export const metadata: Metadata = {
-  title: "ムカイ | フルスタックエンジニア × AI開発 — 要件定義から本番リリースまで",
-  description:
-    "フルスタックエンジニア・ムカイのポートフォリオ。C#／ASP.NETの業務系Webシステム開発に5年以上従事（Vue.js・Oracle・Azure）。個人開発ではAI活用（Claude Code）でChrome拡張の開発・販売、動画編集の自動化、Webサイト制作まで独力で手がける。エンド企業・開発会社のCTO・PM、エージェント担当者からのご相談を歓迎。",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "ムカイ | つくれるエンジニアが、ITの判断に伴走します",
+    template: "%s | ムカイ（mukai.works）",
+  },
+  description,
   keywords: [
-    "フルスタックエンジニア",
+    "IT導入支援",
+    "業務効率化",
+    "システム設計",
+    "要件定義",
+    "AI活用 相談",
     "フリーランスエンジニア",
+    "大阪",
     "C#",
     "ASP.NET",
-    "Vue.js",
-    "Oracle",
-    "Azure",
-    "Next.js",
-    "TypeScript",
-    "SaaS開発",
-    "AI開発",
-    "Claude Code",
-    "ポートフォリオ",
   ],
   openGraph: {
-    title: "ムカイ | フルスタックエンジニア × AI開発",
-    description:
-      "C#/.NET業務システム実務 5年以上 × Next.js個人開発 × AI活用。調査・設計から実装・リリースまで一気通貫。副業は今すぐ、本格参画は2026年12月〜相談可。",
+    title: "ムカイ | つくれるエンジニアが、ITの判断に伴走します",
+    description,
     type: "website",
     locale: "ja_JP",
-    url: "https://portfolio-three-blond-25spxsuyxc.vercel.app",
+    url: siteUrl,
+    siteName: "mukai.works",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ムカイ | フルスタックエンジニア × AI開発",
-    description:
-      "C#/.NET業務システム実務 5年以上 × Next.js個人開発 × AI活用。Oracleチューニング約3分→約20秒、100GB超のAzure Blob移行を要件定義から完遂。エンド企業・開発会社・エージェント担当者からのご相談を歓迎。",
+    title: "ムカイ | つくれるエンジニアが、ITの判断に伴走します",
+    description,
   },
 };
 
@@ -65,14 +70,14 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${notoSansJP.variable} ${geist.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${notoSansJP.variable} ${notoSerifJP.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "var d=document.documentElement;d.classList.add('js');setTimeout(function(){if(!d.dataset.revealReady)d.classList.remove('js')},4000);try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')d.dataset.theme=t}catch(e){}",
+              "var d=document.documentElement;d.classList.add('js');setTimeout(function(){if(!d.dataset.revealReady)d.classList.remove('js')},4000);",
           }}
         />
       </head>

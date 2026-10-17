@@ -53,8 +53,7 @@ const skills: Skill[] = [
     icon: Sparkles,
     items: [
       "Claude Code / Cursor / GitHub Copilot",
-      "AI活用で開発速度 3〜5倍化",
-      "要件定義 → 設計 → 実装 → 納品 一人称対応",
+      "調査・実装・テスト仕様作成にAIを組み込み、出力は自分で検証",
       "生成AI機能のプロダクト組み込み",
       "プロンプトエンジニアリング",
     ],
@@ -80,10 +79,10 @@ export function SkillsSection() {
         <div className="min-w-0 md:col-span-4">
           <div className="md:sticky md:top-28">
             <SectionHeading
-              index="05"
+              index="02"
               label="Skills"
               title="スキル・対応範囲"
-              description="設計から本番稼働まで全工程対応。AI活用で通常の3〜5倍の開発速度を実現します。"
+              description="実務で使ってきた技術と、個人開発で使っている技術です。経験年数はスキルシートでお渡しします。"
             />
           </div>
         </div>

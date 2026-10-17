@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- MUKAI の M。柱＝深緑、V＝金で、資料の縦帯と色の役割を揃える -->
+  <rect x="8" y="12" width="17" height="76" fill="#2F5D50"/>
+  <rect x="75" y="12" width="17" height="76" fill="#2F5D50"/>
+  <polyline points="25,14 50,58 75,14" fill="none" stroke="#B8864B" stroke-width="8" stroke-linejoin="miter"/>
+</svg>

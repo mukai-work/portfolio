@@ -20,13 +20,12 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <Reveal className={className}>
-      <p className={`label-mono ${dark ? "text-white/55" : "text-ink-3"}`}>
-        <span className={dark ? "text-accent-soft" : "text-accent-ink"}>{index}</span>
-        <span className="mx-2 opacity-50">/</span>
-        {label}
+      <p className={`label-gold ${dark ? "!text-accent-soft" : ""}`}>
+        <span className="mr-2 font-serif text-[0.95rem] tracking-normal">{index}</span>
+        {label.toUpperCase()}
       </p>
       <h2
-        className={`heading-ja mt-4 text-h2 ${dark ? "text-white" : "text-ink"}`}
+        className={`heading-ja mt-3 text-h2 ${dark ? "text-white" : "text-green"}`}
       >
         {title}
       </h2>
