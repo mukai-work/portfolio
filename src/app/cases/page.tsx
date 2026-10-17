@@ -20,6 +20,9 @@ export default function CasesPage() {
         <PageIntro label="CASES" title="これまでの仕事から">
           守秘のため会社名・サービス名は伏せ、業種と規模までを書いています。
           数字は、実際に確認できたものだけを載せています。
+          中小企業のIT相談で公開できる事例はまだありません。その進め方は、小さな会社の受発注を題材にした
+          <Link href="/samples" className="text-green underline decoration-gold/60 underline-offset-4">成果物サンプル</Link>
+          で、最初の相談から引き継ぎまで公開しています。
         </PageIntro>
         <div className="mx-auto max-w-[1120px] px-5 py-14 md:px-10">
           {[

@@ -25,7 +25,7 @@ export default function EngineerPage() {
       <SiteHeader />
       <main>
         <PageIntro label="FOR AGENTS & DEV TEAMS" title="エージェント・開発会社の方へ">
-          業務系Webシステムの開発経歴と、参画の条件をまとめています。スキルシート（Excel）は面談前にお送りします。
+          業務系Webシステムの開発経歴と、参画の条件をまとめています。スキルシート（Excel）は面談前にお送りします。なお、中小企業の方からお受けしているご相談は、参画中も並行して最後まで担当します。
         </PageIntro>
         <div className="mx-auto max-w-[1120px] px-5 py-12 md:px-10">
           <dl className="overflow-hidden rounded-[6px] border border-line bg-card">
