@@ -7,6 +7,7 @@ import { Block } from "@/components/site/Block";
 import { ContactOptions } from "@/components/site/ContactOptions";
 import { cases, featuredCaseSlugs } from "@/data/cases";
 import { samples } from "@/data/samples";
+import { notes } from "@/data/notes";
 
 const consults = [
   {
@@ -419,6 +420,19 @@ export default function Home() {
                 <p className="mt-3 max-w-[46em] text-[0.92rem] leading-relaxed text-ink-2">{f.a}</p>
               </details>
             ))}
+          </div>
+          <div className="mt-12">
+            <p className="label-gold">NOTES</p>
+            <p className="mt-2 font-serif text-[1.15rem] font-semibold text-green">相談の前に読んでいただけるコラム</p>
+            <ul className="mt-4 space-y-2">
+              {notes.map((n) => (
+                <li key={n.slug}>
+                  <Link href={`/notes/${n.slug}`} className="text-[0.95rem] text-green underline decoration-gold/50 underline-offset-4 hover:decoration-gold">
+                    {n.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </Block>
 

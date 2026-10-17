@@ -4,6 +4,7 @@ import { Mark } from "./Mark";
 const links = [
   { href: "/cases", label: "事例" },
   { href: "/samples", label: "成果物サンプル" },
+  { href: "/notes", label: "コラム" },
   { href: "/engineer", label: "エージェント・開発会社の方へ" },
   { href: "/works", label: "制作物・Webデモ" },
 ];
