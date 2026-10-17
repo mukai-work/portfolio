@@ -14,6 +14,18 @@ const channels = [
     cta: "プロフィールを見る",
   },
   {
+    name: "ココナラ",
+    note: "出品サービスからの購入のほか、見積り相談から依頼内容を決めることもできます。",
+    href: "https://coconala.com/users/4366947",
+    cta: "プロフィールを見る",
+  },
+  {
+    name: "ランサーズ",
+    note: "ランサーズでのご依頼もお受けしています。",
+    href: "https://www.lancers.jp/profile/mkmukai333",
+    cta: "プロフィールを見る",
+  },
+  {
     name: "X（旧Twitter）のDM",
     note: "「サイトを見た」と一言添えて、お気軽にどうぞ。",
     href: "https://x.com/m333studio",

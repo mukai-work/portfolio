@@ -130,6 +130,8 @@ const jsonLd = {
       })),
       sameAs: [
         "https://crowdworks.jp/public/employees/5455090",
+        "https://coconala.com/users/4366947",
+        "https://www.lancers.jp/profile/mkmukai333",
         "https://x.com/m333studio",
         "https://qiita.com/mukai3",
         "https://github.com/mukai-work",
