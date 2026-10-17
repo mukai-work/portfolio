@@ -107,6 +107,42 @@ const faqs = [
   },
 ];
 
+
+// 検索結果とAI検索に「誰が・どこで・何をしているか」を正しく伝えるための構造化データ
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://mukai.works/#person",
+      name: "ムカイ",
+      jobTitle: "システムエンジニア",
+      url: "https://mukai.works",
+      image: "https://mukai.works/avatar-brand.png",
+      address: { "@type": "PostalAddress", addressRegion: "大阪府", addressCountry: "JP" },
+      hasCredential: ["応用情報技術者", "情報セキュリティマネジメント", "基本情報技術者"].map((name) => ({
+        "@type": "EducationalOccupationalCredential",
+        name,
+      })),
+      sameAs: [
+        "https://crowdworks.jp/public/employees/5455090",
+        "https://x.com/m333studio",
+        "https://qiita.com/mukai3",
+        "https://github.com/mukai-work",
+      ],
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://mukai.works/#service",
+      name: "mukai.works",
+      description: "業務の手作業を減らす仕組みづくり、新規事業のシステム設計、AI活用の相談に、設計から実装・引き継ぎまで伴走します。",
+      url: "https://mukai.works",
+      areaServed: "JP",
+      founder: { "@id": "https://mukai.works/#person" },
+    },
+  ],
+};
+
 export default function Home() {
   const featured = featuredCaseSlugs
     .map((slug) => cases.find((c) => c.slug === slug))
@@ -114,6 +150,7 @@ export default function Home() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <SiteHeader />
       <main className="flex flex-col">
         {/* ===== Hero ===== */}
