@@ -48,7 +48,7 @@ export default function SamplesPage() {
                   </a>
                 </div>
                 <div className="grid grid-cols-2 gap-3">
-                  {[1, 2].map((p) => (
+                  {[1, 2].filter((p) => p <= s.pages).map((p) => (
                     <a
                       key={p}
                       href={`/samples/${s.slug}.pdf`}

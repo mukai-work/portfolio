@@ -30,8 +30,16 @@ export const samples: Sample[] = [
     why: "なぜその案を勧めるのか、金額が何から決まっているのかが分かります。",
   },
   {
+    slug: "estimate",
+    step: "03 お見積り",
+    title: "お見積書",
+    pages: 1,
+    summary: "作業ごとの時間と金額、含まれないもの、消費税や支払いの扱いを1枚にまとめたものです。",
+    why: "「一式」ではなく、何にいくらかかるのかが分かります。外せる作業があれば、金額の調整も相談できます。",
+  },
+  {
     slug: "requirements",
-    step: "03 要件定義",
+    step: "04 要件定義",
     title: "要件定義書",
     pages: 5,
     summary: "目的・対象範囲・やらないこと・機能一覧・運用の条件・リスク・納品物と検収・変更時の扱いを合意するための文書です。",
@@ -39,7 +47,7 @@ export const samples: Sample[] = [
   },
   {
     slug: "architecture",
-    step: "04 設計",
+    step: "05 設計",
     title: "構成図（経営者向け／技術者向け）",
     pages: 2,
     summary: "同じ仕組みを、経営者の方向けと技術担当の方向けの2枚で描き分けています。",
@@ -47,7 +55,7 @@ export const samples: Sample[] = [
   },
   {
     slug: "manual",
-    step: "05 引き継ぎ",
+    step: "06 引き継ぎ",
     title: "操作手順書",
     pages: 2,
     summary: "画面のどこを押すか、間違えたときどうするかまで書いた、現場向けの手順書です。",

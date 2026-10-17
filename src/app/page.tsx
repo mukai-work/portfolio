@@ -340,7 +340,7 @@ export default function Home() {
           title="お渡しする資料の見本"
           lead="架空の会社の「受発注の手作業を減らす」相談を題材に、最初の相談から引き継ぎまでの資料を一続きで作りました。PDFでそのままご覧いただけます。"
         >
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
             {samples.map((s) => (
               <a key={s.slug} href={`/samples/${s.slug}.pdf`} className="group block">
                 <div className="overflow-hidden rounded-[4px] border border-line bg-card shadow-[0_1px_0_var(--color-line)] transition-transform group-hover:-translate-y-0.5">
