@@ -42,7 +42,7 @@ export default function EngineerPage() {
           <p className="mt-4 text-[0.85rem] text-ink-3">
             ご連絡は
             <Link href="/#contact" className="text-green underline decoration-gold/60 underline-offset-4">
-              お問い合わせ
+              トップページのご相談窓口（クラウドワークス／XのDM）
             </Link>
             から。面談では、話せる範囲で案件の詳細とコードの書き方をご説明します。NDAにも対応します。
           </p>

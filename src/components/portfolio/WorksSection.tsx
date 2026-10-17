@@ -29,9 +29,11 @@ const themeStyle = {
   // ...
 };`;
 
-export function WorksSection() {
+/** bare: 下層ページで見出しをページ側が出すときは、セクション内の見出しを省く */
+export function WorksSection({ bare = false }: { bare?: boolean }) {
   return (
     <Section id="works" tone="surface">
+      {!bare && (
       <div className="grid gap-8 md:grid-cols-12 md:gap-10 items-end">
         <SectionHeading
           index="01"
@@ -47,9 +49,10 @@ export function WorksSection() {
           </p>
         </Reveal>
       </div>
+      )}
 
       {/* プロダクト・制作物 */}
-      <div id="more-works" className="mt-14 scroll-mt-24">
+      <div id="more-works" className={`${bare ? "" : "mt-14"} scroll-mt-24`}>
         <ProjectIndex />
       </div>
 
@@ -62,7 +65,7 @@ export function WorksSection() {
           </p>
           <Link
             href="/#contact"
-            className="group shrink-0 inline-flex items-center gap-2 h-10 px-5 bg-ink hover:opacity-85 text-paper text-[0.8125rem] font-medium rounded-[4px] transition-colors"
+            className="group shrink-0 inline-flex items-center gap-2 h-10 px-5 bg-green hover:bg-green-deep text-paper text-[0.8125rem] font-medium rounded-[4px] transition-colors"
           >
             相談する
             <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-0.5" />

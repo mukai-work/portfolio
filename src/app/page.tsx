@@ -152,9 +152,9 @@ export default function Home() {
             <dl className="rise grid grid-cols-2 gap-px overflow-hidden rounded-[6px] border border-line bg-line [animation-delay:120ms]">
               {[
                 ["開発の経験", "6年目"],
-                ["携わった業務システム", "建築・医療・官公庁・EC"],
-                ["IT国家試験", "3つに合格"],
-                ["クラウドワークスの評価", "4.9（34件）"],
+                ["携わった業務システム", "建築・医療・官公庁 ほか"],
+                ["IT国家試験", "応用情報技術者 ほか2つ"],
+                ["クラウドワークス 総合評価", "4.9"],
               ].map(([dt, dd]) => (
                 <div key={dt} className="bg-card p-5">
                   <dt className="text-[0.75rem] text-ink-3">{dt}</dt>
@@ -177,7 +177,7 @@ export default function Home() {
           <div className="grid gap-5 md:grid-cols-3">
             {consults.map((c) => (
               <div key={c.title} className="flex flex-col rounded-[6px] border border-line bg-card p-6">
-                <h3 className="font-serif text-[1.2rem] font-semibold text-green [word-break:auto-phrase]">{c.title}</h3>
+                <h3 className="font-serif text-[1.2rem] font-semibold text-green [word-break:auto-phrase] md:min-h-[3.4em]">{c.title}</h3>
                 <p className="mt-3 text-[0.9rem] leading-relaxed text-ink-2">「{c.voice}」</p>
                 <div className="mt-auto pt-5">
                   <p className="border-t border-line pt-4 text-[0.75rem] font-bold tracking-[0.15em] text-gold-ink">
@@ -269,15 +269,12 @@ export default function Home() {
                 ))}
               </dl>
             </div>
-            <div className="mt-8 grid gap-5 md:grid-cols-2">
+            <p className="mt-7 text-[0.88rem] text-ink-2">これまでの評価は制作系のご依頼が中心ですが、ご要望を伺って提案する姿勢は、ITのご相談でも同じです。</p>
+            <div className="mt-5 grid gap-5">
               {[
                 {
                   text: "依頼してからの対応が適切かつ迅速で安心できた。こちらの知識不足を提案力でカバーしてくれた。",
                   from: "イラスト制作のご依頼（2023年12月）",
-                },
-                {
-                  text: "この度は、変更点などの変化に対応していただき誠にありがとうございました。またどうぞよろしくお願い申し上げます。",
-                  from: "台本制作のご依頼（2024年11月）",
                 },
               ].map((r) => (
                 <figure key={r.from} className="border-l-2 border-gold pl-5">

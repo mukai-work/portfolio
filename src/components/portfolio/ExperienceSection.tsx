@@ -20,9 +20,9 @@ const experiences: Experience[] = [
   {
     period: "2025.10 — 現在",
     start: "2025-10",
-    short: "建設業向け業務システム",
+    short: "建築系 業務Webシステム",
     kind: "main",
-    title: "建設業向け業務システム（情報共有系Web）の機能開発",
+    title: "建築系の業務Webシステム（情報共有系）の機能開発",
     role: "フルスタック担当 / チーム5名",
     badges: ["エンド企業直", "フルリモート", "現案件"],
     highlights: [

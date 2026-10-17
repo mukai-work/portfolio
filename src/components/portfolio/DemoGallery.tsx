@@ -76,7 +76,7 @@ export function DemoGallery({ demos }: Props) {
               aria-pressed={active}
               className={`h-9 px-4 rounded-[4px] border text-[0.8125rem] transition-colors ${
                 active
-                  ? "bg-ink border-ink text-paper"
+                  ? "bg-green border-green text-paper"
                   : "border-line-strong text-ink-2 hover:border-ink hover:text-ink"
               }`}
             >
