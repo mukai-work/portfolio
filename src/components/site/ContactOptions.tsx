@@ -23,10 +23,23 @@ const channels = [
 
 export function ContactOptions() {
   const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
+  // 転送設定が届くことを確認してから環境変数に入れる。未設定のうちは表示しない
+  const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
+  const list = email
+    ? [
+        {
+          name: "メール",
+          note: "法人の方はこちらが便利です。営業日24時間以内にお返事します。",
+          href: `mailto:${email}`,
+          cta: email,
+        },
+        ...channels,
+      ]
+    : channels;
   return (
     <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
       <div className="space-y-4">
-        {channels.map((c) => (
+        {list.map((c) => (
           <a
             key={c.name}
             href={c.href}
