@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { cases } from "@/data/cases";
@@ -22,14 +22,14 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
 function Part({ no, title, items }: { no: string; title: string; items: string[] }) {
   return (
     <section className="grid gap-3 border-t border-line py-8 md:grid-cols-[200px_1fr] md:gap-10">
-      <h2 className="font-serif text-[1.1rem] font-semibold text-green">
-        <span className="mr-2 text-gold">{no}</span>
+      <h2 className="text-[1rem] font-bold text-ink">
+        <span className="mr-2 text-ink-3">{no}</span>
         {title}
       </h2>
       <ul className="space-y-2.5">
         {items.map((t) => (
           <li key={t} className="relative pl-5 text-[0.98rem] leading-relaxed">
-            <span className="absolute left-0 top-[0.7em] h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
+            <span className="absolute left-0 top-[0.75em] h-1 w-1 rounded-full bg-ink-3" aria-hidden />
             {t}
           </li>
         ))}
@@ -49,13 +49,13 @@ export default async function CasePage({ params }: { params: Params }) {
     <>
       <SiteHeader />
       <main>
-        <div className="border-b border-line bg-surface">
-          <div className="mx-auto max-w-[880px] px-5 py-12 md:px-10 md:py-16">
+        <div className="border-b border-line">
+          <div className="mx-auto max-w-[880px] px-5 py-12 md:px-8 md:py-16">
             <Link href="/cases" className="inline-flex items-center gap-1 text-[0.85rem] text-ink-3 hover:text-green">
               <ArrowLeft size={14} /> 事例一覧
             </Link>
-            <p className="label-gold mt-6">CASE STUDY</p>
-            <h1 className="heading-ja mt-3 text-h2 text-green">{c.headline}</h1>
+            <p className="label-gold mt-6">事例</p>
+            <h1 className="heading-ja mt-2 text-h2 text-ink">{c.headline}</h1>
             <dl className="mt-8 grid gap-x-8 gap-y-3 text-[0.88rem] sm:grid-cols-[auto_1fr]">
               <dt className="text-ink-3">ご依頼元</dt>
               <dd>{c.client}</dd>
@@ -68,7 +68,7 @@ export default async function CasePage({ params }: { params: Params }) {
         </div>
 
         <article className="mx-auto max-w-[880px] px-5 py-10 md:px-10">
-          <p className="rounded-[6px] bg-green-soft p-6 font-serif text-[1.05rem] leading-relaxed text-green">
+          <p className="text-[1.05rem] font-bold leading-relaxed text-ink">
             {c.takeaway}
           </p>
           <div className="mt-10">
@@ -77,8 +77,8 @@ export default async function CasePage({ params }: { params: Params }) {
             <Part no="03" title="やったこと" items={c.actions} />
             <Part no="04" title="結果" items={c.results} />
             <section className="grid gap-3 border-t border-line py-8 md:grid-cols-[200px_1fr] md:gap-10">
-              <h2 className="font-serif text-[1.1rem] font-semibold text-green">
-                <span className="mr-2 text-gold">05</span>使った技術
+              <h2 className="text-[1rem] font-bold text-ink">
+                <span className="mr-2 text-ink-3">05</span>使った技術
               </h2>
               <div className="flex flex-wrap gap-2">
                 {c.stack.map((s) => (
@@ -90,29 +90,12 @@ export default async function CasePage({ params }: { params: Params }) {
             </section>
           </div>
 
-          <section className="mt-6 rounded-[6px] border border-line bg-card p-7">
-            <h2 className="font-serif text-[1.1rem] font-semibold text-green">この経験が生きるご相談</h2>
-            <ul className="mt-3 space-y-1.5 text-[0.95rem]">
-              {c.fitsFor.map((t) => (
-                <li key={t}>・{t}</li>
-              ))}
-            </ul>
-            <Link
-              href="/#contact"
-              className="mt-6 inline-flex h-11 items-center gap-2 rounded-[4px] bg-green px-5 text-[0.9rem] font-medium text-paper hover:bg-green-deep"
-            >
-              似たことで困っている、と相談する <ArrowRight size={15} />
-            </Link>
-            <p className="mt-4 text-[0.8rem] text-ink-3">
-              お客様の環境や予算は一社ごとに違うため、同じやり方をそのまま当てはめるのではなく、改めて設計します。
-            </p>
-          </section>
 
           {c.note && <p className="mt-6 text-[0.8rem] text-ink-3">※ {c.note}</p>}
 
           <Link href={`/cases/${next.slug}`} className="group mt-12 block border-t border-line pt-6">
             <p className="text-[0.78rem] text-ink-3">次の事例</p>
-            <p className="mt-1 font-serif text-[1.05rem] text-green group-hover:underline">{next.headline}</p>
+            <p className="mt-1 text-[1rem] font-bold text-green group-hover:underline">{next.headline}</p>
           </Link>
         </article>
       </main>

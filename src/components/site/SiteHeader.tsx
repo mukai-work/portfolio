@@ -2,32 +2,32 @@ import Link from "next/link";
 import { Mark } from "./Mark";
 
 const nav = [
-  { href: "/#consult", label: "ご相談の例" },
+  { href: "/#work", label: "これまでの仕事" },
   { href: "/#process", label: "進め方" },
-  { href: "/cases", label: "事例" },
-  { href: "/samples", label: "成果物サンプル" },
+  { href: "/samples", label: "資料の見本" },
   { href: "/#pricing", label: "料金" },
+  { href: "/#profile", label: "プロフィール" },
 ];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-paper/90 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-[1120px] items-center justify-between gap-4 px-5 md:px-10">
-        <Link href="/" className="flex items-center gap-2.5" aria-label="トップページへ">
-          <Mark size={26} />
-          <span className="font-serif text-[1.05rem] font-semibold tracking-[0.2em] text-green">ムカイ</span>
-          <span className="hidden text-[0.7rem] tracking-[0.12em] text-ink-3 sm:inline">mukai.works</span>
+    <header className="sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur">
+      <div className="mx-auto flex h-14 max-w-[1080px] items-center justify-between gap-4 px-5 md:px-8">
+        <Link href="/" className="flex items-center gap-2" aria-label="トップページへ">
+          <Mark size={22} />
+          <span className="text-[0.95rem] font-bold tracking-[0.04em] text-ink">ムカイ</span>
+          <span className="hidden text-[0.75rem] text-ink-3 sm:inline">業務システムの設計と開発</span>
         </Link>
-        <nav className="hidden items-center gap-7 lg:flex" aria-label="サイト内ナビゲーション">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="サイト内ナビゲーション">
           {nav.map(({ href, label }) => (
-            <Link key={href} href={href} className="text-[0.85rem] text-ink-2 transition-colors hover:text-green">
+            <Link key={href} href={href} className="text-[0.85rem] text-ink-2 hover:text-green">
               {label}
             </Link>
           ))}
         </nav>
         <Link
           href="/#contact"
-          className="inline-flex h-10 items-center rounded-[4px] bg-green px-4 text-[0.85rem] font-medium text-paper transition-colors hover:bg-green-deep"
+          className="inline-flex h-9 items-center rounded-[4px] bg-green px-4 text-[0.85rem] font-semibold text-white hover:bg-[#24493f]"
         >
           相談する
         </Link>

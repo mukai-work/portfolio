@@ -15,7 +15,7 @@ export default function WorksPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro label="WORKS" title="制作物・Webデモ">
+        <PageIntro label="自分で作ったもの" title="制作物・Webデモ">
           お仕事とは別に、自分で企画して作ってきたものです。販売中のツールから試作まで、手を動かして確かめてきた記録として載せています。
         </PageIntro>
         <WorksSection bare />

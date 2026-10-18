@@ -30,7 +30,7 @@ export function Section({
       className={`relative border-t border-line ${toneClass[tone]} ${className}`}
     >
       <div
-        className={`relative mx-auto max-w-[1120px] px-5 md:px-10 py-[clamp(5rem,4rem+6vw,8.5rem)] ${innerClassName}`}
+        className={`relative mx-auto max-w-[1080px] px-5 md:px-8 py-12 md:py-[72px] ${innerClassName}`}
       >
         {children}
       </div>

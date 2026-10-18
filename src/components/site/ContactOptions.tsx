@@ -1,96 +1,80 @@
-import { ArrowUpRight } from "lucide-react";
 import { ContactForm } from "./ContactForm";
 
 /**
- * 連絡手段。
- * 仲介サービス経由の依頼は支払いが守られるので、法人・初めての方にはそちらを先に案内する。
- * フォームは送信先（NEXT_PUBLIC_CONTACT_ENDPOINT）が設定されている時だけ出す
+ * 連絡手段。メールを主にし、仲介サービスは補助の一覧にする。
+ * フォームは送信先（NEXT_PUBLIC_CONTACT_ENDPOINT）、メールは NEXT_PUBLIC_CONTACT_EMAIL が設定されている時だけ出す
  */
 const channels = [
   {
     name: "クラウドワークス",
-    note: "契約とお支払いをクラウドワークス上で行えます。評価4.9（34件）・本人確認済み。",
+    note: "評価4.9（34件・2026年10月時点。制作やライティングのご依頼が中心）・本人確認済み",
     href: "https://crowdworks.jp/public/employees/5455090",
-    cta: "プロフィールを見る",
   },
   {
     name: "ココナラ",
-    note: "出品サービスからの購入のほか、見積り相談から依頼内容を決めることもできます。",
+    note: "出品サービスの購入、または見積り相談から",
     href: "https://coconala.com/users/4366947",
-    cta: "プロフィールを見る",
   },
   {
     name: "ランサーズ",
-    note: "ランサーズでのご依頼もお受けしています。",
+    note: "ランサーズでのご依頼もお受けしています",
     href: "https://www.lancers.jp/profile/mkmukai333",
-    cta: "プロフィールを見る",
   },
   {
-    name: "X（旧Twitter）のDM",
-    note: "「サイトを見た」と一言添えて、お気軽にどうぞ。",
+    name: "X（旧Twitter）",
+    note: "@m333studio へのDM",
     href: "https://x.com/m333studio",
-    cta: "@m333studio",
   },
 ];
 
 export function ContactOptions() {
   const endpoint = process.env.NEXT_PUBLIC_CONTACT_ENDPOINT;
-  // 転送設定が届くことを確認してから環境変数に入れる。未設定のうちは表示しない
   const email = process.env.NEXT_PUBLIC_CONTACT_EMAIL;
-  const list = email
-    ? [
-        {
-          name: "メール",
-          note: "法人の方はこちらが便利です。営業日24時間以内にお返事します。",
-          href: `mailto:${email}`,
-          cta: email,
-        },
-        ...channels,
-      ]
-    : channels;
   return (
-    <div className="grid gap-6 lg:grid-cols-[1.1fr_1fr]">
-      <div className="space-y-4">
-        {list.map((c) => (
-          <a
-            key={c.name}
-            href={c.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-start justify-between gap-4 rounded-[6px] border border-paper/15 bg-paper/5 p-5 transition-colors hover:bg-paper/10"
-          >
-            <div>
-              <p className="font-medium text-paper">{c.name}</p>
-              <p className="mt-1 text-[0.85rem] text-paper/70">{c.note}</p>
-              <p className="mt-3 text-[0.85rem] text-accent-soft">{c.cta}</p>
-            </div>
-            <ArrowUpRight className="mt-1 shrink-0 text-paper/50 transition-colors group-hover:text-paper" size={18} />
-          </a>
-        ))}
-        <p className="text-[0.8rem] leading-relaxed text-paper/60">
-          ココナラでご相談中の方は、ココナラのトークルームでそのままご連絡ください（規約上、外部での直接のやり取りはできません）。
-        </p>
-      </div>
-      <div className="rounded-[6px] border border-paper/15 bg-paper/5 p-6">
-        {endpoint ? (
-          <ContactForm endpoint={endpoint} />
-        ) : (
-          <div className="space-y-3 text-[0.9rem] text-paper/80">
-            <p className="font-serif text-lg text-paper">ご連絡のときに書いていただけると助かること</p>
-            <ul className="list-disc space-y-1.5 pl-5 marker:text-accent-soft">
-              <li>いま困っていること（箇条書きで構いません）</li>
-              <li>使っている道具（Excel・紙・業務システムなど）</li>
-              <li>いつ頃までに、どうなっていたいか</li>
-            </ul>
-            <p className="pt-2 text-[0.85rem] text-paper/65">
-              事前に整理したい方は、
-              <a href="/samples/hearing-sheet.pdf" className="text-accent-soft underline underline-offset-4">
-                ご相談シート（PDF）
-              </a>
-              もお使いください。
+    <div className="grid gap-10 lg:grid-cols-[1fr_1fr]">
+      <div>
+        <p className="text-[0.85rem] font-bold text-ink">メールで</p>
+        {email && (
+          <>
+            <a
+              href={`mailto:${email}`}
+              className="mt-3 inline-flex h-11 items-center rounded-[4px] bg-green px-6 text-[0.95rem] font-semibold text-white hover:bg-[#24493f]"
+            >
+              メールで相談する
+            </a>
+            <p className="mt-3 text-[0.9rem] text-ink-2">
+              {email}（営業日24時間以内にお返事します）
             </p>
+          </>
+        )}
+        <p className="mt-6 text-[0.9rem] leading-relaxed text-ink-2">
+          書いていただけると助かること：いま困っていること、使っている道具（Excel・紙・業務システムなど）、いつ頃までにどうなっていたいか。箇条書きで構いません。事前に整理したい方は
+          <a href="/samples/hearing-sheet.pdf" className="text-green underline underline-offset-4">
+            ご相談シート（PDF）
+          </a>
+          もお使いください。
+        </p>
+        {endpoint && (
+          <div className="mt-8 border-t border-line pt-8">
+            <ContactForm endpoint={endpoint} />
           </div>
         )}
+      </div>
+      <div>
+        <p className="text-[0.85rem] font-bold text-ink">仲介サービス・SNSから</p>
+        <ul className="mt-3 divide-y divide-line border-y border-line">
+          {channels.map((c) => (
+            <li key={c.name} className="py-3.5">
+              <a href={c.href} target="_blank" rel="noopener noreferrer" className="text-[0.95rem] text-green underline underline-offset-4">
+                {c.name}
+              </a>
+              <p className="mt-0.5 text-[0.82rem] text-ink-3">{c.note}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-4 text-[0.8rem] leading-relaxed text-ink-3">
+          ココナラでご相談中の方は、ココナラのトークルームでそのままご連絡ください（規約上、外部での直接のやり取りはできません）。
+        </p>
       </div>
     </div>
   );

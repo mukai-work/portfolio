@@ -24,25 +24,25 @@ export default function EngineerPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro label="FOR AGENTS & DEV TEAMS" title="エージェント・開発会社の方へ">
+        <PageIntro label="エージェント・開発会社の方へ" title="経歴と参画の条件">
           業務系Webシステムの開発経歴と、参画の条件をまとめています。スキルシート（Excel）は面談前にお送りします。なお、中小企業の方からお受けしているご相談は、参画中も並行して最後まで担当します。
         </PageIntro>
-        <div className="mx-auto max-w-[1120px] px-5 py-12 md:px-10">
-          <dl className="overflow-hidden rounded-[6px] border border-line bg-card">
+        <div className="mx-auto max-w-[1080px] px-5 py-12 md:px-8">
+          <dl className="border-y border-line">
             {terms.map(([k, v], i) => (
               <div
                 key={k}
-                className={`grid gap-1 p-5 md:grid-cols-[160px_1fr] md:gap-8 ${i > 0 ? "border-t border-line" : ""}`}
+                className={`grid gap-1 px-4 py-3.5 md:grid-cols-[10em_1fr] md:gap-6 ${i > 0 ? "border-t border-line" : ""}`}
               >
-                <dt className="font-medium text-green">{k}</dt>
-                <dd className="text-[0.95rem] text-ink-2">{v}</dd>
+                <dt className="text-[0.9rem] text-ink-3">{k}</dt>
+                <dd className="text-[0.95rem] text-ink">{v}</dd>
               </div>
             ))}
           </dl>
           <p className="mt-4 text-[0.85rem] text-ink-3">
             ご連絡は
-            <Link href="/#contact" className="text-green underline decoration-gold/60 underline-offset-4">
-              トップページのご相談窓口（クラウドワークス／XのDM）
+            <Link href="/#contact" className="text-green underline underline-offset-4">
+              トップページのお問い合わせ（メール info@mukai.works ほか）
             </Link>
             から。面談では、話せる範囲で案件の詳細とコードの書き方をご説明します。NDAにも対応します。
           </p>

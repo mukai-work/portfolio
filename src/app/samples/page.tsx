@@ -18,12 +18,10 @@ export default function SamplesPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro label="SAMPLES" title="お渡しする資料の見本">
-          「依頼したら、何が返ってくるのか」を先に見ていただくためのページです。
-          架空の会社「サンプル商事」の、受発注の手作業を減らしたいというご相談を題材に、最初の相談から引き継ぎまでの資料を一続きで作りました。
-          会社名・数値はすべて架空です。
+        <PageIntro label="資料の見本" title="お渡しする資料の見本">
+          「依頼したら、何が返ってくるのか」を先に見ていただくためのページです。架空の会社「サンプル商事」の、受発注の手作業を減らしたいというご相談を題材に、最初の相談から引き継ぎまでの資料を一続きで作りました。会社名・数値はすべて架空です。
         </PageIntro>
-        <div className="mx-auto max-w-[1120px] px-5 py-14 md:px-10">
+        <div className="mx-auto max-w-[1080px] px-5 py-14 md:px-8">
           <ol className="space-y-14">
             {samples.map((s) => (
               <li
@@ -32,10 +30,10 @@ export default function SamplesPage() {
               >
                 <div>
                   <p className="label-gold">{s.step}</p>
-                  <h2 className="mt-2 font-serif text-[1.5rem] font-semibold text-green">{s.title}</h2>
+                  <h2 className="mt-1 text-[1.25rem] font-bold text-ink">{s.title}</h2>
                   <p className="mt-3 leading-relaxed text-ink-2">{s.summary}</p>
-                  <p className="mt-5 rounded-[6px] bg-green-soft p-5 text-[0.92rem] leading-relaxed text-green">
-                    <span className="mb-1 block text-[0.72rem] font-bold tracking-[0.18em] text-gold-ink">
+                  <p className="mt-4 border-l-2 border-line-strong pl-4 text-[0.92rem] leading-relaxed text-ink">
+                    <span className="mb-1 block text-[0.8rem] font-bold text-ink-3">
                       見ていただきたい点
                     </span>
                     {s.why}
@@ -67,13 +65,12 @@ export default function SamplesPage() {
               </li>
             ))}
           </ol>
-          <div className="mt-16 rounded-[6px] border border-line bg-surface p-8">
-            <h2 className="font-serif text-[1.2rem] font-semibold text-green">実際のご依頼では</h2>
+          <div className="mt-16 border-t border-line pt-8">
+            <h2 className="text-[1.05rem] font-bold text-ink">実際のご依頼では</h2>
             <p className="mt-3 max-w-[44em] leading-relaxed text-ink-2">
-              ご相談の規模に合わせて、必要な資料だけを作ります。小さな改善なら、提案と手順書の2つで済むこともあります。
-              資料を作ること自体が目的にならないようにしています。
+              ご相談の規模に合わせて、必要な資料だけを作ります。小さな改善なら、提案と手順書の2つで済むこともあります。資料を作ること自体が目的にならないようにしています。
             </p>
-            <Link href="/#contact" className="mt-5 inline-flex text-green underline decoration-gold/60 underline-offset-4">
+            <Link href="/#contact" className="mt-5 inline-flex text-green underline underline-offset-4">
               相談する
             </Link>
           </div>

@@ -26,16 +26,16 @@ export function ContactForm({ endpoint }: { endpoint: string }) {
 
   if (state === "sent") {
     return (
-      <p className="text-paper">
-        送信しました。1営業日以内にお返事します。届かない場合は、お手数ですがXのDMでお知らせください。
+      <p className="text-ink">
+        送信しました。営業日24時間以内にお返事します。届かない場合は、お手数ですがメールでお知らせください。
       </p>
     );
   }
 
   const field =
-    "mt-1 w-full rounded-[4px] border border-paper/20 bg-paper/95 px-3 py-2 text-[0.95rem] text-ink outline-none focus:border-accent-soft";
+    "mt-1 w-full rounded-[4px] border border-line-strong bg-white px-3 py-2 text-[0.95rem] text-ink outline-none focus:border-green";
   return (
-    <form onSubmit={onSubmit} className="space-y-4 text-[0.85rem] text-paper/80">
+    <form onSubmit={onSubmit} className="space-y-4 text-[0.85rem] text-ink-2">
       <label className="block">
         お名前（会社名）
         <input name="name" required className={field} autoComplete="name" />
@@ -51,11 +51,11 @@ export function ContactForm({ endpoint }: { endpoint: string }) {
       <button
         type="submit"
         disabled={state === "sending"}
-        className="inline-flex h-11 items-center rounded-[4px] bg-paper px-6 font-medium text-green transition-colors hover:bg-gold-soft disabled:opacity-60"
+        className="inline-flex h-11 items-center rounded-[4px] bg-green px-6 font-semibold text-white hover:bg-[#24493f] disabled:opacity-60"
       >
         {state === "sending" ? "送信中…" : "送信する"}
       </button>
-      {state === "error" && <p className="text-accent-soft">送信できませんでした。XのDMからご連絡ください。</p>}
+      {state === "error" && <p className="text-[#b42318]">送信できませんでした。お手数ですがメールでご連絡ください。</p>}
     </form>
   );
 }

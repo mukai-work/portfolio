@@ -5,14 +5,14 @@
  * 既存コンポーネントが navy / accent の名前で参照しているため、トークン名は残して値だけ差し替える
  */
 @theme {
-  --color-paper: #fbf8f3;
-  --color-surface: #f4efe6;
+  --color-paper: #ffffff;
+  --color-surface: #f7f6f3;
   --color-card: #ffffff;
-  --color-ink: #2b2a28;
-  --color-ink-2: #55514a;
-  --color-ink-3: #6b665e;
-  --color-line: #e6dfd3;
-  --color-line-strong: #d3c9b8;
+  --color-ink: #1f2421;
+  --color-ink-2: #4f5651;
+  --color-ink-3: #6e746f;
+  --color-line: #e4e6e3;
+  --color-line-strong: #cdd1cd;
   --color-hair: rgb(107 102 94 / 0.16);
   --color-navy: #2f5d50;
   --color-navy-deep: #1f3f36;
@@ -22,14 +22,14 @@
   --color-signal: #6fb38a;
   --color-green: #2f5d50;
   --color-green-deep: #1f3f36;
-  --color-green-soft: #e7efe9;
+  --color-green-soft: #eef3f0;
   --color-gold: #b8864b;
   --color-gold-ink: #8a6230;
   --color-gold-soft: #f5ece0;
 
-  --text-display: clamp(2rem, 1.4rem + 2.8vw, 3.5rem);
-  --text-display--line-height: 1.45;
-  --text-h2: clamp(1.6rem, 1.25rem + 1.4vw, 2.25rem);
+  --text-display: clamp(1.625rem, 1.25rem + 1.3vw, 2.25rem);
+  --text-display--line-height: 1.4;
+  --text-h2: clamp(1.375rem, 1.2rem + 0.6vw, 1.75rem);
   --text-h2--line-height: 1.45;
 
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
@@ -37,7 +37,8 @@
 
 @theme inline {
   --font-sans: var(--font-noto-sans-jp), "Hiragino Sans", "Yu Gothic", sans-serif;
-  --font-serif: var(--font-noto-serif-jp), "Yu Mincho", "Hiragino Mincho ProN", serif;
+  /* Webでは明朝を使わない（先生・高級スクールのLPに見えるため）。PDF資料だけ明朝見出しを残す */
+  --font-serif: var(--font-noto-sans-jp), "Hiragino Sans", "Yu Gothic", sans-serif;
   /* 等幅の英字ラベルは開発者向けの印象が強いので、本文と同じ書体に寄せる。コードだけは等幅のまま */
   --font-mono: var(--font-noto-sans-jp), "Hiragino Sans", sans-serif;
 }
@@ -85,6 +86,8 @@ section[id] {
 }
 
 body {
+  line-break: strict;
+  word-break: auto-phrase;
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
@@ -99,22 +102,25 @@ body {
 
 /* ---- 日本語組版 ---- */
 .heading-ja {
-  font-family: var(--font-serif);
+  font-family: var(--font-sans);
   font-feature-settings: "palt" 1;
   letter-spacing: 0.01em;
   line-height: 1.3;
   text-wrap: balance;
   word-break: auto-phrase;
   line-break: strict;
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* 金の小ラベル。生成り地では本文サイズだとコントラストが足りないので、小さく太く使う */
+/*
+ * 小見出しのラベル。以前は金の英字ラベルだったが、コンサルLPの型に見えるため
+ * 日本語・灰色の控えめな表記に変えた（クラス名は既存の参照を壊さないために残す）
+ */
 .label-gold {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  color: var(--color-gold-ink);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--color-ink-3);
 }
 
 .lead-ja {
@@ -147,18 +153,7 @@ body {
 }
 
 /* ---- スクロールリビール（JS有効時のみ初期非表示＝No-JSでも全文読める） ---- */
-.js .reveal {
-  opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.7s var(--ease-out-quint),
-    transform 0.7s var(--ease-out-quint);
-}
-
-.js .reveal.is-visible {
-  opacity: 1;
-  transform: none;
-}
+/* 出現アニメーションは使わない（中身が見えなくなる環境があるため） */
 
 /* ---- ヒーローの初回表示（JS不要のCSSアニメーション） ---- */
 @keyframes rise {
@@ -215,19 +210,6 @@ body {
   }
 }
 
-@supports (animation-timeline: view()) {
-  .tl-line {
-    animation: tl-grow linear both;
-    animation-timeline: view();
-    animation-range: cover 5% cover 70%;
-  }
-
-  .tl-dot {
-    animation: tl-dot linear both;
-    animation-timeline: view();
-    animation-range: cover 30% cover 42%;
-  }
-}
 
 /* ---- ガントチャートのバー ---- */
 .gantt-bar {
@@ -235,9 +217,6 @@ body {
   transition: transform 1s var(--ease-out-quint);
 }
 
-.js .reveal:not(.is-visible) .gantt-bar {
-  transform: scaleX(0);
-}
 
 @keyframes pulse-ring {
   from {

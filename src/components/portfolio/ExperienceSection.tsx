@@ -140,7 +140,7 @@ function Gantt() {
     <Reveal className="mt-14">
       <div className="rounded-[4px] border border-line bg-paper">
         <div className="flex flex-wrap items-center justify-between gap-3 px-5 md:px-6 py-4 border-b border-line">
-          <p className="label-mono text-ink-3">Timeline 2022 — {NOW.replace("-", ".")}</p>
+          <p className="text-[0.85rem] font-bold text-ink">参画した案件（2022年〜現在）</p>
           <ul className="flex flex-wrap items-center gap-x-5 gap-y-1 text-xs text-ink-2">
             <li className="flex items-center gap-2">
               <span className="w-4 h-2 rounded-[1px] bg-green" aria-hidden />
@@ -204,7 +204,7 @@ function Gantt() {
                     />
                     {current && (
                       <span
-                        className="signal-dot absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full"
+                        className="hidden absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full"
                         style={{ left: `${left + width}%` }}
                         aria-hidden
                       />
@@ -220,10 +220,10 @@ function Gantt() {
             <span className="hidden md:block" />
             <div className="relative h-4">
               <span
-                className="absolute top-0 -translate-x-1/2 font-mono text-[0.65rem] text-accent-ink"
+                className="absolute top-0 -translate-x-1/2 text-[0.7rem] text-ink-3"
                 style={{ left: `${nowPct}%` }}
               >
-                NOW
+                現在
               </span>
             </div>
           </div>
@@ -240,17 +240,11 @@ function Gantt() {
 export function ExperienceSection() {
   return (
     <Section id="experience">
-      <div className="grid gap-8 md:grid-cols-12 md:gap-10 items-end">
-        <SectionHeading
-          index="01"
-          label="Experience"
-          title="実務経歴"
-          className="md:col-span-5"
-        />
-        <Reveal className="min-w-0 md:col-span-7">
+      <div className="grid gap-3">
+        <SectionHeading index="01" label="Experience" title="実務経歴" />
+        <Reveal className="min-w-0">
           <p className="lead-ja text-[0.95rem] text-ink-2">
-            C#／ASP.NETを中心とした業務系Webシステム開発に5年以上従事。
-            基本設計から実装・テスト・リリース・保守調査まで一貫対応してきた実務の記録です。
+            C#／ASP.NETを中心とした業務系Webシステム開発に5年以上従事。基本設計から実装・テスト・リリース・保守調査まで一貫対応してきた実務の記録です。
           </p>
         </Reveal>
       </div>
@@ -258,7 +252,7 @@ export function ExperienceSection() {
       <Gantt />
 
       {/* 縦タイムライン */}
-      <div className="relative mt-20">
+      <div className="relative mt-12">
         <span
           className="tl-line absolute left-[5px] md:left-[220px] top-2 bottom-2 w-px bg-accent/50"
           aria-hidden

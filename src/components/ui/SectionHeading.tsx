@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 import { Reveal } from "./Reveal";
 
 type SectionHeadingProps = {
-  index: string;
-  label: string;
+  /** 以前は番号と英字ラベルを出していた。販売ページの型に見えるため表示しないが、呼び出し側の互換のため受け取る */
+  index?: string;
+  label?: string;
   title: string;
   description?: ReactNode;
   dark?: boolean;
@@ -11,8 +12,6 @@ type SectionHeadingProps = {
 };
 
 export function SectionHeading({
-  index,
-  label,
   title,
   description,
   dark = false,
@@ -20,12 +19,8 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <Reveal className={className}>
-      <p className={`label-gold ${dark ? "!text-accent-soft" : ""}`}>
-        <span className="mr-2 font-serif text-[0.95rem] tracking-normal">{index}</span>
-        {label.toUpperCase()}
-      </p>
       <h2
-        className={`heading-ja mt-3 text-h2 ${dark ? "text-white" : "text-green"}`}
+        className={`heading-ja text-h2 ${dark ? "text-white" : "text-ink"}`}
       >
         {title}
       </h2>

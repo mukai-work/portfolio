@@ -1,20 +1,11 @@
 import type { Metadata } from "next";
-import { Noto_Sans_JP, Noto_Serif_JP, Geist_Mono } from "next/font/google";
+import { Noto_Sans_JP, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
   variable: "--font-noto-sans-jp",
-  display: "swap",
-  preload: false,
-});
-
-// 見出しと名前だけに使う。資料PDFの明朝見出しと揃えるため
-const notoSerifJP = Noto_Serif_JP({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-noto-serif-jp",
   display: "swap",
   preload: false,
 });
@@ -27,12 +18,12 @@ const geistMono = Geist_Mono({
 
 const siteUrl = "https://mukai.works";
 const description =
-  "大阪のシステムエンジニア・ムカイ。業務の手作業を減らす仕組みづくり、新規事業のシステム設計、AI活用の相談に、設計から実装・引き継ぎまで伴走します。作らずに済むものは作らない提案をします。開発6年目・応用情報技術者。";
+  "大阪の個人事業主・システムエンジニア、ムカイ。C#／ASP.NETを中心に、建築・医療・官公庁・ECの業務システムを6年つくってきました。中小企業の業務システムの相談・設計・開発もお受けしています。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ムカイ | つくれるエンジニアが、ITの判断に伴走します",
+    default: "ムカイ | 業務システムの設計と開発（大阪）",
     template: "%s | ムカイ（mukai.works）",
   },
   description,
@@ -48,7 +39,7 @@ export const metadata: Metadata = {
     "ASP.NET",
   ],
   openGraph: {
-    title: "ムカイ | つくれるエンジニアが、ITの判断に伴走します",
+    title: "ムカイ | 業務システムの設計と開発（大阪）",
     description,
     type: "website",
     locale: "ja_JP",
@@ -57,7 +48,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ムカイ | つくれるエンジニアが、ITの判断に伴走します",
+    title: "ムカイ | 業務システムの設計と開発（大阪）",
     description,
   },
 };
@@ -70,7 +61,7 @@ export default function RootLayout({
   return (
     <html
       lang="ja"
-      className={`${notoSansJP.variable} ${notoSerifJP.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${notoSansJP.variable} ${geistMono.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <head>

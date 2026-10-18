@@ -17,20 +17,16 @@ export default function CasesPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro label="CASES" title="これまでの仕事から">
-          守秘のため会社名・サービス名は伏せ、業種と規模までを書いています。
-          数字は、実際に確認できたものだけを載せています。
-          中小企業のIT相談で公開できる事例はまだありません。その進め方は、小さな会社の受発注を題材にした
-          <Link href="/samples" className="text-green underline decoration-gold/60 underline-offset-4">成果物サンプル</Link>
-          で、最初の相談から引き継ぎまで公開しています。
+        <PageIntro label="事例" title="これまでの仕事">
+          守秘のため会社名・サービス名は伏せ、業種と規模までを書いています。数字は、実際に確認できたものだけを載せています。
         </PageIntro>
-        <div className="mx-auto max-w-[1120px] px-5 py-14 md:px-10">
+        <div className="mx-auto max-w-[1080px] px-5 py-14 md:px-8">
           {[
-            { title: "お客様の案件", items: cases.filter((c) => c.kind !== "自社開発") },
+            { title: "受託・参画した案件", items: cases.filter((c) => c.kind !== "自社開発") },
             { title: "自分で作って運用しているもの", items: cases.filter((c) => c.kind === "自社開発") },
           ].map((group) => (
             <section key={group.title} className="mb-14 last:mb-0">
-              <h2 className="mb-4 font-serif text-[1.1rem] font-semibold text-green">
+              <h2 className="mb-4 text-[1.05rem] font-bold text-ink">
                 {group.title}
                 <span className="ml-2 text-[0.8rem] font-normal text-ink-3">{group.items.length}件</span>
               </h2>
@@ -44,18 +40,17 @@ export default function CasesPage() {
                     <div>
                       <p className="text-[0.78rem] text-ink-3">
                         <span
-                          className={`mr-2 rounded-full px-2 py-0.5 ${
-                            c.kind === "自社開発" ? "bg-gold-soft text-gold-ink" : "bg-green-soft text-green"
+                          className={`mr-2 rounded-[3px] px-2 py-0.5 text-[0.75rem] ${
+                            c.kind === "自社開発" ? "bg-surface text-ink-2" : "bg-green-soft text-green"
                           }`}
                         >
-                          {c.kind}
+                          {c.kind === "自社開発" ? "自作" : c.kind}
                         </span>
                         {c.client}
                       </p>
-                      <h3 className="mt-2 font-serif text-[1.25rem] font-semibold leading-snug text-green">
+                      <h3 className="mt-2 text-[1.1rem] font-bold leading-snug text-ink group-hover:text-green">
                         {c.headline}
                       </h3>
-                      <p className="mt-2 max-w-[44em] text-[0.9rem] leading-relaxed text-ink-2">{c.takeaway}</p>
                     </div>
                     <span className="inline-flex items-center gap-1 text-[0.85rem] text-green">
                       読む <ArrowRight size={15} className="transition-transform group-hover:translate-x-0.5" />

@@ -76,7 +76,7 @@ export function WorksSection({ bare = false }: { bare?: boolean }) {
       {/* Webサイト制作デモ */}
       <div className="mt-28 grid gap-10 md:grid-cols-12">
         <Reveal className="min-w-0 md:col-span-5">
-          <p className="label-mono text-ink-3">Frontend Samples</p>
+          <p className="label-mono text-ink-3">業種別のWebサイトのデモ</p>
           <h3 className="heading-ja mt-4 text-[1.6rem] text-ink">フロントエンド実装サンプル</h3>
           <p className="mt-4 lead-ja text-[0.875rem] text-ink-2">
             20業種のデザインを、動的ルーティング1セット（ラーメン店のみ専用ページ）で実装。CSS Variables によるテーマ切替・Unsplash画像・レスポンシブ対応。

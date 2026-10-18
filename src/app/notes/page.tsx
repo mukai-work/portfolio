@@ -16,16 +16,16 @@ export default function NotesPage() {
     <>
       <SiteHeader />
       <main>
-        <PageIntro label="NOTES" title="コラム">
+        <PageIntro label="経営者の方向け" title="書いたもの">
           ITに詳しくない経営者の方向けに、システムやAIを入れる前に考えておきたいことを短くまとめています。
         </PageIntro>
-        <div className="mx-auto max-w-[1120px] px-5 py-14 md:px-10">
+        <div className="mx-auto max-w-[1080px] px-5 py-14 md:px-8">
           <ul className="divide-y divide-line border-y border-line">
             {notes.map((n) => (
               <li key={n.slug}>
                 <Link href={`/notes/${n.slug}`} className="group grid gap-2 py-8 md:grid-cols-[1fr_auto] md:items-center md:gap-10">
                   <div>
-                    <h2 className="font-serif text-[1.25rem] font-semibold leading-snug text-green">{n.title}</h2>
+                    <h2 className="text-[1.1rem] font-bold leading-snug text-ink group-hover:text-green">{n.title}</h2>
                     <p className="mt-2 text-[0.92rem] text-ink-2">{n.lead}</p>
                   </div>
                   <span className="inline-flex items-center gap-1 text-[0.85rem] text-green">
