@@ -7,6 +7,7 @@ const nav = [
   { href: "/samples", label: "資料の見本" },
   { href: "/#pricing", label: "料金" },
   { href: "/#profile", label: "プロフィール" },
+  { href: "/notes", label: "ブログ" },
 ];
 
 export function SiteHeader() {

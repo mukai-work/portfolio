@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { cases } from "@/data/cases";
-import { notes } from "@/data/notes";
+import { publishedNotes } from "@/data/notes";
 
 const base = "https://mukai.works";
 
@@ -13,6 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...pages,
     ...cases.map((c) => ({ url: `${base}/cases/${c.slug}`, changeFrequency: "yearly" as const, priority: 0.6 })),
-    ...notes.map((n) => ({ url: `${base}/notes/${n.slug}`, lastModified: n.date, changeFrequency: "yearly" as const, priority: 0.6 })),
+    ...publishedNotes().map((n) => ({ url: `${base}/notes/${n.slug}`, lastModified: n.date, changeFrequency: "yearly" as const, priority: 0.6 })),
   ];
 }
