@@ -19,6 +19,8 @@ export type Project = {
   /** 公開中のものだけ。クライアント・提携先が特定される案件にはリンクを付けない */
   links?: { label: string; href: string }[];
   image?: string;
+  /** /engineer で見せる設計・テストの要点（制作物一覧では使わない） */
+  highlights?: string[];
 };
 
 export const projects: Project[] = [
@@ -39,6 +41,24 @@ export const projects: Project[] = [
       { label: "紹介ページ", href: "https://zoomreel-app.pages.dev" },
     ],
     image: "/works/zoomreel.webp",
+  },
+  {
+    slug: "genba-nippo",
+    title: "現場日報ボード（genba-nippo）",
+    kind: "業務Webアプリ・個人開発",
+    categories: ["web", "app"],
+    summary:
+      "建設現場の作業日報・工程の進捗・承認フローを扱う業務Webアプリ。ASP.NET Core（.NET 10）＋ EF Core ＋ Vue 3 ＋ TypeScript で、設計からテストまで個人で開発した。題材は一般的な建設業務で、特定の企業・案件の情報は含まない（データはすべて架空）。認証・権限は入れていないデモ版。",
+    tech: ["C# / .NET 10", "ASP.NET Core Web API", "EF Core 10", "SQLite", "Vue 3", "TypeScript", "xUnit", "Vitest", "GitHub Actions"],
+    status: "GitHubで公開（2026.10〜）",
+    links: [{ label: "GitHub", href: "https://github.com/mukai-work/genba-nippo" }],
+    image: "/works/genba-nippo.webp",
+    highlights: [
+      "承認フロー（下書き→提出→承認／差戻し）の状態遷移をドメインのクラスに閉じ込め、許されない操作は例外にした。コントローラーには状態による分岐を書かない",
+      "日報と工程に版番号を持たせ、EF Core の同時実行トークンで同時編集を検出して 409 を返す。別々の日報の同時承認で工程の進捗が古い値に戻らないことも、テストで再現して確認",
+      "「今日」を TimeProvider で注入し、テストでは日付を固定。遅れ・期限超過の判定を実行日に左右されずに検証",
+      "テストは xUnit（単体54件・結合34件）と Vitest（34件）の計122件。GitHub Actions で API と画面のビルド・Lint・テストを並列に実行",
+    ],
   },
   {
     slug: "reformat",

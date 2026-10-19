@@ -29,6 +29,7 @@ const skills: Skill[] = [
     icon: Server,
     items: [
       "C# / ASP.NET MVC・Web API(実務5年以上)",
+      "ASP.NET Core(.NET 10) / EF Core(個人開発)",
       "Python / FastAPI · Node.js",
       "Oracle / SQL Server / PostgreSQL",
       "REST API 設計・実装",

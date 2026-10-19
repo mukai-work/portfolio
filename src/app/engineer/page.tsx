@@ -5,10 +5,11 @@ import { SiteFooter } from "@/components/site/SiteFooter";
 import { PageIntro } from "@/components/site/PageIntro";
 import { ExperienceSection } from "@/components/portfolio/ExperienceSection";
 import { SkillsSection } from "@/components/portfolio/SkillsSection";
+import { PersonalDevSection } from "@/components/portfolio/PersonalDevSection";
 
 export const metadata: Metadata = {
   title: "エージェント・開発会社の方へ",
-  description: "C#／ASP.NETを中心とした業務系Webシステム開発の実務経歴と技術スタック。準委任での参画条件。",
+  description: "C#／ASP.NETを中心とした業務系Webシステム開発の実務経歴と技術スタック、コードを公開している個人開発。準委任での参画条件。",
 };
 
 const terms = [
@@ -48,6 +49,7 @@ export default function EngineerPage() {
           </p>
         </div>
         <ExperienceSection />
+        <PersonalDevSection />
         <SkillsSection />
       </main>
       <SiteFooter />
