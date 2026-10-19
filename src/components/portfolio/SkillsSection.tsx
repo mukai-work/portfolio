@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Code2, Server, Cloud, Sparkles, Clapperboard, type LucideIcon } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
@@ -121,13 +122,14 @@ export function SkillsSection() {
           </div>
 
           <Reveal className="mt-10">
-            <a
-              href="#contact"
+            {/* このセクションは /engineer にあり、連絡先はトップページにしかないため、ページをまたいで飛ばす */}
+            <Link
+              href="/#contact"
               className="group inline-flex items-center gap-2 text-[0.9rem] font-medium text-accent-ink border-b border-accent-ink/40 hover:border-accent-ink pb-1 transition-colors"
             >
               技術スタックの詳細は面談でご確認ください
               <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-            </a>
+            </Link>
           </Reveal>
         </div>
       </div>
