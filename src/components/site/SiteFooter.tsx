@@ -6,6 +6,7 @@ const links = [
   { href: "/samples", label: "資料の見本" },
   { href: "/notes", label: "ブログ" },
   { href: "/engineer", label: "エージェント・開発会社の方へ" },
+  { href: "/products", label: "製品（ハカルほか）" },
   { href: "/works", label: "自分で作ったもの・Webデモ" },
 ];
 

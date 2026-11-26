@@ -4,6 +4,7 @@ import { Mark } from "./Mark";
 const nav = [
   { href: "/#work", label: "これまでの仕事" },
   { href: "/#process", label: "進め方" },
+  { href: "/products", label: "製品" },
   { href: "/samples", label: "資料の見本" },
   { href: "/#pricing", label: "料金" },
   { href: "/#profile", label: "プロフィール" },

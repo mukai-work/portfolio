@@ -1,0 +1,74 @@
+[
+  {
+    "file": "20261126-222842-qwen-no-docs.json",
+    "runId": "20261126-222842-qwen-no-docs",
+    "label": "qwen-no-docs",
+    "model": "qwen3.6-35b-a3b (reasoning:none)",
+    "withContext": false,
+    "judgeModel": "qwen3.6-35b-a3b (reasoning:none)",
+    "startedAt": "2026-11-26T22:28:42.0497894+09:00",
+    "dataset": "sorano-faq.jsonl",
+    "summary": {
+      "total": 30,
+      "correct": 4,
+      "partial": 3,
+      "wrong": 12,
+      "hallucination": 5,
+      "abstained": 6,
+      "needsReview": 0,
+      "accuracy": 0.1333,
+      "hallucinationRate": 0.1667,
+      "totalCostUsd": 0,
+      "costPerQuestionUsd": 0,
+      "avgLatencySeconds": 3.87
+    }
+  },
+  {
+    "file": "20261126-223329-qwen-with-docs.json",
+    "runId": "20261126-223329-qwen-with-docs",
+    "label": "qwen-with-docs",
+    "model": "qwen3.6-35b-a3b (reasoning:none)",
+    "withContext": true,
+    "judgeModel": "qwen3.6-35b-a3b (reasoning:none)",
+    "startedAt": "2026-11-26T22:33:29.7255589+09:00",
+    "dataset": "sorano-faq.jsonl",
+    "summary": {
+      "total": 30,
+      "correct": 29,
+      "partial": 0,
+      "wrong": 1,
+      "hallucination": 0,
+      "abstained": 0,
+      "needsReview": 0,
+      "accuracy": 0.9667,
+      "hallucinationRate": 0,
+      "totalCostUsd": 0,
+      "costPerQuestionUsd": 0,
+      "avgLatencySeconds": 4.68
+    }
+  },
+  {
+    "file": "20261126-223817-claude-haiku-with-docs.json",
+    "runId": "20261126-223817-claude-haiku-with-docs",
+    "label": "claude-haiku-with-docs",
+    "model": "claude-haiku",
+    "withContext": true,
+    "judgeModel": "qwen3.6-35b-a3b (reasoning:none)",
+    "startedAt": "2026-11-26T22:38:17.0576161+09:00",
+    "dataset": "sorano-faq.jsonl",
+    "summary": {
+      "total": 30,
+      "correct": 30,
+      "partial": 0,
+      "wrong": 0,
+      "hallucination": 0,
+      "abstained": 0,
+      "needsReview": 0,
+      "accuracy": 1,
+      "hallucinationRate": 0,
+      "totalCostUsd": 0.936141,
+      "costPerQuestionUsd": 0.031205,
+      "avgLatencySeconds": 11.62
+    }
+  }
+]
