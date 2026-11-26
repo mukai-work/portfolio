@@ -30,12 +30,15 @@ with sync_playwright() as p:
             page.click(click)
         el = page.locator(anchor).first
         el.scroll_into_view_if_needed()
-        # 見せたい要素の少し上から、画面1枚ぶんを撮る
+        # 見せたい要素の少し上から、本文の幅（main.wrap）だけを 16:10 で切り取る。
+        # 左右の余白を入れないので、画面の中の文字が大きく見える
         box = el.bounding_box()
-        top = max(0, box["y"] + page.evaluate("window.scrollY") - 90)
+        top = max(0, box["y"] + page.evaluate("window.scrollY") - 60)
         page.evaluate(f"window.scrollTo(0, {top})")
         page.wait_for_timeout(300)
+        wrap = page.locator("main.wrap").bounding_box()
+        width = wrap["width"]
         dest = OUT / f"{name}.png"
-        page.screenshot(path=str(dest))
+        page.screenshot(path=str(dest), clip={"x": wrap["x"], "y": 0, "width": width, "height": width * 10 / 16})
         print("保存:", dest)
     browser.close()

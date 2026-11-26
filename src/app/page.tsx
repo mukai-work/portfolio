@@ -309,7 +309,7 @@ export default function Home() {
             {products.map((p) => (
               <a key={p.slug} href={p.demoUrl} className="group block rounded-[6px] border border-line bg-paper hover:border-green">
                 <div className="overflow-hidden rounded-t-[6px] border-b border-line">
-                  <Image src={p.shots[0].src} alt={p.shots[0].alt} width={1200} height={750} className="h-auto w-full" sizes="(min-width: 768px) 520px, 100vw" />
+                  <Image src={p.shots[0].src} alt={p.shots[0].alt} width={2080} height={1300} unoptimized className="h-auto w-full" />
                 </div>
                 <div className="p-5">
                   <p className="text-[0.75rem] tracking-[0.08em] text-ink-3">{p.reading}</p>
