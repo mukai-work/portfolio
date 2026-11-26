@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=block" rel="stylesheet">
+<style>
+  /* OG画像（1200×630）。サイトと同じ白地・墨色・ゴシック。深緑は文字の一部だけ、金はMマークの中だけ */
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; background: #ffffff; }
+  body { font-family: 'Noto Sans JP', sans-serif; color: #1f2421; padding: 88px 96px 0; position: relative; }
+  .brand { display: flex; align-items: center; gap: 18px; }
+  .brand svg { width: 46px; height: 46px; }
+  .brand span { font-size: 32px; font-weight: 700; letter-spacing: 0.04em; }
+  .label { margin-top: 70px; font-size: 22px; color: #6e746f; }
+  h1 { margin-top: 14px; font-size: 50px; font-weight: 700; line-height: 1.45; letter-spacing: 0.01em; }
+  .foot { position: absolute; left: 96px; right: 96px; bottom: 74px; border-top: 2px solid #e4e6e3; padding-top: 26px;
+          display: flex; justify-content: space-between; align-items: baseline; font-size: 22px; color: #4f5651; }
+  .foot b { color: #2f5d50; font-size: 26px; }
+</style>
+</head>
+<body>
+  <div class="brand">
+    <svg viewBox="0 0 100 100" aria-hidden="true">
+      <rect x="8" y="12" width="17" height="76" fill="#2F5D50"/>
+      <rect x="75" y="12" width="17" height="76" fill="#2F5D50"/>
+      <polyline points="25,14 50,58 75,14" fill="none" stroke="#B8864B" stroke-width="8" stroke-linejoin="miter"/>
+    </svg>
+    <span>ムカイクリエイトスタジオ</span>
+  </div>
+  <p class="label">大阪の個人事業主 ／ 業務システム開発6年目</p>
+  <h1>業務システムを、相談から<br>設計・開発まで、ひとりで担当します。</h1>
+  <div class="foot">
+    <span>C#／ASP.NET・業務システム・AIの精度検証</span>
+    <b>mukai.works</b>
+  </div>
+</body>
+</html>
