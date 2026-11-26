@@ -1,0 +1,82 @@
+{
+  "id": "genba-nippo",
+  "name": "現場日報ボード（ASP.NET Core・Vue）",
+  "scannedAt": "2026-11-27T00:00:07.3171694+09:00",
+  "history": {
+    "totalCommits": 3,
+    "from": "2026-10-19T11:46:10+09:00",
+    "to": "2026-10-19T13:35:55+09:00",
+    "reworkWindowDays": 7,
+    "largeCommitLines": 500,
+    "ai": {
+      "commits": 0,
+      "codeCommits": 0,
+      "testTouchRate": null,
+      "reworkRate": null,
+      "medianLinesChanged": null,
+      "largeCommits": 0,
+      "tools": {}
+    },
+    "human": {
+      "commits": 3,
+      "codeCommits": 3,
+      "testTouchRate": 0.6667,
+      "reworkRate": null,
+      "medianLinesChanged": 1533,
+      "largeCommits": 2,
+      "tools": {}
+    },
+    "aiShare": 0
+  },
+  "readiness": [
+    {
+      "id": "guide",
+      "title": "AIへの指示書",
+      "status": "Missing",
+      "detail": "CLAUDE.md・AGENTS.md・.cursorrules などが無い",
+      "advice": "ビルド・テストの実行方法と、触ってはいけない場所を書いた AGENTS.md を置く（AIが毎回同じ前提で動ける）"
+    },
+    {
+      "id": "readme",
+      "title": "READMEのセットアップ手順",
+      "status": "Ok",
+      "detail": "起動・テストの手順あり",
+      "advice": ""
+    },
+    {
+      "id": "tests",
+      "title": "テスト",
+      "status": "Ok",
+      "detail": "テストのファイル 18件",
+      "advice": ""
+    },
+    {
+      "id": "ci",
+      "title": "CI（自動テスト）",
+      "status": "Ok",
+      "detail": ".github/workflows/ci.yml",
+      "advice": ""
+    },
+    {
+      "id": "lint",
+      "title": "書式・静的解析の設定",
+      "status": "Ok",
+      "detail": ".editorconfig、Directory.Build.props、web/eslint.config.js",
+      "advice": ""
+    },
+    {
+      "id": "lock",
+      "title": "依存のバージョン固定",
+      "status": "Ok",
+      "detail": "web/package-lock.json",
+      "advice": ""
+    },
+    {
+      "id": "secrets",
+      "title": "秘密情報の混入",
+      "status": "Ok",
+      "detail": "鍵・トークンの形をした文字列は見つからない（形で探しただけ）",
+      "advice": ""
+    }
+  ]
+}

@@ -5,7 +5,7 @@ import { publishedNotes } from "@/data/notes";
 const base = "https://mukai.works";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const pages = ["", "/cases", "/samples", "/notes", "/engineer", "/works", "/products", "/hakaru"].map((p) => ({
+  const pages = ["", "/cases", "/samples", "/notes", "/engineer", "/works", "/products", "/hakaru", "/helpia"].map((p) => ({
     url: `${base}${p}`,
     changeFrequency: "monthly" as const,
     priority: p === "" ? 1 : 0.7,

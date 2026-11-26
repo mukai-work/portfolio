@@ -1,0 +1,91 @@
+{
+  "id": "mukai-works",
+  "name": "mukai.works（Next.js）",
+  "scannedAt": "2026-11-27T00:00:05.9518421+09:00",
+  "history": {
+    "totalCommits": 40,
+    "from": "2026-04-08T10:36:24+09:00",
+    "to": "2026-11-26T23:23:12+09:00",
+    "reworkWindowDays": 7,
+    "largeCommitLines": 500,
+    "ai": {
+      "commits": 36,
+      "codeCommits": 35,
+      "testTouchRate": 0,
+      "reworkRate": 0.7059,
+      "medianLinesChanged": 77,
+      "largeCommits": 8,
+      "tools": {
+        "claude": 36
+      }
+    },
+    "human": {
+      "commits": 4,
+      "codeCommits": 3,
+      "testTouchRate": 0,
+      "reworkRate": 0.5,
+      "medianLinesChanged": 156,
+      "largeCommits": 0,
+      "tools": {}
+    },
+    "aiShare": 0.9
+  },
+  "readiness": [
+    {
+      "id": "guide",
+      "title": "AIへの指示書",
+      "status": "Ok",
+      "detail": "AGENTS.md、CLAUDE.md",
+      "advice": ""
+    },
+    {
+      "id": "readme",
+      "title": "READMEのセットアップ手順",
+      "status": "Ok",
+      "detail": "起動・テストの手順あり",
+      "advice": ""
+    },
+    {
+      "id": "tests",
+      "title": "テスト",
+      "status": "Missing",
+      "detail": "テストのファイルが見当たらない",
+      "advice": "AIの変更を機械で確かめる手段が無い。まず壊れると困る処理から1本足す"
+    },
+    {
+      "id": "ci",
+      "title": "CI（自動テスト）",
+      "status": "Missing",
+      "detail": "CI の設定が無い",
+      "advice": "プッシュのたびにテストが走るようにする（AIの変更を人が全部読まなくても止められる）"
+    },
+    {
+      "id": "lint",
+      "title": "書式・静的解析の設定",
+      "status": "Ok",
+      "detail": "eslint.config.mjs",
+      "advice": ""
+    },
+    {
+      "id": "lock",
+      "title": "依存のバージョン固定",
+      "status": "Ok",
+      "detail": "package-lock.json",
+      "advice": ""
+    },
+    {
+      "id": "envexample",
+      "title": "環境変数の見本",
+      "status": "Warn",
+      "detail": "環境変数を読んでいるが見本が無い（例: src/components/site/ContactOptions.tsx）",
+      "advice": "必要な環境変数の名前だけを書いた見本を置く（AIが値を推測して書き込むのを防ぐ）"
+    },
+    {
+      "id": "secrets",
+      "title": "秘密情報の混入",
+      "status": "Ok",
+      "detail": "鍵・トークンの形をした文字列は見つからない（形で探しただけ）",
+      "advice": ""
+    }
+  ]
+}

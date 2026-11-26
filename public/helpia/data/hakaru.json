@@ -1,0 +1,89 @@
+{
+  "id": "hakaru",
+  "name": "ハカル（C#・Vue）",
+  "scannedAt": "2026-11-27T00:00:06.595012+09:00",
+  "history": {
+    "totalCommits": 5,
+    "from": "2026-11-26T22:59:04+09:00",
+    "to": "2026-11-26T23:23:13+09:00",
+    "reworkWindowDays": 7,
+    "largeCommitLines": 500,
+    "ai": {
+      "commits": 0,
+      "codeCommits": 0,
+      "testTouchRate": null,
+      "reworkRate": null,
+      "medianLinesChanged": null,
+      "largeCommits": 0,
+      "tools": {}
+    },
+    "human": {
+      "commits": 5,
+      "codeCommits": 2,
+      "testTouchRate": 0.5,
+      "reworkRate": null,
+      "medianLinesChanged": 694.5,
+      "largeCommits": 1,
+      "tools": {}
+    },
+    "aiShare": 0
+  },
+  "readiness": [
+    {
+      "id": "guide",
+      "title": "AIへの指示書",
+      "status": "Missing",
+      "detail": "CLAUDE.md・AGENTS.md・.cursorrules などが無い",
+      "advice": "ビルド・テストの実行方法と、触ってはいけない場所を書いた AGENTS.md を置く（AIが毎回同じ前提で動ける）"
+    },
+    {
+      "id": "readme",
+      "title": "READMEのセットアップ手順",
+      "status": "Ok",
+      "detail": "起動・テストの手順あり",
+      "advice": ""
+    },
+    {
+      "id": "tests",
+      "title": "テスト",
+      "status": "Ok",
+      "detail": "テストのファイル 1件",
+      "advice": ""
+    },
+    {
+      "id": "ci",
+      "title": "CI（自動テスト）",
+      "status": "Missing",
+      "detail": "CI の設定が無い",
+      "advice": "プッシュのたびにテストが走るようにする（AIの変更を人が全部読まなくても止められる）"
+    },
+    {
+      "id": "lint",
+      "title": "書式・静的解析の設定",
+      "status": "Warn",
+      "detail": "eslint・prettier・.editorconfig などが無い",
+      "advice": "書式を機械にそろえさせると、AIの差分が読みやすくなる"
+    },
+    {
+      "id": "lock",
+      "title": "依存のバージョン固定",
+      "status": "Ok",
+      "detail": "web/package-lock.json",
+      "advice": ""
+    },
+    {
+      "id": "envexample",
+      "title": "環境変数の見本",
+      "status": "Warn",
+      "detail": "環境変数を読んでいるが見本が無い（例: engine/Hakaru.Cli/Program.cs、tools/with_gpu_lock.py、web/src/App.vue）",
+      "advice": "必要な環境変数の名前だけを書いた見本を置く（AIが値を推測して書き込むのを防ぐ）"
+    },
+    {
+      "id": "secrets",
+      "title": "秘密情報の混入",
+      "status": "Ok",
+      "detail": "鍵・トークンの形をした文字列は見つからない（形で探しただけ）",
+      "advice": ""
+    }
+  ]
+}

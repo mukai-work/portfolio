@@ -8,7 +8,7 @@ import { products } from "@/data/products";
 export const metadata: Metadata = {
   title: "製品（ムカイクリエイトスタジオ）",
   description:
-    "AI機能の精度検証など、自分で設計・実装して公開している製品。動くデモとコード、実際に測った数字を載せています。",
+    "AI機能の精度検証（ハカル）やAI駆動開発の点検（ヘルピア）など、自分で設計・実装して公開している製品。動くデモとコード、実際に測った数字を載せています。",
 };
 
 export default function ProductsPage() {
