@@ -11,13 +11,13 @@
     "summary": {
       "total": 30,
       "correct": 4,
-      "partial": 3,
+      "partial": 4,
       "wrong": 12,
-      "hallucination": 5,
+      "hallucination": 4,
       "abstained": 6,
       "needsReview": 0,
       "accuracy": 0.1333,
-      "hallucinationRate": 0.1667,
+      "hallucinationRate": 0.1333,
       "totalCostUsd": 0,
       "costPerQuestionUsd": 0,
       "avgLatencySeconds": 3.87
