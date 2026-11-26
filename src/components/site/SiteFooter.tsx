@@ -17,8 +17,8 @@ export function SiteFooter() {
         <div className="flex items-center gap-2.5">
           <Mark size={24} />
           <div>
-            <p className="text-[0.95rem] font-bold text-ink">ムカイ</p>
-            <p className="text-[0.75rem] text-ink-3">システムエンジニア（個人事業主）／大阪</p>
+            <p className="text-[0.95rem] font-bold text-ink">ムカイクリエイトスタジオ</p>
+            <p className="text-[0.75rem] text-ink-3">代表 ムカイ／システムエンジニア（個人事業主）・大阪</p>
           </div>
         </div>
         <nav className="grid grid-cols-2 gap-x-8 gap-y-1.5 text-[0.85rem]" aria-label="フッターナビゲーション">

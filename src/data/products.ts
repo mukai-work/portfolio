@@ -10,6 +10,8 @@ export type Product = {
   demoUrl: string;
   codeUrl: string;
   status: string;
+  /** public/products/ のスクリーンショット（scripts/shoot_products.py で撮る） */
+  shots: { src: string; alt: string }[];
 };
 
 export const products: Product[] = [
@@ -30,6 +32,10 @@ export const products: Product[] = [
     demoUrl: "/hakaru",
     codeUrl: "https://github.com/mukai-work/hakaru",
     status: "公開中",
+    shots: [
+      { src: "/products/hakaru-overview.png", alt: "ハカルの画面: 3つの構成ごとの30問の判定内訳（積み上げ棒）と比較表" },
+      { src: "/products/hakaru-diff.png", alt: "ハカルの画面: 構成を変えたときに判定が変わった問題を1問ずつ見比べる" },
+    ],
   },
   {
     slug: "helpia",
@@ -48,5 +54,9 @@ export const products: Product[] = [
     demoUrl: "/helpia",
     codeUrl: "https://github.com/mukai-work/helpia",
     status: "公開中",
+    shots: [
+      { src: "/products/helpia-overview.png", alt: "ヘルピアの画面: AIが関わったコミットの割合と点検したリポジトリの切り替え" },
+      { src: "/products/helpia-bars.png", alt: "ヘルピアの画面: AIのコミットと人のコミットのテスト同伴率・手戻り率・変更行数を並べた棒グラフ" },
+    ],
   },
 ];

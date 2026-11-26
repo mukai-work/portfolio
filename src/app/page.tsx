@@ -6,6 +6,7 @@ import { Block } from "@/components/site/Block";
 import { ContactOptions } from "@/components/site/ContactOptions";
 import { cases } from "@/data/cases";
 import { samples } from "@/data/samples";
+import { products } from "@/data/products";
 
 /*
  * トップページ。受託開発の記録を主役にし、相談の窓口は後ろに置く。
@@ -94,7 +95,8 @@ const jsonLd = {
       "@type": "Person",
       "@id": "https://mukai.works/#person",
       name: "ムカイ",
-      jobTitle: "システムエンジニア",
+      jobTitle: "システムエンジニア（ムカイクリエイトスタジオ 代表）",
+      worksFor: { "@id": "https://mukai.works/#service" },
       url: "https://mukai.works",
       image: "https://mukai.works/avatar-brand.png",
       address: { "@type": "PostalAddress", addressRegion: "大阪府", addressCountry: "JP" },
@@ -114,8 +116,9 @@ const jsonLd = {
     {
       "@type": "ProfessionalService",
       "@id": "https://mukai.works/#service",
-      name: "mukai.works",
-      description: "業務システムの設計と開発。中小企業の業務システムの相談・設計・開発もお受けしています。",
+      name: "ムカイクリエイトスタジオ",
+      alternateName: "mukai.works",
+      description: "業務システムの設計と開発、AI機能の精度検証・AI駆動開発の点検。中小企業の業務システムの相談・設計・開発もお受けしています。",
       url: "https://mukai.works",
       areaServed: "JP",
       founder: { "@id": "https://mukai.works/#person" },
@@ -296,6 +299,33 @@ export default function Home() {
           </p>
         </Block>
 
+        {/* ===== 製品 ===== */}
+        <Block
+          id="products"
+          title="自分で作っている製品"
+          lead="受託とは別に、AIを数字で確かめるための道具を作って公開しています。どちらもデモはログインなしで見られ、コードはGitHubで読めます。"
+        >
+          <div className="grid gap-6 md:grid-cols-2">
+            {products.map((p) => (
+              <a key={p.slug} href={p.demoUrl} className="group block rounded-[6px] border border-line bg-paper hover:border-green">
+                <div className="overflow-hidden rounded-t-[6px] border-b border-line">
+                  <Image src={p.shots[0].src} alt={p.shots[0].alt} width={1200} height={750} className="h-auto w-full" sizes="(min-width: 768px) 520px, 100vw" />
+                </div>
+                <div className="p-5">
+                  <p className="text-[0.75rem] tracking-[0.08em] text-ink-3">{p.reading}</p>
+                  <p className="heading-ja mt-1 text-[1.15rem] text-ink group-hover:text-green">{p.name}</p>
+                  <p className="mt-2 text-[0.9rem] text-ink-2">{p.tagline}</p>
+                </div>
+              </a>
+            ))}
+          </div>
+          <p className="mt-5 text-[0.9rem]">
+            <Link href="/products" className={link}>
+              製品の詳しい説明を見る
+            </Link>
+          </p>
+        </Block>
+
         {/* ===== 料金 ===== */}
         <Block id="pricing" title="料金の目安" lead="作業に入る前に金額をお伝えし、合意をいただいてから始めます。作業が増えそうなときも先にご相談します。">
           <table className="w-full border-collapse text-left text-[0.92rem]">
@@ -333,7 +363,7 @@ export default function Home() {
                 <Image src="/avatar-brand.png" alt="ムカイ（似顔絵）" width={64} height={64} className="rounded-full" />
                 <div>
                   <p className="text-[1.1rem] font-bold text-ink">ムカイ</p>
-                  <p className="text-[0.82rem] text-ink-3">システムエンジニア（個人事業主）／大阪</p>
+                  <p className="text-[0.82rem] text-ink-3">ムカイクリエイトスタジオ 代表／システムエンジニア（個人事業主）・大阪</p>
                 </div>
               </div>
               <dl className="mt-6 grid grid-cols-[6em_1fr] border-t border-line text-[0.88rem]">

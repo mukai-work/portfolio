@@ -18,13 +18,13 @@ const geistMono = Geist_Mono({
 
 const siteUrl = "https://mukai.works";
 const description =
-  "大阪の個人事業主・システムエンジニア、ムカイ。C#／ASP.NETを中心に、建築・医療・官公庁・ECの業務システムを6年つくってきました。中小企業の業務システムの相談・設計・開発もお受けしています。";
+  "ムカイクリエイトスタジオ（大阪・代表 ムカイ）。個人事業主のシステムエンジニアとして、C#／ASP.NETを中心に、建築・医療・官公庁・ECの業務システムを6年つくってきました。中小企業の業務システムの相談・設計・開発もお受けしています。";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "ムカイ | 業務システムの設計と開発（大阪）",
-    template: "%s | ムカイ（mukai.works）",
+    default: "ムカイクリエイトスタジオ | 業務システムの設計と開発（大阪）",
+    template: "%s | ムカイクリエイトスタジオ",
   },
   description,
   keywords: [
@@ -39,16 +39,16 @@ export const metadata: Metadata = {
     "ASP.NET",
   ],
   openGraph: {
-    title: "ムカイ | 業務システムの設計と開発（大阪）",
+    title: "ムカイクリエイトスタジオ | 業務システムの設計と開発（大阪）",
     description,
     type: "website",
     locale: "ja_JP",
     url: siteUrl,
-    siteName: "mukai.works",
+    siteName: "ムカイクリエイトスタジオ",
   },
   twitter: {
     card: "summary_large_image",
-    title: "ムカイ | 業務システムの設計と開発（大阪）",
+    title: "ムカイクリエイトスタジオ | 業務システムの設計と開発（大阪）",
     description,
   },
 };

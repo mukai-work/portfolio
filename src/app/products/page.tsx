@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { PageIntro } from "@/components/site/PageIntro";
@@ -35,6 +36,13 @@ export default function ProductsPage() {
                     <li key={t}>{t}</li>
                   ))}
                 </ul>
+                <div className="mt-5 grid gap-3 md:grid-cols-2">
+                  {p.shots.map((s) => (
+                    <a key={s.src} href={p.demoUrl} className="block overflow-hidden rounded-[4px] border border-line hover:border-green">
+                      <Image src={s.src} alt={s.alt} width={1200} height={750} className="h-auto w-full" sizes="(min-width: 768px) 500px, 100vw" />
+                    </a>
+                  ))}
+                </div>
                 <p className="mt-4 text-[0.8rem] text-ink-3">使っている技術: {p.stack}</p>
                 <div className="mt-5 flex flex-wrap gap-3">
                   <a
