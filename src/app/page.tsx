@@ -128,6 +128,15 @@ const jsonLd = {
 
 const link = "text-green underline underline-offset-4 hover:text-[#24493f]";
 
+/** 図の矢印。md 以上は右向き、スマホでは下向きに回す */
+function FlowArrow({ className = "" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 16 16" aria-hidden="true" className={`h-4 w-4 shrink-0 text-ink-3 ${className}`}>
+      <path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const clientCases = cases.filter((c) => c.kind !== "自社開発");
 
@@ -237,18 +246,28 @@ export default function Home() {
 
         {/* ===== ご相談の例 ===== */}
         <Block id="consult" title="ご相談の例">
-          <div className="border-b border-line">
-            <div className="hidden grid-cols-2 border-y border-line bg-surface text-[0.82rem] font-bold text-ink-2 md:grid">
-              <p className="px-4 py-3">困っていること</p>
-              <p className="px-4 py-3">お手伝いできること</p>
-            </div>
-            {consults.map((c) => (
-              <div key={c.trouble} className="grid border-t border-line md:grid-cols-2">
-                <p className="px-4 py-4 text-[0.92rem] leading-relaxed">{c.trouble}</p>
-                <p className="px-4 pb-4 text-[0.92rem] leading-relaxed text-ink-2 md:py-4">{c.help}</p>
-              </div>
-            ))}
+          <div className="hidden grid-cols-[1fr_2rem_1fr] text-[0.8rem] font-bold text-ink-3 md:grid">
+            <p className="px-1 pb-2">困っていること</p>
+            <span />
+            <p className="px-1 pb-2">お手伝いできること</p>
           </div>
+          <ul className="grid gap-3">
+            {consults.map((c) => (
+              <li key={c.trouble} className="grid items-stretch gap-1 md:grid-cols-[1fr_2rem_1fr] md:gap-0">
+                <p className="rounded-[6px] border border-line bg-surface px-4 py-4 text-[0.92rem] leading-relaxed text-ink">
+                  <span className="mb-1 block text-[0.75rem] font-bold text-ink-3 md:hidden">困っていること</span>
+                  {c.trouble}
+                </p>
+                <span className="flex items-center justify-center py-1 md:py-0">
+                  <FlowArrow className="rotate-90 md:rotate-0" />
+                </span>
+                <p className="rounded-[6px] border border-green/40 bg-paper px-4 py-4 text-[0.92rem] leading-relaxed text-ink-2">
+                  <span className="mb-1 block text-[0.75rem] font-bold text-green md:hidden">お手伝いできること</span>
+                  {c.help}
+                </p>
+              </li>
+            ))}
+          </ul>
         </Block>
 
         {/* ===== 進め方 ===== */}
@@ -257,18 +276,42 @@ export default function Home() {
           title="進め方"
           lead="各段階の終わりに確認の場を設け、合意してから次に進みます。各段階でお渡しする資料の見本を公開しています。"
         >
-          <ol className="grid border-y border-line md:grid-cols-4 md:divide-x md:divide-line">
+          <ol className="flex flex-col md:flex-row md:items-stretch">
             {steps.map((s, i) => {
               const sample = samples.find((x) => x.slug === s.sample);
               return (
-                <li key={s.title} className="flex flex-col border-t border-line px-4 py-5 first:border-t-0 md:border-t-0">
-                  <p className="text-[0.82rem] text-ink-3">{`ステップ${i + 1}`}</p>
-                  <h3 className="mt-1 text-[1rem] font-bold text-ink">{s.title}</h3>
-                  <p className="mt-2 text-[0.88rem] leading-relaxed text-ink-2">{s.body}</p>
-                  {sample && (
-                    <a href={`/samples/${sample.slug}.pdf`} className={`mt-auto pt-4 text-[0.85rem] whitespace-nowrap ${link}`}>
-                      見本：{sample.title}
-                    </a>
+                <li key={s.title} className="flex flex-col md:flex-1 md:flex-row md:items-stretch">
+                  <div className="flex flex-1 flex-col rounded-[6px] border border-line bg-paper p-4">
+                    <p className="flex items-center gap-2 text-[0.78rem] text-ink-3">
+                      <span className="inline-flex h-6 w-6 items-center justify-center rounded-full bg-green text-[0.75rem] font-bold text-white" aria-hidden="true">
+                        {i + 1}
+                      </span>
+                      {`ステップ${i + 1}`}
+                    </p>
+                    <h3 className="mt-2 text-[1.02rem] font-bold text-ink">{s.title}</h3>
+                    <p className="mt-1.5 text-[0.85rem] leading-relaxed text-ink-2">{s.body}</p>
+                    {sample && (
+                      <a href={`/samples/${sample.slug}.pdf`} className="group mt-auto block pt-4">
+                        <span className="block overflow-hidden rounded-[3px] border border-line bg-surface shadow-[0_6px_16px_-10px_rgb(31_36_33/0.35)]">
+                          <Image
+                            src={`/samples/${sample.slug}-p1.webp`}
+                            alt={`${sample.title}の1ページ目`}
+                            width={640}
+                            height={905}
+                            className="h-[150px] w-full object-cover object-top"
+                          />
+                        </span>
+                        <span className="mt-2 block text-[0.8rem] text-ink-3">お渡しする資料</span>
+                        <span className="block text-[0.85rem] font-semibold text-green underline-offset-4 group-hover:underline">
+                          {sample.title}
+                        </span>
+                      </a>
+                    )}
+                  </div>
+                  {i < steps.length - 1 && (
+                    <span className="flex items-center justify-center py-1 md:w-7 md:py-0">
+                      <FlowArrow className="rotate-90 md:rotate-0" />
+                    </span>
                   )}
                 </li>
               );
@@ -366,14 +409,25 @@ export default function Home() {
                   <p className="text-[0.82rem] text-ink-3">ムカイクリエイトスタジオ 代表／システムエンジニア（個人事業主）・大阪</p>
                 </div>
               </div>
-              <dl className="mt-6 grid grid-cols-[6em_1fr] border-t border-line text-[0.88rem]">
-                {history.map(([y, t]) => (
-                  <div key={y} className="contents">
-                    <dt className="border-b border-line py-3 text-ink-3">{y}</dt>
-                    <dd className="border-b border-line py-3 leading-relaxed">{t}</dd>
-                  </div>
+              <ol className="mt-7 text-[0.88rem]" aria-label="経歴">
+                {history.map(([y, t], i) => (
+                  <li key={y} className="relative grid grid-cols-[5.25em_1.5em_1fr] items-start pb-5 last:pb-0">
+                    {/* 次の点までの縦線（最後の項目には引かない） */}
+                    {i < history.length - 1 && (
+                      <span className="absolute top-[1.1em] bottom-[-0.35em] left-[6em] w-px bg-line-strong" aria-hidden="true" />
+                    )}
+                    <span className="pt-0.5 text-right font-semibold whitespace-nowrap tabular-nums text-ink-3">{y}</span>
+                    <span className="relative z-10 flex justify-center pt-1.5" aria-hidden="true">
+                      <span
+                        className={`h-2.5 w-2.5 rounded-full border-2 ${
+                          i === history.length - 1 ? "border-green bg-green" : "border-line-strong bg-paper"
+                        }`}
+                      />
+                    </span>
+                    <span className="leading-relaxed text-ink">{t}</span>
+                  </li>
                 ))}
-              </dl>
+              </ol>
               <p className="mt-4 text-[0.88rem] text-ink-2">
                 資格：応用情報技術者／情報セキュリティマネジメント／基本情報技術者
               </p>
